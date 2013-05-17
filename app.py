@@ -119,7 +119,6 @@ def crime_list():
                         query[field] = {'$%s' % filt:value}
                 else:
                     query[field] = value
-        print query
         if not resp:
             results = list(crime_coll.find(query).limit(limit))
             resp = {
