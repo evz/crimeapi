@@ -1,19 +1,21 @@
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 import pymongo
 import json
 from urlparse import parse_qs, urlparse
 from bson import json_util
 
 from flask import Flask, request, make_response
+#from werkzeug.contrib.fixers import ProxyFix
 
 app = Flask(__name__)
 
 app.url_map.strict_slashes = False
+#app.wsgi_app = ProxyFix(app.wsgi_app)
 
 c = pymongo.MongoClient()
 db = c['chicago']
-# db.authenticate(os.environ['CHICAGO_MONGO_USER'], os.environ['CHICAGO_MONGO_PW'])
+db.authenticate(os.environ['CHICAGO_MONGO_USER'], os.environ['CHICAGO_MONGO_PW'])
 crime_coll = db['crime']
 
 OK_FIELDS = [
@@ -61,8 +63,8 @@ def crime_list():
     callback = get.get('callback', None)
     maxDistance = get.get('maxDistance', 1000)
     limit = get.get('limit', 2000)
-    if limit > 10000:
-        limit = 10000
+    if limit > 1000:
+        limit = 1000
     if not callback:
         resp_packet = {
             'status': 'Bad Request', 
@@ -119,8 +121,10 @@ def crime_list():
                         query[field] = {'$%s' % filt:value}
                 else:
                     query[field] = value
+        if not query.has_key('date'):
+            query['date'] = {'$gte': datetime.now() - timedelta(days=14)}
         if not resp:
-            results = list(crime_coll.find(query).limit(limit))
+            results = list(crime_coll.find(query).hint([('date', -1)]).limit(limit))
             resp = {
                 'status': 'ok', 
                 'results': results,
@@ -138,5 +142,5 @@ def crime_list():
         return out
 
 if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 6666))
+    port = int(os.environ.get('PORT', 7777))
     app.run(host='0.0.0.0', port=port, debug=True)
