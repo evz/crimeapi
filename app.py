@@ -6,12 +6,14 @@ from urlparse import parse_qs, urlparse
 from bson import json_util
 
 from flask import Flask, request, make_response
-#from werkzeug.contrib.fixers import ProxyFix
+from raven.contrib.flask import Sentry
 
 app = Flask(__name__)
 
 app.url_map.strict_slashes = False
-#app.wsgi_app = ProxyFix(app.wsgi_app)
+
+app.config['SENTRY_DSN'] = 'https://0b2a28d91b324689b12ca36f747af10e:40bf5ac282da4ecfbc4b123d147e0749@app.getsentry.com/8349'
+sentry = Sentry(app)
 
 c = pymongo.MongoClient()
 db = c['chicago']
@@ -137,7 +139,7 @@ def crime_list():
         if resp['code'] == 200:
             out = make_response('%s(%s)' % (callback, json_util.dumps(resp)), resp['code'])
         else:
-            print resp['message']
+            sentry.captureMessage(resp)
             out = make_response(json.dumps(resp), resp['code'])
         return out
 
