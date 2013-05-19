@@ -3,3 +3,4 @@ gunicorn
 pymongo
 raven
 blinker
+xlwt

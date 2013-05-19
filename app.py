@@ -4,6 +4,8 @@ import pymongo
 import json
 from urlparse import parse_qs, urlparse
 from bson import json_util
+import xlwt
+from cStringIO import StringIO
 
 from flask import Flask, request, make_response
 from raven.contrib.flask import Sentry
@@ -57,6 +59,52 @@ OK_FILTERS = [
     'nin',
     None,
 ]
+
+WORKSHEET_COLUMNS = [
+    'date',
+    'primary_type',
+    'description',
+    'iucr',
+    'case_number',
+    'block',
+    'ward',
+    'community_area',
+    'beat',
+    'district',
+]
+
+@app.route('/api/report/', methods=['GET'])
+def crime_report():
+    get = request.args
+    query = json_util.loads(get['query'])
+    results = list(crime_coll.find(query).hint([('date', -1)]))
+    book = xlwt.Workbook()
+    types = ', '.join(query['type']['$in'])
+    from_date = query['date']['$gte'].strftime('%m/%d/%Y')
+    to_date = query['date']['$lte'].strftime('%m/%d/%Y')
+    sheet_title = 'Between %s and %s' % (from_date, to_date)
+    sheet = book.add_sheet('Crime')
+    for i,col_name in enumerate(WORKSHEET_COLUMNS):
+        if col_name != '_id':
+            sheet.write(0, i, ' '.join(col_name.split('_')).title())
+    for i, result in enumerate(results):
+        i += 1
+        del result['_id']
+        for j, key in enumerate(WORKSHEET_COLUMNS):
+            try:
+                value = result[key]
+            except KeyError:
+                value = ''
+            if type(value) == datetime:
+                value = result[key].strftime('%Y-%m-%d')
+            sheet.write(i, j, value)
+    out = StringIO()
+    book.save(out)
+    resp = make_response(out.getvalue())
+    resp.headers['Content-Type'] = 'application/vnd.ms-excel'
+    resp.headers['Content-Disposition'] = 'attachment; filename=Crime.xls'
+    resp.set_cookie('fileDownload', value="true")
+    return resp
 
 # expects GeoJSON object as a string
 # client will need to use JSON.stringify() or similar
