@@ -19,6 +19,7 @@ c = pymongo.MongoClient()
 db = c['chicago']
 db.authenticate(os.environ['CHICAGO_MONGO_USER'], os.environ['CHICAGO_MONGO_PW'])
 crime_coll = db['crime']
+iucr_coll = db['iucr']
 
 OK_FIELDS = [
     'year', 
@@ -38,7 +39,8 @@ OK_FIELDS = [
     'location_description', 
     'updated_on', 
     'fbi_code', 
-    'block'
+    'block',
+    'type'
 ]
 
 OK_FILTERS = [
@@ -115,6 +117,8 @@ def crime_list():
                     query[field] = {'$%s' % filt: {'$geometry': json.loads(value)}}
                     if filt == 'near':
                         query[field]['$%s' % filt]['$maxDistance'] = maxDistance
+                elif field == 'type':
+                    query['type'] = {'$in': value.split(',')}
                 elif filt:
                     if query.has_key(field):
                         update = {'$%s' % filt: value}
