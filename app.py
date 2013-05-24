@@ -174,7 +174,7 @@ def crime_list():
                         update = {'$%s' % filt: value}
                         query[field].update(**update)
                     else:
-                        query[field] = {'$%s' % filt:value}
+                        query[field] = {'$%s' % filt: value}
                 else:
                     query[field] = value
         if not query.has_key('date'):
