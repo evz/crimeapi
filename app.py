@@ -114,7 +114,7 @@ def crime_list():
     get = request.args.copy()
     callback = get.get('callback', None)
     maxDistance = get.get('maxDistance', 1000)
-    limit = get.get('limit', 2000)
+    limit = get.get('limit', 1000)
     if limit > 1000:
         limit = 1000
     if not callback:
@@ -165,6 +165,8 @@ def crime_list():
                     query[field] = {'$%s' % filt: {'$geometry': json.loads(value)}}
                     if filt == 'near':
                         query[field]['$%s' % filt]['$maxDistance'] = maxDistance
+                elif field == 'fbi_code':
+                    query['fbi_code'] = {'$in': value.split(',')}
                 elif field == 'type':
                     query['type'] = {'$in': value.split(',')}
                 elif filt:
