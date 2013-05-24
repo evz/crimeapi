@@ -118,11 +118,11 @@ def crime_list():
     if limit > 1000:
         limit = 1000
     if not callback:
-        resp_packet = {
+        resp = {
             'status': 'Bad Request', 
-            'message': 'You must provide the name of a callback'
+            'message': 'You must provide the name of a callback',
+            'code': 400
         }
-        resp = make_response(json.dumps(resp_packet), 401)
     else:
         del get['callback']
         try:
