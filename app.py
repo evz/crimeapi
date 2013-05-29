@@ -6,6 +6,8 @@ from urlparse import parse_qs, urlparse
 from bson import json_util
 import xlwt
 from cStringIO import StringIO
+from itertools import groupby
+from operator import itemgetter
 
 from flask import Flask, request, make_response
 from raven.contrib.flask import Sentry
@@ -181,6 +183,10 @@ def crime_list():
             query['date'] = {'$gte': datetime.now() - timedelta(days=14)}
         if not resp:
             results = list(crime_coll.find(query).hint([('date', -1)]).limit(limit))
+            results = sorted(results, key=itemgetter('type'))
+            totals_by_type = {}
+            for k,g in groupby(results, key=itemgetter('type')):
+                totals_by_type[k] = len(list(g))
             resp = {
                 'status': 'ok', 
                 'results': results,
@@ -188,6 +194,7 @@ def crime_list():
                 'meta': {
                     'total_results': len(results),
                     'query': query,
+                    'totals_by_type': totals_by_type,
                 }
             }
         if resp['code'] == 200:
