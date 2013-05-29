@@ -16,10 +16,15 @@ app = Flask(__name__)
 
 app.url_map.strict_slashes = False
 
-app.config['SENTRY_DSN'] = 'https://0b2a28d91b324689b12ca36f747af10e:40bf5ac282da4ecfbc4b123d147e0749@app.getsentry.com/8349'
+app.config['SENTRY_DSN'] = os.environ['SENTRY_URL']
 sentry = Sentry(app)
 
-c = pymongo.MongoClient()
+env = os.environ['PROJECTENV']
+
+if env == 'local':
+    c = pymongo.MongoClient(host=os.environ['CRIME_MONGO'])
+else:
+    c = pymongo.MongoClient()
 db = c['chicago']
 db.authenticate(os.environ['CHICAGO_MONGO_USER'], os.environ['CHICAGO_MONGO_PW'])
 crime_coll = db['crime']
@@ -185,8 +190,15 @@ def crime_list():
             results = list(crime_coll.find(query).hint([('date', -1)]).limit(limit))
             results = sorted(results, key=itemgetter('type'))
             totals_by_type = {}
+            totals_by_date = {}
             for k,g in groupby(results, key=itemgetter('type')):
                 totals_by_type[k] = len(list(g))
+            results = sorted(results, key=itemgetter('date'))
+            for k,g in groupby(results, key=itemgetter('date')):
+                key = k.strftime('%Y-%m-%d')
+                count = len(list(g))
+                stored_count = totals_by_date.get(key, 0)
+                totals_by_date[key] = stored_count + count
             resp = {
                 'status': 'ok', 
                 'results': results,
@@ -195,6 +207,7 @@ def crime_list():
                     'total_results': len(results),
                     'query': query,
                     'totals_by_type': totals_by_type,
+                    'totals_by_date': totals_by_date,
                 }
             }
         if resp['code'] == 200:
