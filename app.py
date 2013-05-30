@@ -19,7 +19,7 @@ app.url_map.strict_slashes = False
 app.config['SENTRY_DSN'] = os.environ['SENTRY_URL']
 sentry = Sentry(app)
 
-env = os.environ['PROJECTENV']
+env = os.environ.get('PROJECTENV')
 
 if env == 'local':
     c = pymongo.MongoClient(host=os.environ['CRIME_MONGO'])
