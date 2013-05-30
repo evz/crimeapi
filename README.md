@@ -15,6 +15,8 @@ and a week ago for Chicago. The stuff you get back looks kinda looks [like this]
 
 So, it basically echos the query you sent back along with some other meta and then a list of results (in this case there’s only one match).
 
+An example of how you might put all this stuff together is [over here](https://github.com/evz/crimearound.us).
+
 ## How this sucker works
 
 The backend is in MongoDB and I’m a Python/Django developer so I took what I knew about those two and 
