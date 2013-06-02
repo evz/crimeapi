@@ -49,7 +49,7 @@ OK_FIELDS = [
     'updated_on', 
     'fbi_code', 
     'block',
-    'type'
+    'type',
 ]
 
 OK_FILTERS = [
@@ -119,9 +119,10 @@ def crime_list():
     get = request.args.copy()
     callback = get.get('callback', None)
     maxDistance = get.get('maxDistance', 1000)
-    limit = get.get('limit', 1000)
-    if limit > 1000:
-        limit = 1000
+    limit = int(get.get('limit', 2000))
+    resp_format = get.get('format', 'jsonp')
+    if limit > 2000:
+        limit = 2000
     if not callback:
         resp = {
             'status': 'Bad Request', 
@@ -130,6 +131,8 @@ def crime_list():
         }
     else:
         del get['callback']
+        del get['format']
+        del get['limit']
         try:
             del get['_']
             del get['maxDistance']
@@ -170,10 +173,8 @@ def crime_list():
                     query[field] = {'$%s' % filt: {'$geometry': json.loads(value)}}
                     if filt == 'near':
                         query[field]['$%s' % filt]['$maxDistance'] = maxDistance
-                elif field == 'fbi_code':
-                    query['fbi_code'] = {'$in': value.split(',')}
-                elif field == 'type':
-                    query['type'] = {'$in': value.split(',')}
+                elif field in ['fbi_code', 'iucr', 'type']:
+                    query[field] = {'$in': value.split(',')}
                 elif filt:
                     if query.has_key(field):
                         update = {'$%s' % filt: value}
@@ -184,6 +185,8 @@ def crime_list():
                     query[field] = value
         if not query.has_key('date'):
             query['date'] = {'$gte': datetime.now() - timedelta(days=14)}
+        if not query.has_key('type'):
+            query['type'] = {'$in': ['violent', 'property', 'quality']}
         if not resp:
             results = list(crime_coll.find(query).hint([('date', -1)]).limit(limit))
             results = sorted(results, key=itemgetter('type'))
@@ -209,7 +212,10 @@ def crime_list():
                 }
             }
         if resp['code'] == 200:
-            out = make_response('%s(%s)' % (callback, json_util.dumps(resp)), resp['code'])
+            if resp_format == 'jsonp':
+                out = make_response('%s(%s)' % (callback, json_util.dumps(resp)), resp['code'])
+            else:
+                out = make_response(json_util.dumps(resp), resp['code'])
         else:
             sentry.captureMessage(resp)
             out = make_response(json.dumps(resp), resp['code'])
