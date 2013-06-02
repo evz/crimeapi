@@ -131,8 +131,8 @@ def crime_list():
         }
     else:
         del get['callback']
-        del get['limit']
         try:
+            del get['limit']
             del get['format']
             del get['_']
             del get['maxDistance']
