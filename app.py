@@ -132,10 +132,19 @@ def crime_list():
     else:
         del get['callback']
         try:
-            del get['limit']
-            del get['format']
             del get['_']
+        except KeyError:
+            pass
+        try:
             del get['maxDistance']
+        except KeyError:
+            pass
+        try:
+            del get['limit']
+        except KeyError:
+            pass
+        try:
+            del get['format']
         except KeyError:
             pass
         query = {}
