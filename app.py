@@ -77,6 +77,7 @@ WORKSHEET_COLUMNS = [
     'community_area',
     'beat',
     'district',
+    'time_of_day'
 ]
 
 @app.route('/api/report/', methods=['GET'])
@@ -103,6 +104,8 @@ def crime_report():
                 value = ''
             if type(value) == datetime:
                 value = result[key].strftime('%Y-%m-%d')
+            if key == 'time_of_day':
+                value = result['date'].strftime('%H:%M')
             sheet.write(i, j, value)
     out = StringIO()
     book.save(out)
