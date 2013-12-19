@@ -69,6 +69,7 @@ WORKSHEET_COLUMNS = [
     'date',
     'primary_type',
     'description',
+    'location_description', 
     'iucr',
     'case_number',
     'block',
