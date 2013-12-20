@@ -70,6 +70,7 @@ OK_FILTERS = [
 
 WORKSHEET_COLUMNS = [
     'date',
+    'time_of_day',
     'primary_type',
     'description',
     'location_description', 
@@ -80,7 +81,6 @@ WORKSHEET_COLUMNS = [
     'community_area',
     'beat',
     'district',
-    'time_of_day'
 ]
 
 @app.route('/api/report/', methods=['GET'])
