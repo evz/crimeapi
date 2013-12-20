@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 import pymongo
 import json
 from urlparse import parse_qs, urlparse
-from bson import json_util
+from bson import json_util, code
 import xlwt
 from cStringIO import StringIO
 from itertools import groupby
@@ -16,15 +16,17 @@ app = Flask(__name__)
 
 app.url_map.strict_slashes = False
 
-app.config['SENTRY_DSN'] = os.environ['SENTRY_URL']
-sentry = Sentry(app)
-
 env = os.environ.get('PROJECTENV')
+
+DEBUG = False
 
 if env == 'local':
     c = pymongo.MongoClient(host=os.environ['CRIME_MONGO'])
+    DEBUG = True
 else:
     c = pymongo.MongoClient()
+    app.config['SENTRY_DSN'] = os.environ['SENTRY_URL']
+    sentry = Sentry(app)
 db = c['chicago']
 db.authenticate(os.environ['CHICAGO_MONGO_USER'], os.environ['CHICAGO_MONGO_PW'])
 crime_coll = db['crime']
@@ -50,6 +52,7 @@ OK_FIELDS = [
     'fbi_code', 
     'block',
     'type',
+    'time',
 ]
 
 OK_FILTERS = [
@@ -188,6 +191,14 @@ def crime_list():
                         query[field]['$%s' % filt]['$maxDistance'] = maxDistance
                 elif field in ['fbi_code', 'iucr', 'type']:
                     query[field] = {'$in': value.split(',')}
+                elif field == 'time':
+                    try:
+                        time_range = sorted(list(set([int(v) for v in value.split(',')])))
+                        times = time_range[0], time_range[-1]
+                        query['$where'] = code.Code('this.date.getHours() > %s && this.date.getHours() < %s' % times)
+                    except ValueError:
+                        # Someone unchecked all the boxes
+                        pass
                 elif filt:
                     if query.has_key(field):
                         update = {'$%s' % filt: value}
@@ -230,7 +241,8 @@ def crime_list():
             else:
                 out = make_response(json_util.dumps(resp), resp['code'])
         else:
-            sentry.captureMessage(resp)
+            if not DEBUG:
+                sentry.captureMessage(resp)
             out = make_response(json.dumps(resp), resp['code'])
         return out
 
