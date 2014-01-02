@@ -3,6 +3,7 @@ from datetime import datetime, timedelta
 import pymongo
 import json
 from urlparse import parse_qs, urlparse
+from urllib import unquote
 from bson import json_util, code
 import xlwt
 from cStringIO import StringIO
@@ -86,7 +87,7 @@ WORKSHEET_COLUMNS = [
 @app.route('/api/report/', methods=['GET'])
 def crime_report():
     query = urlparse(request.url).query.replace('query=', '')
-    query = json_util.loads(query)
+    query = json_util.loads(unquote(query))
     results = list(crime_coll.find(query).hint([('date', -1)]))
     book = xlwt.Workbook()
     types = ', '.join(query['type']['$in'])
