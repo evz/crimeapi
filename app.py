@@ -85,8 +85,8 @@ WORKSHEET_COLUMNS = [
 
 @app.route('/api/report/', methods=['GET'])
 def crime_report():
-    get = request.args
-    query = json_util.loads(get['query'])
+    query = urlparse(request.url).query.replace('query=', '')
+    query = json_util.loads(query)
     results = list(crime_coll.find(query).hint([('date', -1)]))
     book = xlwt.Workbook()
     types = ', '.join(query['type']['$in'])
