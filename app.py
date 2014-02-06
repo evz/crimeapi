@@ -9,6 +9,7 @@ import xlwt
 from cStringIO import StringIO
 from itertools import groupby
 from operator import itemgetter
+from lookups import OK_FIELDS, OK_FILTERS, WORKSHEET_COLUMNS, TYPE_GROUPS
 
 from flask import Flask, request, make_response
 from raven.contrib.flask import Sentry
@@ -32,57 +33,6 @@ db = c['chicago']
 db.authenticate(os.environ['CHICAGO_MONGO_USER'], os.environ['CHICAGO_MONGO_PW'])
 crime_coll = db['crime']
 iucr_coll = db['iucr']
-
-OK_FIELDS = [
-    'year', 
-    'domestic', 
-    'case_number', 
-    'id', 
-    'primary_type', 
-    'district', 
-    'arrest', 
-    'location', 
-    'community_area', 
-    'description', 
-    'beat', 
-    'date', 
-    'ward', 
-    'iucr', 
-    'location_description', 
-    'updated_on', 
-    'fbi_code', 
-    'block',
-    'type',
-    'time',
-]
-
-OK_FILTERS = [
-    'lt',
-    'lte',
-    'gt',
-    'gte',
-    'near',
-    'geoWithin',
-    'in',
-    'ne',
-    'nin',
-    None,
-]
-
-WORKSHEET_COLUMNS = [
-    'date',
-    'time_of_day',
-    'primary_type',
-    'description',
-    'location_description', 
-    'iucr',
-    'case_number',
-    'block',
-    'ward',
-    'community_area',
-    'beat',
-    'district',
-]
 
 @app.route('/api/report/', methods=['GET'])
 def crime_report():
@@ -190,8 +140,14 @@ def crime_list():
                     query[field] = {'$%s' % filt: {'$geometry': json.loads(value)}}
                     if filt == 'near':
                         query[field]['$%s' % filt]['$maxDistance'] = maxDistance
-                elif field in ['fbi_code', 'iucr', 'type']:
+                elif field in ['fbi_code', 'iucr', 'type', 'primary_type']:
                     query[field] = {'$in': value.split(',')}
+                elif field == 'location_description':
+                    groups = value.split(',')
+                    vals = []
+                    for group in groups:
+                        vals.extend(TYPE_GROUPS[group])
+                    query['location_description'] = {'$in': vals}
                 elif field == 'time':
                     try:
                         time_range = sorted(list(set([int(v) for v in value.split(',')])))
