@@ -1,6 +1,13 @@
 Flask
 gunicorn
-pymongo
-raven
 blinker
 xlwt
+requests
+boto
+psycopg2
+sqlalchemy
+geoalchemy2
+ipython
+celery==3.0.19
+raven
+pytz
