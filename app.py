@@ -140,7 +140,7 @@ def crime_list():
                     query[field] = {'$%s' % filt: {'$geometry': json.loads(value)}}
                     if filt == 'near':
                         query[field]['$%s' % filt]['$maxDistance'] = maxDistance
-                elif field in ['fbi_code', 'iucr', 'type', 'primary_type']:
+                elif field in ['fbi_code', 'iucr', 'type', 'primary_type', 'beat']:
                     query[field] = {'$in': value.split(',')}
                 elif field == 'location_description':
                     groups = value.split(',')
