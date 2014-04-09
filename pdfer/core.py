@@ -1,13 +1,15 @@
-#from globalmaptiles import GlobalMercator
+from globalmaptiles import GlobalMercator
 from tilenames import tileXY, tileEdges
-from PIL import Image, ImageEnhance
+# from PIL import Image, ImageEnhance
+import cv2
+import numpy as np
 import cairo
 import os
 from helpers import dl_write_all, hex_to_rgb
 from datetime import datetime
 from shapely.geometry import box, Polygon, MultiPolygon, Point
 
-#mercator = GlobalMercator()
+mercator = GlobalMercator()
 
 PAGE_SIZES = {
     'letter': (1275,1650,5,7,),
@@ -37,15 +39,17 @@ def pdfer(data, page_size='letter'):
     links = sorted(links)
     xcoord = 0
     ycoord = 0
-    for s in links:
+    image_array = np.array()
+    for link in links:
         parts = s.split('/')[-3:]
         parts[-1] = parts[-1].rstrip('.png')
         key = '-'.join(parts)
         grid[key] = {}
         grid[key]['bbox'] = tileEdges(float(parts[1]),float(parts[2]),int(parts[0]))
-        grid[key]['imagex'] = 256*xcoord
-        grid[key]['imagey'] = 256*ycoord
+       #grid[key]['imagex'] = 256*xcoord
+       #grid[key]['imagey'] = 256*ycoord
         ycoord += 1
+        image_array.put(cv2.imread('/tmp/' + link))
         if ycoord > tiles_up:
             ycoord = 0
             xcoord = xcoord + 1
@@ -149,3 +153,30 @@ def pdfer(data, page_size='letter'):
     ctx.paint()
     pdf.finish()
     return 'pdf saved %s' % (pdf_name)
+
+if __name__ == "__main__":
+    data = {'center': [-87.65137195587158, 41.8737151810189],
+        'dimensions': [890, 600],
+        'overlays': [{'color': '#ff0000',
+             'points': [[-87.6426826613853, 41.8781071880535],
+                 [-87.63938375754306, 41.867041706472456],
+                 [-87.6545186129677, 41.865850595857054],
+                 [-87.63909667701795, 41.86880452372822],
+                 [-87.6393048378162, 41.86449456528135],
+                 [-87.6393679750852, 41.867143148345015],
+                 [-87.64741565794833, 41.87881063893845],
+                 [-87.65197660167782, 41.87670825544318],
+                 [-87.63909667701795, 41.86880452372822],
+                 [-87.65620174057511, 41.86603890823199],
+                 [-87.65714742488014, 41.866878732430045],
+                 [-87.66390400959368, 41.86815871640521],
+                 [-87.65196361130707, 41.874474361734165],
+                 [-87.63909667701795, 41.86880452372822],
+                 [-87.65696499902725, 41.874432576058304],
+                 [-87.65685596043203, 41.876416024306245],
+                 [-87.64395748847578, 41.87189638577255],
+                 [-87.6548116345001, 41.8777184577741],
+                 [-87.65934485800273, 41.86599153498752],
+                 [-87.65924273143733, 41.86592781781541]]}],
+        'zoom': 15}
+    print pdfer(data, page_size='tabloid')
