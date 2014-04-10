@@ -102,42 +102,10 @@ def pdfer(data, page_size='letter'):
     pdf = cairo.PDFSurface(pdf_name, page_width, page_height)
     ctx = cairo.Context(pdf)
     image = cairo.ImageSurface.create_from_png(outp_name)
-   #if image.get_width() > width - 40:
-   #    width_ratio = float(width - 40) // float(image.get_width())
-   #    height_ratio = float(height - 40) // float(image.get_height())
-   #    scale = min(height_ratio, width_ratio)
-   #ctx.select_font_face('Sans')
-   #title = 'CrimeAround.Us'
-   #ctx.set_font_size(40)
-   #t_width, t_height = ctx.text_extents(title)[2], ctx.text_extents(title)[3]
-   #ctx.move_to((width//2) - (t_width//2),60)
-   #ctx.show_text(title)
-   #ctx.set_font_size(24)
-   #date = datetime.strftime(now, '%B %d, %Y %I:%M%p')
-   #d_width = ctx.text_extents(date)[2]
-   #ctx.move_to((width//2) - (d_width//2), t_height + 70)
-   #ctx.show_text(date)
-   #ctx.set_font_size(24)
-   #if len(overlays):
-   #    ctx.move_to(20, image.get_height() + 220)
-   #    ctx.show_text('Layers')
-   #    ctx.set_font_size(18)
-   #    ctx.move_to(20, image.get_height() + ctx.text_extents('Layers')[3] + 235)
-   #    x,y = ctx.get_current_point()
-   #    for o in overlays:
-   #        ctx.move_to(x, y)
-   #        color = hex_to_rgb(o['color'])
-   #        ctx.set_source_rgba(color[0]/255, color[1]/255, color[2]/255, 1.0)
-   #        ctx.arc(x+20, y, 15.0, 0, 50)
-   #        ctx.fill()
-   #        ctx.move_to(x + 50, y)
-   #        ctx.show_text(o['name'])
-   #        y = y + ctx.text_extents(o['name'])[3] + 25
-   #ctx.scale(scale, scale)
     ctx.set_source_surface(image, 0, 0)
     ctx.paint()
     pdf.finish()
-    return 'pdf saved %s' % (pdf_name)
+    return pdf_name
 
 if __name__ == "__main__":
     data = {'center': [-87.65137195587158, 41.8737151810189],
