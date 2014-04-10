@@ -1,6 +1,7 @@
 from globalmaptiles import GlobalMercator
 from tilenames import tileXY, tileEdges
-# from PIL import Image, ImageEnhance
+from operator import itemgetter
+from itertools import groupby
 import cv2
 import numpy as np
 import cairo
@@ -36,43 +37,27 @@ def pdfer(data, page_size='letter'):
     for ty in range(min_tile_y, max_tile_y + 1):
         for tx in range(min_tile_x, max_tile_x + 1):
             links.append('http://a.tiles.mapbox.com/v3/datamade.hnmob3j3/{0}/{1}/{2}.png'.format(grid['zoom'], tx, ty))
-    links = sorted(links)
-    xcoord = 0
-    ycoord = 0
-    image_array = np.array()
-    for link in links:
-        parts = s.split('/')[-3:]
-        parts[-1] = parts[-1].rstrip('.png')
-        key = '-'.join(parts)
-        grid[key] = {}
-        grid[key]['bbox'] = tileEdges(float(parts[1]),float(parts[2]),int(parts[0]))
-       #grid[key]['imagex'] = 256*xcoord
-       #grid[key]['imagey'] = 256*ycoord
-        ycoord += 1
-        image_array.put(cv2.imread('/tmp/' + link))
-        if ycoord > tiles_up:
-            ycoord = 0
-            xcoord = xcoord + 1
-        if xcoord > tiles_across:
-            xcoord = 0
-            ycoord = ycoord + 1
-    full_paths = dl_write_all(links)
-    image = Image.new('RGBA', (page_width, page_height))
-    path = '/tmp/'
+    names = dl_write_all(links)
     now = datetime.now()
     date_string = datetime.strftime(now, '%Y-%m-%d_%H-%M-%S')
-    image_name = os.path.join('/tmp', '{0}.png'.format(date_string))
-    for full_path in full_paths:
-        try:
-            tile = Image.open(full_path)
-            parts = full_path.split('/')[-1].split('-')[-3:]
-            key = '-'.join(parts).rstrip('.png')
-            xcoord = grid[key]['imagex']
-            ycoord = grid[key]['imagey']
-            image.paste(tile, (xcoord, ycoord))
-            image.save(image_name, 'PNG')
-        except IOError:
-            pass
+    outp_name = os.path.join('/tmp', '{0}.png'.format(date_string))
+    image_names = ['-'.join(l.split('/')[-3:]) for l in names]
+    image_names = sorted([i.split('-') for i in image_names])
+    arrays = []
+    for k,g in groupby(image_names, key=itemgetter(4)):
+        images = list(g)
+        fnames = ['/tmp/%s' % ('-'.join(f)) for f in images]
+        array = []
+        for img in fnames:
+            array.append(cv2.imread(img))
+        arrays.append(np.vstack(array))
+    outp = np.hstack(arrays)
+    cv2.imwrite(outp_name, outp)
+    for parts in image_names:
+        parts = parts[3:]
+        parts[-1] = parts[-1].rstrip('.png')
+        key = '-'.join(parts[-3:])
+        grid[key] = {'bbox': tileEdges(float(parts[1]),float(parts[2]),int(parts[0]))}
     d = {}
     keys = sorted(grid.keys())
     if len(overlays):
@@ -94,7 +79,7 @@ def pdfer(data, page_size='letter'):
         bmin_px, bmin_py = mercator.MetersToPixels(bmin_mx,bmin_my,float(grid['zoom']))
         bmax_px, bmax_py = mercator.MetersToPixels(bmax_mx,bmax_my,float(grid['zoom']))
         bmin_rx, bmin_ry = mercator.PixelsToRaster(bmin_px,bmin_py,int(grid['zoom']))
-        im = cairo.ImageSurface.create_from_png(image_name)
+        im = cairo.ImageSurface.create_from_png(outp_name)
         ctx = cairo.Context(im)
         for o in overlays:
             color = hex_to_rgb(o['color'])
@@ -111,12 +96,12 @@ def pdfer(data, page_size='letter'):
                     ctx.arc(nx, ny, 10.0, 0, 50)
                     ctx.set_source_rgba(color[0]/255, color[1]/255, color[2]/255, 0.9)
                     ctx.stroke()
-        im.write_to_png(image_name)
+        im.write_to_png(outp_name)
     scale = 1
-    pdf_name = image_name.rstrip('.png') + '.pdf'
+    pdf_name = outp_name.rstrip('.png') + '.pdf'
     pdf = cairo.PDFSurface(pdf_name, page_width, page_height)
     ctx = cairo.Context(pdf)
-    image = cairo.ImageSurface.create_from_png(image_name)
+    image = cairo.ImageSurface.create_from_png(outp_name)
    #if image.get_width() > width - 40:
    #    width_ratio = float(width - 40) // float(image.get_width())
    #    height_ratio = float(height - 40) // float(image.get_height())

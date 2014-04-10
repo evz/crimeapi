@@ -12,13 +12,13 @@ def dl_write(url):
         tile = requests.get(url)
         outp = open('/tmp/' + name, 'wb')
         outp.write(tile.content)
-    return full_path
+    return name
 
 def dl_write_all(links):
-    paths = []
+    names = []
     for link in links:
-        paths.append(dl_write(link))
-    return paths
+        names.append(dl_write(link))
+    return names
 
 def hex_to_rgb(value):
     value = value.lstrip('#')
