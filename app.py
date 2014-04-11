@@ -156,7 +156,7 @@ def crime_list():
                     try:
                         time_range = sorted(list(set([int(v) for v in value.split(',')])))
                         times = time_range[0], time_range[-1]
-                        query['$where'] = code.Code('this.date.getHours() >= %s && this.date.getHours() <= %s' % times)
+                        query['$where'] = code.Code('this.date.getHours() >= %s && this.date.getHours() < %s' % times)
                     except ValueError:
                         # Someone unchecked all the boxes
                         pass
