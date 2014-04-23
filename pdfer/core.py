@@ -90,11 +90,12 @@ def pdfer(data, page_size='letter'):
                     px, py = mercator.MetersToPixels(mx,my,float(grid['zoom']))
                     rx, ry = mercator.PixelsToRaster(px,py,int(grid['zoom']))
                     nx, ny = int(rx - bmin_rx), int(ry - (bmin_ry - 256))
-                    ctx.set_source_rgba(color[0]/255, color[1]/255, color[2]/255, 0.7)
+                    red, green, blue = [float(c) for c in color]
+                    ctx.set_source_rgba(red/255, green/255, blue/255, 0.7)
                     ctx.arc(nx, ny, 10.0, 0, 50) # args: center-x, center-y, radius, ?, ?
                     ctx.fill()
                     ctx.arc(nx, ny, 10.0, 0, 50)
-                    ctx.set_source_rgba(color[0]/255, color[1]/255, color[2]/255, 0.9)
+                    ctx.set_source_rgba(red/255, green/255, blue/255, 0.9)
                     ctx.stroke()
         im.write_to_png(outp_name)
     scale = 1

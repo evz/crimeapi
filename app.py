@@ -10,6 +10,7 @@ from cStringIO import StringIO
 from itertools import groupby
 from operator import itemgetter
 from lookups import OK_FIELDS, OK_FILTERS, WORKSHEET_COLUMNS, TYPE_GROUPS
+from pdfer.core import pdfer
 
 from flask import Flask, request, make_response
 from raven.contrib.flask import Sentry
@@ -71,6 +72,29 @@ def crime_report():
 
 # expects GeoJSON object as a string
 # client will need to use JSON.stringify() or similar
+
+@app.route('/api/print/', methods=['GET'])
+def print_page():
+    query = urlparse(request.url).query.replace('query=', '')
+    query = json_util.loads(unquote(query))
+    results = list(crime_coll.find(query['query']).hint([('date', -1)]))
+    results = sorted(results, key=itemgetter('type'))
+    overlays = []
+    colors = {
+        'violent': '#7b3294',
+        'property': '#ca0020',
+        'quality': '#008837',
+    }
+    for k,g in groupby(results, key=itemgetter('type')):
+        points = [r['location']['coordinates'] for r in list(g)]
+        overlays.append({'color': colors[k], 'points': points})
+    query['overlays'] = overlays
+    path = pdfer(query)
+    resp = make_response(open(path, 'rb').read())
+    resp.headers['Content-Type'] = 'application/pdf'
+    resp.headers['Content-Disposition'] = 'attachment; filename=Crime.pdf'
+    resp.set_cookie('fileDownload', value="true")
+    return resp
 
 @app.route('/api/crime/', methods=['GET'])
 def crime_list():
