@@ -66,8 +66,8 @@ def crime_report():
     book.save(out)
     resp = make_response(out.getvalue())
     resp.headers['Content-Type'] = 'application/vnd.ms-excel'
-    resp.headers['Content-Disposition'] = 'attachment; filename=Crime.xls'
-    resp.set_cookie('fileDownload', value="true")
+    now = datetime.now().isoformat().split('.')[0]
+    resp.headers['Content-Disposition'] = 'attachment; filename=Crime_%s.xls' % now
     return resp
 
 # expects GeoJSON object as a string
@@ -76,10 +76,15 @@ def crime_report():
 @app.route('/api/print/', methods=['GET'])
 def print_page():
     query = urlparse(request.url).query.replace('query=', '')
-    query = json_util.loads(unquote(query))
-    results = list(crime_coll.find(query['query']).hint([('date', -1)]))
+    params = json_util.loads(unquote(query))
+    results = list(crime_coll.find(params['query']).hint([('date', -1)]))
     results = sorted(results, key=itemgetter('type'))
-    overlays = []
+    point_overlays = []
+    print_data = {
+        'dimensions': params['dimensions'],
+        'zoom': params['zoom'],
+        'center': params['center'],
+    }
     colors = {
         'violent': '#7b3294',
         'property': '#ca0020',
@@ -87,13 +92,19 @@ def print_page():
     }
     for k,g in groupby(results, key=itemgetter('type')):
         points = [r['location']['coordinates'] for r in list(g)]
-        overlays.append({'color': colors[k], 'points': points})
-    query['overlays'] = overlays
-    path = pdfer(query)
+        point_overlays.append({'color': colors[k], 'points': points})
+    print_data['overlays'] = {'point_overlays': point_overlays}
+    print_data['overlays']['beat_overlays'] = []
+    print_data['overlays']['shape_overlays'] = []
+    if 'beat' in params['query'].keys():
+        print_data['overlays']['beat_overlays'] = params['query']['beat']['$in']
+    if 'location' in params['query'].keys():
+        print_data['overlays']['shape_overlay'] = params['query']['location']['$geoWithin']['$geometry']
+    path = pdfer(print_data)
     resp = make_response(open(path, 'rb').read())
     resp.headers['Content-Type'] = 'application/pdf'
-    resp.headers['Content-Disposition'] = 'attachment; filename=Crime.pdf'
-    resp.set_cookie('fileDownload', value="true")
+    now = datetime.now().isoformat().split('.')[0]
+    resp.headers['Content-Disposition'] = 'attachment; filename=Crime_%s.pdf' % now
     return resp
 
 @app.route('/api/crime/', methods=['GET'])

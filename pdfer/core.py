@@ -82,25 +82,13 @@ def pdfer(data, page_size='letter'):
         bmin_rx, bmin_ry = mercator.PixelsToRaster(bmin_px,bmin_py,int(grid['zoom']))
         im = cairo.ImageSurface.create_from_png(outp_name)
         ctx = cairo.Context(im)
-        for point_overlay in overlays.get('point_overlays'):
-            color = hex_to_rgb(point_overlay['color'])
-            for p in point_overlay['points']:
-                pt = Point((float(p[0]), float(p[1])))
-                if bb_poly.contains(pt):
-                    nx, ny = get_pixel_coords(p, grid['zoom'], bmin_rx, bmin_ry)
-                    red, green, blue = [float(c) for c in color]
-                    ctx.set_source_rgba(red/255, green/255, blue/255, 0.7)
-                    ctx.arc(nx, ny, 10.0, 0, 50) # args: center-x, center-y, radius, ?, ?
-                    ctx.fill()
-                    ctx.arc(nx, ny, 10.0, 0, 50)
-                    ctx.set_source_rgba(red/255, green/255, blue/255, 0.9)
-                    ctx.stroke()
         for beat_overlay in overlays.get('beat_overlays'):
             color = hex_to_rgb('#7B3294')
             boundary = requests.get('http://crimearound.us/data/beats/%s.geojson' % beat_overlay)
             coords = boundary.json()['coordinates'][0]
             x, y = get_pixel_coords(coords[0], grid['zoom'], bmin_rx, bmin_ry)
             ctx.move_to(x,y)
+            ctx.set_line_width(4.0)
             for p in coords[1:]:
                 x, y = get_pixel_coords(p, grid['zoom'], bmin_rx, bmin_ry)
                 red, green, blue = [float(c) for c in color]
@@ -108,6 +96,39 @@ def pdfer(data, page_size='letter'):
                 ctx.line_to(x,y)
             ctx.close_path()
             ctx.stroke()
+        if overlays.get('shape_overlay'):
+            shape_overlay = overlays['shape_overlay']
+            color = hex_to_rgb('#f06eaa')
+            coords = shape_overlay['coordinates'][0]
+            x, y = get_pixel_coords(coords[0], grid['zoom'], bmin_rx, bmin_ry)
+            ctx.move_to(x,y)
+            ctx.set_line_width(4.0)
+            red, green, blue = [float(c) for c in color]
+            ctx.set_source_rgba(red/255, green/255, blue/255, 0.3)
+            for p in coords[1:]:
+                x, y = get_pixel_coords(p, grid['zoom'], bmin_rx, bmin_ry)
+                ctx.line_to(x,y)
+            ctx.close_path()
+            ctx.fill()
+            ctx.set_source_rgba(red/255, green/255, blue/255, 0.5)
+            for p in coords[1:]:
+                x, y = get_pixel_coords(p, grid['zoom'], bmin_rx, bmin_ry)
+                ctx.line_to(x,y)
+            ctx.close_path()
+            ctx.stroke()
+        ctx.set_line_width(3.0)
+        for point_overlay in overlays.get('point_overlays'):
+            color = hex_to_rgb(point_overlay['color'])
+            for p in point_overlay['points']:
+                pt = Point((float(p[0]), float(p[1])))
+                if bb_poly.contains(pt):
+                    nx, ny = get_pixel_coords(p, grid['zoom'], bmin_rx, bmin_ry)
+                    red, green, blue = [float(c) for c in color]
+                    ctx.set_source_rgba(red/255, green/255, blue/255, 0.6)
+                    ctx.arc(nx, ny, 10.0, 0, 50) # args: center-x, center-y, radius, ?, ?
+                    ctx.fill()
+                    ctx.arc(nx, ny, 10.0, 0, 50)
+                    ctx.stroke()
         im.write_to_png(outp_name)
     scale = 1
     pdf_name = outp_name.rstrip('.png') + '.pdf'
