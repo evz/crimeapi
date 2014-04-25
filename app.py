@@ -175,8 +175,12 @@ def crime_list():
                     query[field] = {'$%s' % filt: {'$geometry': json.loads(value)}}
                     if filt == 'near':
                         query[field]['$%s' % filt]['$maxDistance'] = maxDistance
-                elif field in ['fbi_code', 'iucr', 'type', 'primary_type', 'beat']:
+                elif field in ['type', 'primary_type']:
                     query[field] = {'$in': value.split(',')}
+                elif field in ['fbi_code', 'iucr', 'beat']:
+                    vals = value.split(',')
+                    vals.extend([int(v) for v in vals])
+                    query[field] = {'$in': list(set(vals))}
                 elif field == 'location_description':
                     groups = value.split(',')
                     vals = []
@@ -187,7 +191,7 @@ def crime_list():
                     try:
                         time_range = sorted(list(set([int(v) for v in value.split(',')])))
                         times = time_range[0], time_range[-1]
-                        query['$where'] = code.Code('this.date.getHours() > %s && this.date.getHours() < %s' % times)
+                        query['$where'] = code.Code('this.date.getHours() >= %s && this.date.getHours() < %s' % times)
                     except ValueError:
                         # Someone unchecked all the boxes
                         pass
