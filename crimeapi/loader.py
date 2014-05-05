@@ -3,27 +3,19 @@ import time
 from base64 import b64decode
 import os
 import json
-import pymongo
 from operator import itemgetter
 from itertools import groupby
 from datetime import datetime, timedelta
-from utils import make_meta
 from boto.s3.connection import S3Connection
 from boto.s3.key import Key
-from git import Repo, GitCommandError
-from bson import json_util
 from hashlib import sha1
+from crimeapi.database import session as db_session
+from crimeapi.models import Crime
 
-# just 2013 data
-CRIMES = 'http://data.cityofchicago.org/resource/ijzp-q8t2.json'
-
-MOST_WANTED = 'http://api1.chicagopolice.org/clearpath/api/1.0/mostWanted/list'
-MUGSHOTS = 'http://api1.chicagopolice.org/clearpath/api/1.0/mugshots'
-WEATHER_KEY = os.environ['WEATHER_KEY']
+CRIMES = 'https://data.cityofchicago.org/api/views/ijzp-q8t2/rows.csv?accessType=DOWNLOAD'
 AWS_KEY = os.environ['AWS_ACCESS_KEY']
 AWS_SECRET = os.environ['AWS_SECRET_KEY']
-MONGO_USER = os.environ['UPDATE_MONGO_USER']
-MONGO_PW = os.environ['UPDATE_MONGO_PW']
+DATA_DIR = os.environ['DATA_DIR']
 
 class SocrataError(Exception): 
     def __init__(self, message):
@@ -39,9 +31,6 @@ class ClearPathError(Exception):
     def __init__(self, message):
         Exception.__init__(self, message)
         self.message = message
-
-# In Feature properties, define title and description keys. Can also 
-# define marker-color, marker-size, marker-symbol and marker-zoom.
 
 def geocode_it(block, coll):
     match = coll.find_one({'block': block, 'location.coordinates': {'$ne': None}})
@@ -65,66 +54,16 @@ def geocode_it(block, coll):
         else:
             return None
 
-def update_crimediffs(case_numbers):
-    c = pymongo.MongoClient()
-    db = c['chicago']
-    coll = db['crime']
-    db.authenticate(MONGO_USER, password=MONGO_PW)
-    dir_path = os.path.abspath(os.path.curdir)
-    repo_path = os.path.join(dir_path, '../crimediffs')
-    repo = Repo(repo_path)
-    g = repo.git
-    cases = coll.find({'case_number': {'$in': case_numbers}}, timeout=False)
-    committed = 0
-    skipped = 0
-    for case in cases:
-        fname = os.path.join(repo_path, 'reports/%s.json' % case['case_number'])
-        print fname
-        if os.path.exists(fname):
-            f = open(fname, 'rb')
-            written = f.read()
-            f.close()
-            stored = json_util.dumps(case, indent=4)
-            if sha1(written).hexdigest() == sha1(stored).hexdigest():
-                skipped += 1
-                continue
-            else:
-                f = open(fname, 'wb')
-                f.write(stored)
-                f.close()
-        else:
-            f = open(fname, 'wb')
-            f.write(json_util.dumps(case, indent=4))
-            f.close()
-        updated_on = case['updated_on'].strftime('%a, %d %b %Y %H:%M:%S %z')
-        os.environ['GIT_COMMITTER_DATE'] = updated_on
-        g.add(fname)
-        g.commit(message='Case Number %s updated at %s' % (case['case_number'], updated_on), author='eric@bahai.us')
-        committed += 1
-    if committed > 0:
-        o = repo.remotes.origin
-        pushinfo = o.push()
-        print pushinfo[0].summary
-    print 'Skipped: %s Committed: %s' % (skipped, committed)
-    return skipped, committed
-
-def fetch_crimes(count):
-    crimes = []
-    for offset in range(0, count, 1000):
-        crime_offset = requests.get(CRIMES, params={'$limit': 1000, '$offset': offset})
-        if crime_offset.status_code == 200:
-            crimes.extend(crime_offset.json())
-        else:
-            raise SocrataError('Socrata API responded with a %s status code: %s' % (crimes.status_code, crimes.content[300:]))
-    return crimes
-
 def get_crimes():
-    c = pymongo.MongoClient()
-    db = c['chicago']
-    coll = db['crime']
-    iucr_codes = db['iucr']
-    db.authenticate(MONGO_USER, password=MONGO_PW)
-    crimes = fetch_crimes(20000)
+    r = requests.get(CRIMES, stream=True)
+    fpath = '%s/crime_%s.csv' % (DATA_DIR, datetime.now().strftime('%Y-%m-%dT%H:%M:%S'))
+    with open(os.path.join(fpath), 'wb') as f:
+        for chunk in r.iter_content(chunk_size=1024):
+            if chunk:
+                f.write(chunk)
+                f.flush()
+    with open(fpath, 'rb') as f:
+        header = Crime.
     case_numbers = [c['case_number'] for c in crimes]
     existing = 0
     new = 0

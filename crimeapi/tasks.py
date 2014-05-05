@@ -3,15 +3,9 @@ from raven.contrib.celery import register_signal
 import os
 import pymongo
 from datetime import datetime, timedelta
-from celery import Celery
-from loader import get_crimes, get_most_wanted
-from dumper import dumpit, dump_by_temp, dump_to_csv
-
-celery = Celery('tasks')
-celery.config_from_object('celeryconfig')
-
-client = Client(os.environ['SENTRY_URL'])
-register_signal(client)
+from crimeapi import celery_app
+from crimeapi.loader import get_crimes
+from crimeapi.dumper import dumpit, dump_by_temp, dump_to_csv
 
 @celery.task
 def load():
@@ -19,7 +13,7 @@ def load():
     # get_most_wanted()
     return crimes
 
-@celery.task
+@celery_app.task
 def dump_json():
     c = pymongo.MongoClient()
     db = c['chicago']
@@ -32,7 +26,7 @@ def dump_json():
     dump_by_temp(crime, weather)
     return 'Dumped. Dumped real good'
 
-@celery.task
+@celery_app.task
 def dump_csv():
     csv_start = datetime.now().replace(month=1).replace(day=1)
     csv_end = datetime.now() - timedelta(days=7)
