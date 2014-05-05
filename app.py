@@ -9,6 +9,8 @@ import xlwt
 from cStringIO import StringIO
 from itertools import groupby
 from operator import itemgetter
+from lookups import OK_FIELDS, OK_FILTERS, WORKSHEET_COLUMNS, TYPE_GROUPS
+from pdfer.core import pdfer
 
 from flask import Flask, request, make_response
 from raven.contrib.flask import Sentry
@@ -32,57 +34,6 @@ db = c['chicago']
 db.authenticate(os.environ['CHICAGO_MONGO_USER'], os.environ['CHICAGO_MONGO_PW'])
 crime_coll = db['crime']
 iucr_coll = db['iucr']
-
-OK_FIELDS = [
-    'year', 
-    'domestic', 
-    'case_number', 
-    'id', 
-    'primary_type', 
-    'district', 
-    'arrest', 
-    'location', 
-    'community_area', 
-    'description', 
-    'beat', 
-    'date', 
-    'ward', 
-    'iucr', 
-    'location_description', 
-    'updated_on', 
-    'fbi_code', 
-    'block',
-    'type',
-    'time',
-]
-
-OK_FILTERS = [
-    'lt',
-    'lte',
-    'gt',
-    'gte',
-    'near',
-    'geoWithin',
-    'in',
-    'ne',
-    'nin',
-    None,
-]
-
-WORKSHEET_COLUMNS = [
-    'date',
-    'time_of_day',
-    'primary_type',
-    'description',
-    'location_description', 
-    'iucr',
-    'case_number',
-    'block',
-    'ward',
-    'community_area',
-    'beat',
-    'district',
-]
 
 @app.route('/api/report/', methods=['GET'])
 def crime_report():
@@ -115,12 +66,46 @@ def crime_report():
     book.save(out)
     resp = make_response(out.getvalue())
     resp.headers['Content-Type'] = 'application/vnd.ms-excel'
-    resp.headers['Content-Disposition'] = 'attachment; filename=Crime.xls'
-    resp.set_cookie('fileDownload', value="true")
+    now = datetime.now().isoformat().split('.')[0]
+    resp.headers['Content-Disposition'] = 'attachment; filename=Crime_%s.xls' % now
     return resp
 
 # expects GeoJSON object as a string
 # client will need to use JSON.stringify() or similar
+
+@app.route('/api/print/', methods=['GET'])
+def print_page():
+    query = urlparse(request.url).query.replace('query=', '')
+    params = json_util.loads(unquote(query))
+    results = list(crime_coll.find(params['query']).hint([('date', -1)]))
+    results = sorted(results, key=itemgetter('type'))
+    point_overlays = []
+    print_data = {
+        'dimensions': params['dimensions'],
+        'zoom': params['zoom'],
+        'center': params['center'],
+    }
+    colors = {
+        'violent': '#7b3294',
+        'property': '#ca0020',
+        'quality': '#008837',
+    }
+    for k,g in groupby(results, key=itemgetter('type')):
+        points = [r['location']['coordinates'] for r in list(g)]
+        point_overlays.append({'color': colors[k], 'points': points})
+    print_data['overlays'] = {'point_overlays': point_overlays}
+    print_data['overlays']['beat_overlays'] = []
+    print_data['overlays']['shape_overlays'] = []
+    if 'beat' in params['query'].keys():
+        print_data['overlays']['beat_overlays'] = params['query']['beat']['$in']
+    if 'location' in params['query'].keys():
+        print_data['overlays']['shape_overlay'] = params['query']['location']['$geoWithin']['$geometry']
+    path = pdfer(print_data)
+    resp = make_response(open(path, 'rb').read())
+    resp.headers['Content-Type'] = 'application/pdf'
+    now = datetime.now().isoformat().split('.')[0]
+    resp.headers['Content-Disposition'] = 'attachment; filename=Crime_%s.pdf' % now
+    return resp
 
 @app.route('/api/crime/', methods=['GET'])
 def crime_list():
@@ -190,13 +175,23 @@ def crime_list():
                     query[field] = {'$%s' % filt: {'$geometry': json.loads(value)}}
                     if filt == 'near':
                         query[field]['$%s' % filt]['$maxDistance'] = maxDistance
-                elif field in ['fbi_code', 'iucr', 'type']:
+                elif field in ['type', 'primary_type']:
                     query[field] = {'$in': value.split(',')}
+                elif field in ['fbi_code', 'iucr', 'beat']:
+                    vals = value.split(',')
+                    vals.extend([int(v) for v in vals])
+                    query[field] = {'$in': list(set(vals))}
+                elif field == 'location_description':
+                    groups = value.split(',')
+                    vals = []
+                    for group in groups:
+                        vals.extend(TYPE_GROUPS[group])
+                    query['location_description'] = {'$in': vals}
                 elif field == 'time':
                     try:
                         time_range = sorted(list(set([int(v) for v in value.split(',')])))
                         times = time_range[0], time_range[-1]
-                        query['$where'] = code.Code('this.date.getHours() > %s && this.date.getHours() < %s' % times)
+                        query['$where'] = code.Code('this.date.getHours() >= %s && this.date.getHours() < %s' % times)
                     except ValueError:
                         # Someone unchecked all the boxes
                         pass
