@@ -5,7 +5,7 @@ from geoalchemy2 import Geometry
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, backref
 
-Base = declarative_base()
+from crimeapi.database import Base
 
 class Crime(Base):
     __tablename__ = 'crime'
@@ -34,9 +34,4 @@ class Crime(Base):
     geom = Column(Geometry(geometry_type=u'POINT', srid=4326))
 
     def __repr__(self):
-        return '<Crime %r (%r)>' % (self.block, self.orig_date.strftime('%Y/%m/%d %H:%M'))
-
-
-if __name__ == '__main__':
-    from sqlalchemy import create_engine
-    engine = create_engine(os.environ['CRIME_DB'])
+        return '<Crime %r (%r)>' % (self.block, self.date.strftime('%Y/%m/%d %H:%M'))

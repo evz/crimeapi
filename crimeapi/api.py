@@ -12,30 +12,12 @@ from operator import itemgetter
 from lookups import OK_FIELDS, OK_FILTERS, WORKSHEET_COLUMNS, TYPE_GROUPS
 from pdfer.core import pdfer
 
-from flask import Flask, request, make_response
+from flask import Blueprint, request, make_response
 from raven.contrib.flask import Sentry
 
-app = Flask(__name__)
+api = Blueprint('api', __name__)
 
-app.url_map.strict_slashes = False
-
-env = os.environ.get('PROJECTENV')
-
-DEBUG = False
-
-if env == 'local':
-    c = pymongo.MongoClient(host=os.environ['CRIME_MONGO'])
-    DEBUG = True
-else:
-    c = pymongo.MongoClient()
-    app.config['SENTRY_DSN'] = os.environ['SENTRY_URL']
-    sentry = Sentry(app)
-db = c['chicago']
-db.authenticate(os.environ['CHICAGO_MONGO_USER'], os.environ['CHICAGO_MONGO_PW'])
-crime_coll = db['crime']
-iucr_coll = db['iucr']
-
-@app.route('/api/report/', methods=['GET'])
+@api.route('/api/report/', methods=['GET'])
 def crime_report():
     query = urlparse(request.url).query.replace('query=', '')
     query = json_util.loads(unquote(query))
@@ -73,7 +55,7 @@ def crime_report():
 # expects GeoJSON object as a string
 # client will need to use JSON.stringify() or similar
 
-@app.route('/api/print/', methods=['GET'])
+@api.route('/api/print/', methods=['GET'])
 def print_page():
     query = urlparse(request.url).query.replace('query=', '')
     params = json_util.loads(unquote(query))
@@ -107,7 +89,7 @@ def print_page():
     resp.headers['Content-Disposition'] = 'attachment; filename=Crime_%s.pdf' % now
     return resp
 
-@app.route('/api/crime/', methods=['GET'])
+@api.route('/api/crime/', methods=['GET'])
 def crime_list():
     get = request.args.copy()
     callback = get.get('callback', None)
@@ -241,7 +223,3 @@ def crime_list():
                 sentry.captureMessage(resp)
             out = make_response(json.dumps(resp), resp['code'])
         return out
-
-if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 7777))
-    app.run(host='0.0.0.0', port=port, debug=True)
