@@ -7,11 +7,12 @@ import xlwt
 from cStringIO import StringIO
 from itertools import groupby
 from operator import itemgetter
-from lookups import OK_FIELDS, OK_FILTERS, WORKSHEET_COLUMNS, TYPE_GROUPS
+from lookups import WORKSHEET_COLUMNS, TYPE_GROUPS
 from pdfer.core import pdfer
 import sqlite3
 
-from flask import Flask, request, make_response, g
+from flask import Flask, request, make_response, g, current_app
+from functools import update_wrapper
 from raven.contrib.flask import Sentry
 
 app = Flask(__name__)
@@ -24,11 +25,55 @@ DEBUG = False
 
 DATABASE = 'iucr_codes.db'
 
+def crossdomain(origin=None, methods=None, headers=None,
+                max_age=21600, attach_to_all=True,
+                automatic_options=True): # pragma: no cover
+    if methods is not None:
+        methods = ', '.join(sorted(x.upper() for x in methods))
+    if headers is not None and not isinstance(headers, basestring):
+        headers = ', '.join(x.upper() for x in headers)
+    if not isinstance(origin, basestring):
+        origin = ', '.join(origin)
+    if isinstance(max_age, timedelta):
+        max_age = max_age.total_seconds()
+
+    def get_methods():
+        if methods is not None:
+            return methods
+
+        options_resp = current_app.make_default_options_response()
+        return options_resp.headers['allow']
+
+    def decorator(f):
+        def wrapped_function(*args, **kwargs):
+            if automatic_options and request.method == 'OPTIONS':
+                resp = current_app.make_default_options_response()
+            else:
+                resp = make_response(f(*args, **kwargs))
+            if not attach_to_all and request.method != 'OPTIONS':
+                return resp
+
+            h = resp.headers
+
+            h['Access-Control-Allow-Origin'] = origin
+            h['Access-Control-Allow-Methods'] = get_methods()
+            h['Access-Control-Max-Age'] = str(max_age)
+            if headers is not None:
+                h['Access-Control-Allow-Headers'] = headers
+            return resp
+
+        f.provide_automatic_options = False
+        return update_wrapper(wrapped_function, f)
+    return decorator
+
 def get_db():
     db = getattr(g, '_database', None)
     if db is None:
         db = g._database = sqlite3.connect(DATABASE)
-    db.row_factory = sqlite3.Row
+    def make_dicts(cursor, row):
+        return dict((cursor.description[idx][0], value)
+                    for idx, value in enumerate(row))
+    db.row_factory = make_dicts
     return db
 
 @app.teardown_appcontext
@@ -37,19 +82,48 @@ def close_connection(exception):
     if db is not None:
         db.close()
 
-@app.route('/api/lookups/')
-def lookups():
-    types = request.args.get('crime_types').split(',')
-    locations = request.args.get('locations').split(',')
-    results = {}
-    if types:
-        cur = get_db().execute('select iucr from iucr where type in ?', (types))
-        results['crime_types'] = cur.fetchall()
-        cur.close()
+@app.route('/api/iucr-to-type/')
+def iucr_to_type():
+    cur = get_db().cursor()
+    cur.execute('select iucr, type from iucr')
+    res = cur.fetchall()
+    results = {i['iucr']: i['type'] for i in res}
+    cur.close()
     resp = make_response(json.dumps(results))
     resp.headers['Content-Type'] = 'application/json'
     return resp
 
+@app.route('/api/type-to-iucr/')
+def type_to_iucr():
+    cur = get_db().cursor()
+    cur.execute('select iucr, type from iucr')
+    res = cur.fetchall()
+    cur.close()
+    res = sorted(res, key=itemgetter('type'))
+    results = {}
+    for k, g in groupby(res, key=itemgetter('type')):
+        results[k] = [i['iucr'] for i in list(g)]
+    resp = make_response(json.dumps(results))
+    resp.headers['Content-Type'] = 'application/json'
+    return resp
+
+@app.route('/api/group-to-location/')
+@crossdomain(origin="*")
+def group_to_location():
+    resp = make_response(json.dumps(TYPE_GROUPS))
+    resp.headers['Content-Type'] = 'application/json'
+    return resp
+
+@app.route('/api/location-to-group/')
+@crossdomain(origin="*")
+def location_to_group():
+    results = {}
+    for group,locations in TYPE_GROUPS.items():
+        for location in locations:
+            results[location] = group
+    resp = make_response(json.dumps(results))
+    resp.headers['Content-Type'] = 'application/json'
+    return resp
 
 @app.route('/api/report/', methods=['GET'])
 def crime_report():
@@ -121,6 +195,12 @@ def print_page():
     resp.headers['Content-Type'] = 'application/pdf'
     now = datetime.now().isoformat().split('.')[0]
     resp.headers['Content-Disposition'] = 'attachment; filename=Crime_%s.pdf' % now
+    return resp
+
+@app.route('/api/crime/', methods=['GET'])
+def crime():
+    resp = make_response(json.dumps({}))
+    resp.headers['Content-Type'] = 'application/json'
     return resp
 
 if __name__ == "__main__":
