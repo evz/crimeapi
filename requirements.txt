@@ -1,6 +1,6 @@
 Flask
 gunicorn
-pymongo
+sqlalchemy
 raven
 blinker
 xlwt
