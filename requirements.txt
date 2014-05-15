@@ -4,3 +4,4 @@ sqlalchemy
 raven
 blinker
 xlwt
+requests

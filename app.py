@@ -1,6 +1,7 @@
 import os
 from datetime import datetime, timedelta
 import json
+import requests
 from urlparse import parse_qs, urlparse
 from urllib import unquote
 import xlwt
@@ -83,6 +84,7 @@ def close_connection(exception):
         db.close()
 
 @app.route('/api/iucr-to-type/')
+@crossdomain(origin="*")
 def iucr_to_type():
     cur = get_db().cursor()
     cur.execute('select iucr, type from iucr')
@@ -94,6 +96,7 @@ def iucr_to_type():
     return resp
 
 @app.route('/api/type-to-iucr/')
+@crossdomain(origin="*")
 def type_to_iucr():
     cur = get_db().cursor()
     cur.execute('select iucr, type from iucr')
@@ -198,8 +201,25 @@ def print_page():
     return resp
 
 @app.route('/api/crime/', methods=['GET'])
+@crossdomain(origin="*")
 def crime():
-    resp = make_response(json.dumps({}))
+    query = {}
+    for k,v in request.args.items():
+        query[k] = v
+    if query.get('locations'):
+        locs = query['locations'].split(',')
+        descs = []
+        for loc in locs:
+            descs.extend(TYPE_GROUPS[loc])
+        query['location_description__in'] = ','.join(descs)
+        del query['locations']
+    results = requests.get('http://wopr.datamade.us/api/detail/', params=query)
+    print results.request.url
+    if results.status_code == 200:
+        print results
+    else:
+        print results.content
+    resp = make_response(json.dumps([]))
     resp.headers['Content-Type'] = 'application/json'
     return resp
 
