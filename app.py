@@ -99,13 +99,13 @@ def iucr_to_type():
 @crossdomain(origin="*")
 def type_to_iucr():
     cur = get_db().cursor()
-    cur.execute('select iucr, type from iucr')
+    cur.execute('select * from iucr')
     res = cur.fetchall()
     cur.close()
     res = sorted(res, key=itemgetter('type'))
     results = {}
     for k, g in groupby(res, key=itemgetter('type')):
-        results[k] = [i['iucr'] for i in list(g)]
+        results[k] = list(g)
     resp = make_response(json.dumps(results))
     resp.headers['Content-Type'] = 'application/json'
     return resp
