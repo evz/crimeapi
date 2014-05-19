@@ -213,13 +213,39 @@ def crime():
             descs.extend(TYPE_GROUPS[loc])
         query['location_description__in'] = ','.join(descs)
         del query['locations']
+    resp = {
+        'code': 200,
+        'meta': {
+            'query': query,
+            'total_results': 0,
+            'totals_by_type': {
+                'violent': 0,
+                'property': 0,
+                'quality': 0,
+                'other': 0,
+            },
+        },
+        'results': [],
+    }
     results = requests.get('http://wopr.datamade.us/api/detail/', params=query)
-    print results.request.url
     if results.status_code == 200:
-        print results
+        cur = get_db().cursor()
+        objs = results.json()['objects']
+        resp['meta']['total_results'] = len(objs)
+        for r in objs:
+            cur.execute('select type from iucr where iucr = ?', (r['iucr'],))
+            res = cur.fetchall()
+            if res:
+                resp['meta']['totals_by_type'][res[0]] += 1
+                r['type'] = res[0]
+            else:
+                res['meta']['totals_by_type']['other'] += 1
+                r['type'] = 'other'
+            resp['results'].append(r)
     else:
-        print results.content
-    resp = make_response(json.dumps([]))
+        resp['code'] = results.status_code
+        resp['meta'] = results.json()['meta']
+    resp = make_response(json.dumps(resp))
     resp.headers['Content-Type'] = 'application/json'
     return resp
 
