@@ -3,3 +3,4 @@ gunicorn
 raven
 blinker
 xlwt
+requests

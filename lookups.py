@@ -1,39 +1,3 @@
-OK_FIELDS = [
-    'year', 
-    'domestic', 
-    'case_number', 
-    'id', 
-    'primary_type', 
-    'district', 
-    'arrest', 
-    'location', 
-    'community_area', 
-    'description', 
-    'beat', 
-    'date', 
-    'ward', 
-    'iucr', 
-    'location_description', 
-    'updated_on', 
-    'fbi_code', 
-    'block',
-    'type',
-    'time',
-]
-
-OK_FILTERS = [
-    'lt',
-    'lte',
-    'gt',
-    'gte',
-    'near',
-    'geoWithin',
-    'in',
-    'ne',
-    'nin',
-    None,
-]
-
 WORKSHEET_COLUMNS = [
     'date',
     'time_of_day',

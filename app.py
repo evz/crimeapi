@@ -1,18 +1,19 @@
 import os
 from datetime import datetime, timedelta
-import pymongo
 import json
+import requests
 from urlparse import parse_qs, urlparse
 from urllib import unquote
-from bson import json_util, code
 import xlwt
 from cStringIO import StringIO
 from itertools import groupby
 from operator import itemgetter
-from lookups import OK_FIELDS, OK_FILTERS, WORKSHEET_COLUMNS, TYPE_GROUPS
+from lookups import WORKSHEET_COLUMNS, TYPE_GROUPS
 from pdfer.core import pdfer
+import sqlite3
 
-from flask import Flask, request, make_response
+from flask import Flask, request, make_response, g, current_app
+from functools import update_wrapper
 from raven.contrib.flask import Sentry
 
 app = Flask(__name__)
@@ -23,17 +24,109 @@ env = os.environ.get('PROJECTENV')
 
 DEBUG = False
 
-if env == 'local':
-    c = pymongo.MongoClient(host=os.environ['CRIME_MONGO'])
-    DEBUG = True
-else:
-    c = pymongo.MongoClient()
-    app.config['SENTRY_DSN'] = os.environ['SENTRY_URL']
-    sentry = Sentry(app)
-db = c['chicago']
-db.authenticate(os.environ['CHICAGO_MONGO_USER'], os.environ['CHICAGO_MONGO_PW'])
-crime_coll = db['crime']
-iucr_coll = db['iucr']
+DATABASE = 'iucr_codes.db'
+
+def crossdomain(origin=None, methods=None, headers=None,
+                max_age=21600, attach_to_all=True,
+                automatic_options=True): # pragma: no cover
+    if methods is not None:
+        methods = ', '.join(sorted(x.upper() for x in methods))
+    if headers is not None and not isinstance(headers, basestring):
+        headers = ', '.join(x.upper() for x in headers)
+    if not isinstance(origin, basestring):
+        origin = ', '.join(origin)
+    if isinstance(max_age, timedelta):
+        max_age = max_age.total_seconds()
+
+    def get_methods():
+        if methods is not None:
+            return methods
+
+        options_resp = current_app.make_default_options_response()
+        return options_resp.headers['allow']
+
+    def decorator(f):
+        def wrapped_function(*args, **kwargs):
+            if automatic_options and request.method == 'OPTIONS':
+                resp = current_app.make_default_options_response()
+            else:
+                resp = make_response(f(*args, **kwargs))
+            if not attach_to_all and request.method != 'OPTIONS':
+                return resp
+
+            h = resp.headers
+
+            h['Access-Control-Allow-Origin'] = origin
+            h['Access-Control-Allow-Methods'] = get_methods()
+            h['Access-Control-Max-Age'] = str(max_age)
+            if headers is not None:
+                h['Access-Control-Allow-Headers'] = headers
+            return resp
+
+        f.provide_automatic_options = False
+        return update_wrapper(wrapped_function, f)
+    return decorator
+
+def get_db():
+    db = getattr(g, '_database', None)
+    if db is None:
+        db = g._database = sqlite3.connect(DATABASE)
+    def make_dicts(cursor, row):
+        return dict((cursor.description[idx][0], value)
+                    for idx, value in enumerate(row))
+    db.row_factory = make_dicts
+    return db
+
+@app.teardown_appcontext
+def close_connection(exception):
+    db = getattr(g, '_database', None)
+    if db is not None:
+        db.close()
+
+@app.route('/api/iucr-to-type/')
+@crossdomain(origin="*")
+def iucr_to_type():
+    cur = get_db().cursor()
+    cur.execute('select iucr, type from iucr')
+    res = cur.fetchall()
+    results = {i['iucr']: i['type'] for i in res}
+    cur.close()
+    resp = make_response(json.dumps(results))
+    resp.headers['Content-Type'] = 'application/json'
+    return resp
+
+@app.route('/api/type-to-iucr/')
+@crossdomain(origin="*")
+def type_to_iucr():
+    cur = get_db().cursor()
+    cur.execute('select * from iucr')
+    res = cur.fetchall()
+    cur.close()
+    res = sorted(res, key=itemgetter('type'))
+    results = {}
+    for k, g in groupby(res, key=itemgetter('type')):
+        results[k] = list(g)
+    resp = make_response(json.dumps(results))
+    resp.headers['Content-Type'] = 'application/json'
+    return resp
+
+@app.route('/api/group-to-location/')
+@crossdomain(origin="*")
+def group_to_location():
+    resp = make_response(json.dumps(TYPE_GROUPS))
+    resp.headers['Content-Type'] = 'application/json'
+    return resp
+
+@app.route('/api/location-to-group/')
+@crossdomain(origin="*")
+def location_to_group():
+    results = {}
+    for group,locations in TYPE_GROUPS.items():
+        for location in locations:
+            results[location] = group
+    resp = make_response(json.dumps(results))
+    resp.headers['Content-Type'] = 'application/json'
+    return resp
 
 @app.route('/api/report/', methods=['GET'])
 def crime_report():
@@ -108,139 +201,53 @@ def print_page():
     return resp
 
 @app.route('/api/crime/', methods=['GET'])
-def crime_list():
-    get = request.args.copy()
-    callback = get.get('callback', None)
-    maxDistance = get.get('maxDistance', 1000)
-    limit = int(get.get('limit', 2000))
-    resp_format = get.get('format', 'jsonp')
-    if limit > 2000:
-        limit = 2000
-    if not callback:
-        resp = {
-            'status': 'Bad Request', 
-            'message': 'You must provide the name of a callback',
-            'code': 400
-        }
+@crossdomain(origin="*")
+def crime():
+    query = {}
+    for k,v in request.args.items():
+        query[k] = v
+    if query.get('locations'):
+        locs = query['locations'].split(',')
+        descs = []
+        for loc in locs:
+            descs.extend(TYPE_GROUPS[loc])
+        query['location_description__in'] = ','.join(descs)
+        del query['locations']
+    resp = {
+        'code': 200,
+        'meta': {
+            'query': query,
+            'total_results': 0,
+            'totals_by_type': {
+                'violent': 0,
+                'property': 0,
+                'quality': 0,
+                'other': 0,
+            },
+        },
+        'results': [],
+    }
+    results = requests.get('http://wopr.datamade.us/api/detail/', params=query)
+    if results.status_code == 200:
+        cur = get_db().cursor()
+        objs = results.json()['objects']
+        resp['meta']['total_results'] = len(objs)
+        for r in objs:
+            cur.execute('select type from iucr where iucr = ?', (r['iucr'],))
+            res = cur.fetchall()
+            if res:
+                resp['meta']['totals_by_type'][res[0]] += 1
+                r['type'] = res[0]
+            else:
+                res['meta']['totals_by_type']['other'] += 1
+                r['type'] = 'other'
+            resp['results'].append(r)
     else:
-        del get['callback']
-        try:
-            del get['_']
-        except KeyError:
-            pass
-        try:
-            del get['maxDistance']
-        except KeyError:
-            pass
-        try:
-            del get['limit']
-        except KeyError:
-            pass
-        try:
-            del get['format']
-        except KeyError:
-            pass
-        query = {}
-        resp = None
-        for field,value in get.items():
-            filt = None
-            geom = None
-            try:
-                field, filt = field.split('__')
-            except ValueError:
-                pass
-            if field not in OK_FIELDS:
-                resp = {
-                    "status": "Bad Request", 
-                    "message": "Unrecognized field: '%s'" % field,
-                    "code": 400,
-                }
-            else:
-                if field in ['date', 'updated_on']:
-                    try:
-                        value = datetime.fromtimestamp(float(value))
-                    except TypeError:
-                        resp = {
-                            'status': 'Bad Request', 
-                            'message': 'Date time queries expect a valid timestamp',
-                            'code': 400
-                        }
-                if filt not in OK_FILTERS:
-                    resp = {
-                        'status': 'Bad Request',
-                        'message': "Unrecognized query operator: '%s'" % filt,
-                        'code': 400,
-                    }
-                elif field == 'location':
-                    query[field] = {'$%s' % filt: {'$geometry': json.loads(value)}}
-                    if filt == 'near':
-                        query[field]['$%s' % filt]['$maxDistance'] = maxDistance
-                elif field in ['type', 'primary_type']:
-                    query[field] = {'$in': value.split(',')}
-                elif field in ['fbi_code', 'iucr', 'beat']:
-                    vals = value.split(',')
-                    vals.extend([int(v) for v in vals])
-                    query[field] = {'$in': list(set(vals))}
-                elif field == 'location_description':
-                    groups = value.split(',')
-                    vals = []
-                    for group in groups:
-                        vals.extend(TYPE_GROUPS[group])
-                    query['location_description'] = {'$in': vals}
-                elif field == 'time':
-                    try:
-                        time_range = sorted(list(set([int(v) for v in value.split(',')])))
-                        times = time_range[0], time_range[-1]
-                        query['$where'] = code.Code('this.date.getHours() >= %s && this.date.getHours() < %s' % times)
-                    except ValueError:
-                        # Someone unchecked all the boxes
-                        pass
-                elif filt:
-                    if query.has_key(field):
-                        update = {'$%s' % filt: value}
-                        query[field].update(**update)
-                    else:
-                        query[field] = {'$%s' % filt: value}
-                else:
-                    query[field] = value
-        if not query.has_key('date'):
-            query['date'] = {'$gte': datetime.now() - timedelta(days=14)}
-        if not query.has_key('type'):
-            query['type'] = {'$in': ['violent', 'property', 'quality']}
-        if not resp:
-            results = list(crime_coll.find(query).hint([('date', -1)]).limit(limit))
-            results = sorted(results, key=itemgetter('type'))
-            totals_by_type = {}
-            totals_by_date = {}
-            for k,g in groupby(results, key=itemgetter('type')):
-                totals_by_type[k] = len(list(g))
-            results = sorted(results, key=itemgetter('date'))
-            for k,g in groupby(results, key=itemgetter('date')):
-                key = k.strftime('%Y-%m-%d')
-                count = len(list(g))
-                stored_count = totals_by_date.get(key, 0)
-                totals_by_date[key] = stored_count + count
-            resp = {
-                'status': 'ok', 
-                'results': results,
-                'code': 200,
-                'meta': {
-                    'total_results': len(results),
-                    'query': query,
-                    'totals_by_type': totals_by_type,
-                    'totals_by_date': totals_by_date,
-                }
-            }
-        if resp['code'] == 200:
-            if resp_format == 'jsonp':
-                out = make_response('%s(%s)' % (callback, json_util.dumps(resp)), resp['code'])
-            else:
-                out = make_response(json_util.dumps(resp), resp['code'])
-        else:
-            if not DEBUG:
-                sentry.captureMessage(resp)
-            out = make_response(json.dumps(resp), resp['code'])
-        return out
+        resp['code'] = results.status_code
+        resp['meta'] = results.json()['meta']
+    resp = make_response(json.dumps(resp))
+    resp.headers['Content-Type'] = 'application/json'
+    return resp
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 7777))
