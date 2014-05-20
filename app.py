@@ -25,6 +25,7 @@ env = os.environ.get('PROJECTENV')
 DEBUG = False
 
 DATABASE = 'iucr_codes.db'
+WOPR_URL = os.environ.get('WOPR_URL')
 
 def crossdomain(origin=None, methods=None, headers=None,
                 max_age=21600, attach_to_all=True,
@@ -227,7 +228,7 @@ def crime():
         },
         'results': [],
     }
-    results = requests.get('http://wopr.datamade.us/api/detail/', params=query)
+    results = requests.get('%s/api/detail/' % WOPR_URL, params=query)
     if results.status_code == 200:
         cur = get_db().cursor()
         objs = results.json()['objects']
@@ -235,12 +236,16 @@ def crime():
         for r in objs:
             cur.execute('select type from iucr where iucr = ?', (r['iucr'],))
             res = cur.fetchall()
-            if res:
-                resp['meta']['totals_by_type'][res[0]] += 1
-                r['type'] = res[0]
+            if res and res[0]['type']:
+                resp['meta']['totals_by_type'][res[0]['type']] += 1
+                r['crime_type'] = res[0]
             else:
-                res['meta']['totals_by_type']['other'] += 1
-                r['type'] = 'other'
+                resp['meta']['totals_by_type']['other'] += 1
+                r['crime_type'] = 'other'
+            r['location'] = {
+                'type': 'Point',
+                'coordinates': [r['longitude'], r['latitude']]
+            }
             resp['results'].append(r)
     else:
         resp['code'] = results.status_code
@@ -250,5 +255,5 @@ def crime():
     return resp
 
 if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 7777))
+    port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port, debug=True)
