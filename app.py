@@ -204,7 +204,11 @@ def print_page():
 @app.route('/api/crime/', methods=['GET'])
 @crossdomain(origin="*")
 def crime():
-    query = {}
+    query = {
+        'datatype': 'json',
+        'limit': 2000,
+        'order_by': 'obs_date,desc'
+    }
     for k,v in request.args.items():
         query[k] = v
     if query.get('locations'):
@@ -236,12 +240,14 @@ def crime():
         for r in objs:
             cur.execute('select type from iucr where iucr = ?', (r['iucr'],))
             res = cur.fetchall()
-            if res and res[0]['type']:
-                resp['meta']['totals_by_type'][res[0]['type']] += 1
-                r['crime_type'] = res[0]
-            else:
-                resp['meta']['totals_by_type']['other'] += 1
-                r['crime_type'] = 'other'
+            try:
+                crime_type = res[0]['type']
+            except IndexError:
+                crime_type = 'other'
+            if crime_type == 'sensitive':
+                continue
+            resp['meta']['totals_by_type'][crime_type] += 1
+            r['crime_type'] = crime_type
             r['location'] = {
                 'type': 'Point',
                 'coordinates': [r['longitude'], r['latitude']]
