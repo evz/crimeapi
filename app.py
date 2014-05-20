@@ -20,8 +20,6 @@ app = Flask(__name__)
 
 app.url_map.strict_slashes = False
 
-env = os.environ.get('PROJECTENV')
-
 DEBUG = False
 
 DATABASE = 'iucr_codes.db'
