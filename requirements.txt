@@ -4,3 +4,4 @@ raven
 blinker
 xlwt
 requests
+shapely
