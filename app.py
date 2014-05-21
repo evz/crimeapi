@@ -11,6 +11,7 @@ from operator import itemgetter
 from lookups import WORKSHEET_COLUMNS, TYPE_GROUPS
 from pdfer.core import pdfer
 import sqlite3
+from dateutil import parser
 
 from flask import Flask, request, make_response, g, current_app
 from functools import update_wrapper
@@ -130,33 +131,33 @@ def location_to_group():
 @app.route('/api/report/', methods=['GET'])
 def crime_report():
     query = urlparse(request.url).query.replace('query=', '')
-    query = json_util.loads(unquote(query))
-    results = list(crime_coll.find(query).hint([('date', -1)]))
+    query = json.loads(unquote(query))
+    results = requests.get('%s/api/detail/' % WOPR_URL, params=query)
     book = xlwt.Workbook()
-    types = ', '.join(query['type']['$in'])
-    from_date = query['date']['$gte'].strftime('%m/%d/%Y')
-    to_date = query['date']['$lte'].strftime('%m/%d/%Y')
+    from_date = query['obs_date__ge']
+    to_date = query['obs_date__le']
     sheet_title = 'Between %s and %s' % (from_date, to_date)
     sheet = book.add_sheet('Crime')
-    for i,col_name in enumerate(WORKSHEET_COLUMNS):
-        if col_name != '_id':
-            sheet.write(0, i, ' '.join(col_name.split('_')).title())
-    for i, result in enumerate(results):
-        i += 1
-        del result['_id']
-        for j, key in enumerate(WORKSHEET_COLUMNS):
-            try:
-                value = result[key]
-            except KeyError:
-                value = ''
-            if type(value) == datetime:
-                value = result[key].strftime('%Y-%m-%d')
-            if key == 'time_of_day':
-                value = result['date'].strftime('%H:%M')
-            sheet.write(i, j, value)
-    out = StringIO()
-    book.save(out)
-    resp = make_response(out.getvalue())
+    if results.status_code == 200:
+        results = results.json()['objects']
+        for i,col_name in enumerate(WORKSHEET_COLUMNS):
+            if col_name != '_id':
+                sheet.write(0, i, ' '.join(col_name.split('_')).title())
+        for i, result in enumerate(results):
+            i += 1
+            for j, key in enumerate(WORKSHEET_COLUMNS):
+                try:
+                    value = result[key]
+                except KeyError:
+                    value = ''
+                if key == 'time_of_day':
+                    value = parser.parse(result['orig_date']).strftime('%H:%M')
+                sheet.write(i, j, value)
+        out = StringIO()
+        book.save(out)
+        resp = make_response(out.getvalue())
+    else:
+        resp = make_response(results.content, results.status_code)
     resp.headers['Content-Type'] = 'application/vnd.ms-excel'
     now = datetime.now().isoformat().split('.')[0]
     resp.headers['Content-Disposition'] = 'attachment; filename=Crime_%s.xls' % now

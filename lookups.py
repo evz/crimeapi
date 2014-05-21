@@ -1,5 +1,5 @@
 WORKSHEET_COLUMNS = [
-    'date',
+    'orig_date',
     'time_of_day',
     'primary_type',
     'description',
