@@ -1,7 +1,7 @@
 # Yet another Chicago Crime API 
 
 The main purpose of building this endpoint was to power this [site](http://www.crimearound.us) 
-which needed a JSONP endpoint that could handle geospatial queries, a capability which does not 
+which needed a JSON endpoint that could handle geospatial queries, a capability which does not 
 exist in [any](https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-present/ijzp-q8t2) 
 of [the](http://api1.chicagopolice.org/clearpath/documentation) 
 [other](https://github.com/newsapps/chicagocrime/blob/master/docs/api_docs.md) web APIs that are 
@@ -10,8 +10,8 @@ I don’t actually have to maintain this anymore.
 
 ## What’s inside?
 
-The backend is MongoDB and has one big old collection that contains all of the crime data between January 1, 2001 
-and a week ago for Chicago. The stuff you get back looks kinda looks [like this](https://github.com/evz/crimeapi/blob/master/sample-response.jsonp). 
+The backend contains all of the crime data between January 1, 2001 
+and a week ago for Chicago. The stuff you get back looks kinda looks [like this](https://github.com/evz/crimeapi/blob/master/sample-response.json). 
 
 So, it basically echos the query you sent back along with some other meta and then a list of results (in this case there’s only one match).
 
@@ -19,34 +19,31 @@ An example of how you might put all this stuff together is [over here](https://g
 
 ## How this sucker works
 
-The backend is in MongoDB and I’m a Python/Django developer so I took what I knew about those two and 
-made the thing you’re looking at now. Right now it only responds with JSONP so it requires that you provide 
-a ``callback`` parameter as part of the request. Whether or not you actually use it in a client-side app after that 
-is entirely up to you. Other than that, there aren’t any required fields. 
+Right now it only responds with JSON with a rather permissive CORS header. Whether or not you actually use it in a client-side app after that is entirely up to you. There is also an endpoint at ``/api/print/`` that can generate a PDF of your query (including overlays of beat boundaries and overlays of any arbitrary polygons you send with your query). There is also an endpoint which generates an Excel file of the results of your query at ``/api/report/``. 
+
+The only required field is ``dataset_name`` and for the time being it should always be ``chicago_crimes_all``.
 
 #### Limits
 
-By default, you’re limited to 1000 records but you can pass in a ``limit`` parameter in the querystring to modify that. As of right now, there’s no upper limit but the web server is set to timeout after 60 seconds so if your query takes longer than that to fetch, you’re not going to get anything back. If you’d like to discuss this, I’d encourage [opening an issue](https://github.com/evz/crimeapi/issues). 
+By default, you’re limited to 2000 records. If you’d like to discuss this, I’d encourage [opening an issue](https://github.com/evz/crimeapi/issues). 
 
 #### Constructing a query
 
-If you’re familiar with [MongoDB](http://www.mongodb.org) and also familiar with [Tastypie](http://tastypieapi.org) this is, in the most basic sense, sort of like what might happen if you were able to wire those two things together (which I’m sure some clever person has done). The basic concept is to pass in the name of the field that you’d like to query, followed either by a filter (separated from the field name by two underscores) or by the value that you’re hoping to find in the database. In practice, that looks like this:
+If you’re familiar with [Tastypie](http://tastypieapi.org) the way you interact with this API is heavily influenced by that. The basic concept is to pass in the name of the field that you’d like to query, followed either by a filter (separated from the field name by two underscores) or by the value that you’re hoping to find in the database. In practice, that looks like this:
 
 ``` bash 
-http://crime-weather.smartchicagoapps.org/api/crime/?callback=myAwesomeCallback&[field_name]__[filter]=[value]
+http://api.crimearound.us/api/crime/?dataset_name=chicago_crimes_all&[field_name]__[filter]=[value]
 ```
 
 So, if you wanted to find all crimes reported between May 23, 2012 and June 25, 2012 it would look like this:
 
 ``` bash 
-http://crime-weather.smartchicagoapps.org/api/crime/?callback=myAwesomeCallback&date__lte=1340582400&date__gte=1337731200
+http://api.crimearound.us/api/crime/?dataset_name=chicago_crimes_all&obs_date__le=2012%2F06%2F25&obs_date__ge=2012%2F05%2F23
 ```
-
-That’s right. I want timestamps, buddy. If you’re doing this from a client app, might I suggest [moment.js](http://momentjs.com)? It’s amazing and makes this kind of stuff pretty simple.
 
 If you just want to construct a query without a filter, just leave that part out. So, if you wanted to get crimes reported on May 23, 2012 and on June 25, 2012 you’d do this:
 
-http://crime-weather.smartchicagoapps.org/api/crime/?callback=myAwesomeCallback&date=1340582400&date=1337731200
+http://api.crimearound.us/api/crime/?dataset_name=chicago_crimes_all&obs_date__le=2012%2F06%2F25&obs_date__ge=2012%2F05%2F23
 
 Although that would only return reports that were made exactly at midnight on those days (since the query is performed on both the date and time).
 
@@ -66,7 +63,7 @@ location                # GeoJSON Point of the location of the reported crime
 community_area          # Chicago Community Area where the crime was reported
 description             # Secondary description of the crime
 beat                    # Police beat
-date                    # Date and time the crime was reported as a timestamp
+obs_date                # Date the crime was reported
 ward                    # Ward where the crime was reported
 iucr                    # Illinois Uniform Crime Reporting (IUCR) Codes
 location_description    # Location description
