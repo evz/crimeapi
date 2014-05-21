@@ -169,35 +169,55 @@ def crime_report():
 @app.route('/api/print/', methods=['GET'])
 def print_page():
     query = urlparse(request.url).query.replace('query=', '')
-    params = json_util.loads(unquote(query))
-    results = list(crime_coll.find(params['query']).hint([('date', -1)]))
-    results = sorted(results, key=itemgetter('type'))
-    point_overlays = []
+    params = json.loads(unquote(query))
     print_data = {
         'dimensions': params['dimensions'],
         'zoom': params['zoom'],
         'center': params['center'],
     }
-    colors = {
-        'violent': '#7b3294',
-        'property': '#ca0020',
-        'quality': '#008837',
-    }
-    for k,g in groupby(results, key=itemgetter('type')):
-        points = [r['location']['coordinates'] for r in list(g)]
-        point_overlays.append({'color': colors[k], 'points': points})
-    print_data['overlays'] = {'point_overlays': point_overlays}
-    print_data['overlays']['beat_overlays'] = []
-    print_data['overlays']['shape_overlays'] = []
-    if 'beat' in params['query'].keys():
-        print_data['overlays']['beat_overlays'] = params['query']['beat']['$in']
-    if 'location' in params['query'].keys():
-        print_data['overlays']['shape_overlay'] = params['query']['location']['$geoWithin']['$geometry']
-    path = pdfer(print_data)
-    resp = make_response(open(path, 'rb').read())
-    resp.headers['Content-Type'] = 'application/pdf'
-    now = datetime.now().isoformat().split('.')[0]
-    resp.headers['Content-Disposition'] = 'attachment; filename=Crime_%s.pdf' % now
+    results = requests.get('%s/api/detail/' % WOPR_URL, params=params['query'])
+    if results.status_code == 200:
+        cur = get_db().cursor()
+        results = results.json()['objects']
+        for r in results:
+            cur.execute('select type from iucr where iucr = ?', (r['iucr'],))
+            res = cur.fetchall()
+            try:
+                crime_type = res[0]['type']
+            except IndexError:
+                crime_type = 'other'
+            if crime_type == 'sensitive':
+                continue
+            r['type'] = crime_type
+            r['location'] = {
+                'type': 'Point',
+                'coordinates': [r['longitude'], r['latitude']]
+            }
+        results = sorted(results, key=itemgetter('type'))
+        point_overlays = []
+        colors = {
+            'violent': '#7b3294',
+            'property': '#ca0020',
+            'quality': '#008837',
+            'other': '#000000',
+        }
+        for k,g in groupby(results, key=itemgetter('type')):
+            points = [r['location']['coordinates'] for r in list(g)]
+            point_overlays.append({'color': colors[k], 'points': points})
+        print_data['overlays'] = {'point_overlays': point_overlays}
+        print_data['overlays']['beat_overlays'] = []
+        print_data['overlays']['shape_overlays'] = []
+        if 'beat__in' in params['query'].keys():
+            print_data['overlays']['beat_overlays'] = params['query']['beat__in'].split(',')
+        if 'location' in params['query'].keys():
+            print_data['overlays']['shape_overlay'] = params['query']['location__within']
+        path = pdfer(print_data)
+        resp = make_response(open(path, 'rb').read())
+        resp.headers['Content-Type'] = 'application/pdf'
+        now = datetime.now().isoformat().split('.')[0]
+        resp.headers['Content-Disposition'] = 'attachment; filename=Crime_%s.pdf' % now
+    else:
+        resp = make_response(results.content, results.status_code)
     return resp
 
 @app.route('/api/crime/', methods=['GET'])
