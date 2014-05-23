@@ -230,6 +230,7 @@ def crime():
     }
     for k,v in request.args.items():
         query[k] = v
+    locs = None
     if query.get('locations'):
         locs = query['locations'].split(',')
         descs = []
@@ -256,6 +257,9 @@ def crime():
         cur = get_db().cursor()
         objs = results.json()['objects']
         resp['meta']['total_results'] = len(objs)
+        if locs:
+            resp['meta']['query']['locations'] = ','.join(locs)
+            del resp['meta']['query']['location_description__in']
         for r in objs:
             cur.execute('select type from iucr where iucr = ?', (r['iucr'],))
             res = cur.fetchall()
