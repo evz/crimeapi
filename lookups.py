@@ -14,6 +14,14 @@ WORKSHEET_COLUMNS = [
 ]
 
 TYPE_GROUPS = {
+    'common_locations': [
+        'STREET',
+        'RESIDENCE',
+        'SIDEWALK',
+        'APARTMENT',
+        'PARKING LOT/GARAGE(NON.RESID.)',
+        'ALLEY',
+    ],
     'airport': [
         'AIRPORT/AIRCRAFT', 
         'AIRPORT TERMINAL UPPER LEVEL - SECURE AREA',
@@ -133,8 +141,6 @@ TYPE_GROUPS = {
     ],
     'library': ['LIBRARY'],
     'indoors_residence': [
-        'RESIDENCE',
-        'APARTMENT',
         'RESIDENCE PORCH/HALLWAY',
         'HOUSE',
         'PORCH',
@@ -148,9 +154,6 @@ TYPE_GROUPS = {
     'other': ['OTHER'],
     'outdoors_public': [
         'RIVER',
-        'STREET',
-        'SIDEWALK',
-        'PARKING LOT/GARAGE(NON.RESID.)',
         'ALLEY',
         'PARK PROPERTY',
         'HIGHWAY/EXPRESSWAY',
