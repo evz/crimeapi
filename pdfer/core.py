@@ -117,7 +117,7 @@ def pdfer(data, page_size='letter'):
                 ctx.line_to(x,y)
             ctx.close_path()
             ctx.stroke()
-        ctx.set_line_width(3.0)
+        ctx.set_line_width(2.0)
         for point_overlay in overlays.get('point_overlays'):
             color = hex_to_rgb(point_overlay['color'])
             for p in point_overlay['points']:
@@ -127,9 +127,9 @@ def pdfer(data, page_size='letter'):
                         nx, ny = get_pixel_coords(p, grid['zoom'], bmin_rx, bmin_ry)
                         red, green, blue = [float(c) for c in color]
                         ctx.set_source_rgba(red/255, green/255, blue/255, 0.6)
-                        ctx.arc(nx, ny, 10.0, 0, 50) # args: center-x, center-y, radius, ?, ?
+                        ctx.arc(nx, ny, 5.0, 0, 50) # args: center-x, center-y, radius, ?, ?
                         ctx.fill()
-                        ctx.arc(nx, ny, 10.0, 0, 50)
+                        ctx.arc(nx, ny, 5.0, 0, 50)
                         ctx.stroke()
         im.write_to_png(outp_name)
     scale = 1

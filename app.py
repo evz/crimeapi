@@ -179,6 +179,7 @@ def print_page():
     if results.status_code == 200:
         cur = get_db().cursor()
         results = results.json()['objects']
+        rs = []
         for r in results:
             cur.execute('select type from iucr where iucr = ?', (r['iucr'],))
             res = cur.fetchall()
@@ -193,15 +194,16 @@ def print_page():
                 'type': 'Point',
                 'coordinates': [r['longitude'], r['latitude']]
             }
-        results = sorted(results, key=itemgetter('type'))
+            rs.append(r)
+        rs = sorted(rs, key=itemgetter('type'))
         point_overlays = []
         colors = {
-            'violent': '#7b3294',
-            'property': '#ca0020',
-            'quality': '#008837',
-            'other': '#000000',
+            'violent': '#984ea3',
+            'property': '#ff7f00',
+            'quality': '#4daf4a',
+            'other': '#377eb8',
         }
-        for k,g in groupby(results, key=itemgetter('type')):
+        for k,g in groupby(rs, key=itemgetter('type')):
             points = [r['location']['coordinates'] for r in list(g)]
             point_overlays.append({'color': colors[k], 'points': points})
         print_data['overlays'] = {'point_overlays': point_overlays}
