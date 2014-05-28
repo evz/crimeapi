@@ -8,7 +8,7 @@ import xlwt
 from cStringIO import StringIO
 from itertools import groupby
 from operator import itemgetter
-from lookups import WORKSHEET_COLUMNS, TYPE_GROUPS
+from lookups import WORKSHEET_COLUMNS, TYPE_GROUPS, COMM_AREA
 from pdfer.core import pdfer
 import sqlite3
 from dateutil import parser
@@ -277,6 +277,7 @@ def crime():
                 'type': 'Point',
                 'coordinates': [r['longitude'], r['latitude']]
             }
+            r['community_area_name'] = COMM_AREA[str(r['community_area']).zfill(2)]
             resp['results'].append(r)
     else:
         resp['code'] = results.status_code
