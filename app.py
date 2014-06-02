@@ -83,6 +83,21 @@ def close_connection(exception):
     if db is not None:
         db.close()
 
+@app.route('/api/iucr-codes/')
+@crossdomain(origin="*")
+def iucr_codes():
+    cur = get_db().cursor()
+    q = 'select * from iucr'
+    args = ()
+    if request.args.get('fbi_code'):
+        q = '%s where fbi_code = ?' % q
+        args = (request.args['fbi_code'],)
+    cur.execute(q, args)
+    res = cur.fetchall()
+    resp = make_response(json.dumps(res))
+    resp.headers['Content-Type'] = 'application/json'
+    return resp
+
 @app.route('/api/iucr-to-type/')
 @crossdomain(origin="*")
 def iucr_to_type():
