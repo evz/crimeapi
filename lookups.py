@@ -1,3 +1,5 @@
+from collections import OrderedDict
+
 WORKSHEET_COLUMNS = [
     'orig_date',
     'time_of_day',
@@ -93,16 +95,16 @@ COMM_AREA = {
     "75": "Morgan Park",
 }
 
-TYPE_GROUPS = {
-    'common_locations': [
+TYPE_GROUPS = OrderedDict([
+    ('common_locations', [
         'STREET',
         'RESIDENCE',
         'SIDEWALK',
         'APARTMENT',
         'PARKING LOT/GARAGE(NON.RESID.)',
         'ALLEY',
-    ],
-    'airport': [
+    ]),
+    ('airport', [
         'AIRPORT/AIRCRAFT', 
         'AIRPORT TERMINAL UPPER LEVEL - SECURE AREA',
         'AIRPORT TERMINAL LOWER LEVEL - NON-SECURE AREA',
@@ -117,32 +119,32 @@ TYPE_GROUPS = {
         'AIRPORT EXTERIOR - SECURE AREA',
         'AIRPORT TRANSPORTATION SYSTEM (ATS)',
         'AIRPORT TERMINAL MEZZANINE - NON-SECURE AREA',
-    ],
-    'business_banking': [
+    ]),
+    ('business_banking', [
         'BANK',
         'CURRENCY EXCHANGE',
         'ATM (AUTOMATIC TELLER MACHINE)',
         'CREDIT UNION',
         'SAVINGS AND LOAN',
-    ],
-    'business_eatery': [
+    ]),
+    ('business_eatery', [
         'RESTAURANT',
         'BANQUET HALL',
-    ],
-    'business_hotel_motel': [
+    ]),
+    ('business_hotel_motel', [
         'HOTEL/MOTEL',
         'HOTEL',
         'MOTEL',
         'ROOMING HOUSE',
-    ],
-    'business_liquor': [
+    ]),
+    ('business_liquor', [
         'BAR OR TAVERN',
         'TAVERN/LIQUOR STORE',
         'TAVERN',
         'CLUB',
         'LIQUOR STORE',
-    ],
-    'business_office': [
+    ]),
+    ('business_office', [
         'COMMERCIAL / BUSINESS OFFICE',
         'CONSTRUCTION SITE',
         'WAREHOUSE',
@@ -156,8 +158,8 @@ TYPE_GROUPS = {
         'JUNK YARD/GARBAGE DUMP',
         'LIVERY AUTO',
         'TRUCKING TERMINAL',
-    ],
-    'business_retail': [
+    ]),
+    ('business_retail', [
         'SMALL RETAIL STORE',
         'GROCERY FOOD STORE',
         'DEPARTMENT STORE',
@@ -181,8 +183,8 @@ TYPE_GROUPS = {
         'BARBER SHOP/BEAUTY SALON',
         'LAUNDRY ROOM',
         'CLEANING STORE',
-    ],
-    'cha': [
+    ]),
+    ('cha', [
         'CHA PARKING LOT/GROUNDS',
         'CHA APARTMENT',
         'CHA HALLWAY/STAIRWELL/ELEVATOR',
@@ -194,8 +196,8 @@ TYPE_GROUPS = {
         'CHA BREEZEWAY',
         'CHA PLAY LOT',
         'CHA ELEVATOR',
-    ],
-    'cta': [
+    ]),
+    ('cta', [
         'CTA PLATFORM',
         'CTA BUS',
         'CTA TRAIN',
@@ -204,23 +206,23 @@ TYPE_GROUPS = {
         'CTA  L  PLATFORM',
         'CTA PROPERTY',
         'CTA  L  TRAIN',
-    ],
-    'gov': [
+    ]),
+    ('gov', [
         'POLICE FACILITY/VEH PARKING LOT',
         'GOVERNMENT BUILDING/PROPERTY',
         'FIRE STATION',
         'JAIL / LOCK-UP FACILITY',
         'FEDERAL BUILDING',
         'COUNTY JAIL',
-    ],
-    'hospital': [
+    ]),
+    ('hospital', [
         'HOSPITAL BUILDING/GROUNDS',
         'NURSING HOME/RETIREMENT HOME',
         'HOSPITAL',
         'NURSING HOME',
-    ],
-    'library': ['LIBRARY'],
-    'indoors_residence': [
+    ]),
+    ('library', ['LIBRARY']),
+    ('indoors_residence', [
         'RESIDENCE PORCH/HALLWAY',
         'HOUSE',
         'PORCH',
@@ -230,9 +232,9 @@ TYPE_GROUPS = {
         'VESTIBULE',
         'COACH HOUSE',
         'STAIRWELL'
-    ],
-    'other': ['OTHER'],
-    'outdoors_public': [
+    ]),
+    ('other', ['OTHER']),
+    ('outdoors_public', [
         'RIVER',
         'ALLEY',
         'PARK PROPERTY',
@@ -248,22 +250,22 @@ TYPE_GROUPS = {
         'PRAIRIE',
         'RIVER BANK',
         'GANGWAY',
-    ],
-    'outdoors_residence': [
+    ]),
+    ('outdoors_residence', [
         'RESIDENCE-GARAGE',
         'RESIDENTIAL YARD (FRONT/BACK)',
         'DRIVEWAY - RESIDENTIAL',
         'YARD',
         'DRIVEWAY',
-    ],
-    'worship': [
+    ]),
+    ('worship', [
         'CHURCH/SYNAGOGUE/PLACE OF WORSHIP',
         'CEMETARY',
         'CHURCH',
         'CHURCH PROPERTY',
         'FUNERAL PARLOR',
-    ],
-    'school': [
+    ]),
+    ('school', [
         'SCHOOL, PUBLIC, BUILDING',
         'SCHOOL, PUBLIC, GROUNDS',
         'SCHOOL, PRIVATE, BUILDING',
@@ -275,18 +277,18 @@ TYPE_GROUPS = {
         'PUBLIC HIGH SCHOOL',
         'YMCA',
         'PUBLIC GRAMMAR SCHOOL',
-    ],
-    'transportation': [
+    ]),
+    ('transportation', [
         'OTHER RAILROAD PROP / TRAIN DEPOT',
         'OTHER COMMERCIAL TRANSPORTATION',
         'RAILROAD PROPERTY',
-    ],
-    'vacant': [
+    ]),
+    ('vacant', [
         'VACANT LOT',
         'VACANT LOT/LAND',
         'ABANDONED BUILDING',
-    ],
-    'vehicle': [
+    ]),
+    ('vehicle', [
         'VEHICLE NON-COMMERCIAL',
         'TAXICAB',
         'VEHICLE-COMMERCIAL',
@@ -296,6 +298,6 @@ TYPE_GROUPS = {
         'TRUCK',
         'TAXI CAB',
         'TRAILER',
-    ],
-}
+    ]),
+])
 

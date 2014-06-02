@@ -113,7 +113,7 @@ def type_to_iucr():
 @app.route('/api/group-to-location/')
 @crossdomain(origin="*")
 def group_to_location():
-    resp = make_response(json.dumps(TYPE_GROUPS))
+    resp = make_response(json.dumps(TYPE_GROUPS, sort_keys=False))
     resp.headers['Content-Type'] = 'application/json'
     return resp
 
