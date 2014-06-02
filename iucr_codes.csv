@@ -1,444 +1,410 @@
-fbi_code,iucr,primary_type,description,type,index_code
-01A,0110,HOMICIDE,FIRST DEGREE MURDER,violent,I
-01B,0141,HOMICIDE,INVOLUNTARY MANSLAUGHTER,violent,N
-01B,0142,HOMICIDE,RECKLESS HOMICIDE,violent,N
-02,0261,CRIM SEXUAL ASSAULT,AGGRAVATED: HANDGUN,violent,I
-02,0262,CRIM SEXUAL ASSAULT,AGGRAVATED: OTHER FIREARM,violent,I
-02,0263,CRIM SEXUAL ASSAULT,AGGRAVATED: KNIFE/CUT INSTR,violent,I
-02,0264,CRIM SEXUAL ASSAULT,AGGRAVATED: OTHER DANG WEAPON,violent,I
-02,0265,CRIM SEXUAL ASSAULT,AGGRAVATED: OTHER,violent,I
-02,0266,CRIM SEXUAL ASSAULT,PREDATORY,violent,I
-02,0271,CRIM SEXUAL ASSAULT,ATTEMPT AGG: HANDGUN,violent,I
-02,0272,CRIM SEXUAL ASSAULT,ATTEMPT AGG: OTHER FIREARM,violent,I
-02,0273,CRIM SEXUAL ASSAULT,ATTEMPT AGG: KNIFE/CUT INSTR,violent,I
-02,0274,CRIM SEXUAL ASSAULT,ATTEMPT AGG: OTHER DANG WEAPON,violent,I
-02,0275,CRIM SEXUAL ASSAULT,ATTEMPT AGG: OTHER,violent,I
-02,0281,CRIM SEXUAL ASSAULT,NON-AGGRAVATED,violent,I
-02,0291,CRIM SEXUAL ASSAULT,ATTEMPT NON-AGGRAVATED,violent,I
-03,0312,ROBBERY,ARMED:KNIFE/CUTTING INSTRUMENT,violent,I
-03,0313,ROBBERY,ARMED: OTHER DANGEROUS WEAPON,violent,I
-03,031A,ROBBERY,ARMED: HANDGUN,violent,I
-03,031B,ROBBERY,ARMED: OTHER FIREARM,violent,I
-03,0320,ROBBERY,STRONGARM - NO WEAPON,violent,I
-03,0325,ROBBERY,VEHICULAR HIJACKING,violent,I
-03,0326,ROBBERY,AGGRAVATED VEHICULAR HIJACKING,violent,I
-03,0330,ROBBERY,AGGRAVATED,violent,I
-03,0331,ROBBERY,ATTEMPT: AGGRAVATED,violent,I
-03,0334,ROBBERY,ATTEMPT: ARMED-KNIFE/CUT INSTR,violent,I
-03,0337,ROBBERY,ATTEMPT: ARMED-OTHER DANG WEAP,violent,I
-03,033A,ROBBERY,ATTEMPT: ARMED-HANDGUN,violent,I
-03,033B,ROBBERY,ATTEMPT: ARMED-OTHER FIREARM,violent,I
-03,0340,ROBBERY,ATTEMPT: STRONGARM-NO WEAPON,violent,I
-04B,041A,BATTERY,AGGRAVATED: HANDGUN,violent,I
-15,041A,BATTERY,AGGRAVATED: HANDGUN,violent,I
-04B,041B,BATTERY,AGGRAVATED: OTHER FIREARM,violent,I
-04B,0420,BATTERY,AGGRAVATED:KNIFE/CUTTING INSTR,violent,I
-04B,0430,BATTERY,AGGRAVATED: OTHER DANG WEAPON,violent,I
-08B,0440,BATTERY,AGG: HANDS/FIST/FEET NO/MINOR INJURY,violent,N
-04B,0450,BATTERY,AGGRAVATED PO: HANDGUN,violent,I
-04B,0451,BATTERY,AGGRAVATED PO: OTHER FIREARM,violent,I
-04B,0452,BATTERY,AGGRAVATED PO: KNIFE/CUT INSTR,violent,I
-04B,0453,BATTERY,AGGRAVATED PO: OTHER DANG WEAP,violent,I
-08B,0454,BATTERY,AGG PO HANDS NO/MIN INJURY,violent,N
-08B,0460,BATTERY,SIMPLE,violent,N
-04B,0461,BATTERY,AGG PO HANDS ETC SERIOUS INJ,violent,I
-04B,0462,BATTERY,AGG PRO EMP HANDS SERIOUS INJ,violent,I
-24,0470,PUBLIC PEACE VIOLATION,RECKLESS CONDUCT,other,N
-08B,0475,BATTERY,OF UNBORN CHILD,violent,N
-04B,0479,BATTERY,AGG: HANDS/FIST/FEET SERIOUS INJURY,violent,I
-04B,0480,BATTERY,AGG PRO.EMP: HANDGUN,violent,I
-04B,0481,BATTERY,AGG PRO.EMP: OTHER FIREARM,violent,I
-04B,0482,BATTERY,AGG PRO.EMP:KNIFE/CUTTING INST,violent,I
-04B,0483,BATTERY,AGG PRO.EMP: OTHER DANG WEAPON,violent,I
-08B,0484,BATTERY,PRO EMP HANDS NO/MIN INJURY,violent,N
-04B,0485,BATTERY,AGGRAVATED OF A CHILD,violent,I
-08B,0486,BATTERY,DOMESTIC BATTERY SIMPLE,violent,N
-04B,0487,BATTERY,AGGRAVATED OF A UNBORN CHILD,violent,N
-08B,0487,BATTERY,AGGRAVATED OF A UNBORN CHILD,violent,N
-04B,0488,BATTERY,AGGRAVATED DOMESTIC BATTERY: HANDGUN,violent,I
-04B,0489,BATTERY,AGGRAVATED DOMESTIC BATTERY: OTHER FIREARM,violent,I
-04B,0490,RITUALISM,AGG RITUAL MUT:HANDGUN,other,I
-04B,0492,RITUALISM,AGG RITUAL MUT:KNIFE/CUTTING I,other,I
-04B,0493,RITUALISM,AGG RITUAL MUT:OTH DANG WEAPON,other,I
-08B,0494,RITUALISM,AGG RIT MUT: HANDS/FIST/FEET NO/MINOR INJURY,other,N
-04B,0495,BATTERY,AGGRAVATED OF A SENIOR CITIZEN,violent,I
-04B,0496,BATTERY,AGGRAVATED DOMESTIC BATTERY: KNIFE/CUTTING INST,violent,I
-04B,0497,BATTERY,AGGRAVATED DOMESTIC BATTERY: OTHER DANG WEAPON,violent,I
-04B,0498,BATTERY,AGGRAVATED DOMESTIC BATTERY: HANDS/FIST/FEET SERIOUS INJURY,violent,I
-04B,0499,BATTERY,AGGRAVATED DOMESTIC BATTERY,,
-04B,0510,RITUALISM,AGG RIT MUT: HANDS/FIST/FEET SERIOUS INJURY,other,I
-04A,051A,ASSAULT,AGGRAVATED: HANDGUN,violent,I
-04A,051B,ASSAULT,AGGRAVATED: OTHER FIREARM,violent,I
-04A,0520,ASSAULT,AGGRAVATED:KNIFE/CUTTING INSTR,violent,I
-04A,0530,ASSAULT,AGGRAVATED: OTHER DANG WEAPON,violent,I
-08A,0545,ASSAULT,PRO EMP HANDS NO/MIN INJURY,violent,N
-04A,0550,ASSAULT,AGGRAVATED PO: HANDGUN,violent,I
-04A,0551,ASSAULT,AGGRAVATED PO: OTHER FIREARM,violent,I
-04A,0552,ASSAULT,AGGRAVATED PO:KNIFE/CUT INSTR,violent,I
-04A,0553,ASSAULT,AGGRAVATED PO: OTHER DANG WEAP,violent,I
-08A,0554,ASSAULT,AGG PO HANDS NO/MIN INJURY,violent,N
-04A,0555,ASSAULT,AGG PRO.EMP: HANDGUN,violent,I
-04A,0556,ASSAULT,AGG PRO.EMP: OTHER FIREARM,violent,I
-04A,0557,ASSAULT,AGG PRO.EMP:KNIFE/CUTTING INST,violent,I
-04A,0558,ASSAULT,AGG PRO.EMP: OTHER DANG WEAPON,violent,I
-08A,0560,ASSAULT,SIMPLE,violent,N
-08A,0580,STALKING,SIMPLE,sensitive,N
-08A,0581,STALKING,AGGRAVATED,sensitive,N
-08A,0583,STALKING,CYBERSTALKING,sensitive,N
-26,0584,STALKING,VIOLATION OF STALKING NO CONTACT ORDER,,
-05,0610,BURGLARY,FORCIBLE ENTRY,property,I
-05,0620,BURGLARY,UNLAWFUL ENTRY,property,I
-05,0630,BURGLARY,ATTEMPT FORCIBLE ENTRY,property,I
-05,0650,BURGLARY,HOME INVASION,property,I
-06,0810,THEFT,OVER $300,property,I
-06,0810,THEFT,OVER $500,property,I
-06,0820,THEFT,$300 AND UNDER,property,I
-06,0820,THEFT,$500 AND UNDER,property,I
-06,0840,THEFT,FINANCIAL ID THEFT: OVER $300,property,I
-06,0841,THEFT,FINANCIAL ID THEFT:$300 &UNDER,property,I
-06,0842,THEFT,AGG: FINANCIAL ID THEFT,property,I
-06,0843,THEFT,ATTEMPT FINANCIAL IDENTITY THEFT,property,I
-06,0850,THEFT,ATTEMPT THEFT,property,I
-06,0860,THEFT,RETAIL THEFT,property,I
-06,0865,THEFT,DELIVERY CONTAINER THEFT,property,I
-06,0870,THEFT,POCKET-PICKING,property,I
-06,0880,THEFT,PURSE-SNATCHING,property,I
-06,0890,THEFT,FROM BUILDING,property,I
-06,0895,THEFT,FROM COIN-OP MACHINE/DEVICE,property,I
-07,0910,MOTOR VEHICLE THEFT,AUTOMOBILE,property,I
-07,0915,MOTOR VEHICLE THEFT,"TRUCK, BUS, MOTOR HOME",property,I
-07,0917,MOTOR VEHICLE THEFT,"CYCLE, SCOOTER, BIKE W-VIN",property,I
-07,0918,MOTOR VEHICLE THEFT,"CYCLE, SCOOTER, BIKE NO VIN",property,I
-07,0920,MOTOR VEHICLE THEFT,ATT: AUTOMOBILE,property,I
-07,0925,MOTOR VEHICLE THEFT,"ATT: TRUCK, BUS, MOTOR HOME",property,I
-07,0927,MOTOR VEHICLE THEFT,"ATTEMPT: CYCLE, SCOOTER, BIKE W-VIN",property,I
-07,0928,MOTOR VEHICLE THEFT,"ATTEMPT: CYCLE, SCOOTER, BIKE NO VIN",property,I
-07,0930,MOTOR VEHICLE THEFT,THEFT/RECOVERY: AUTOMOBILE,property,I
-07,0935,MOTOR VEHICLE THEFT,"THEFT/RECOVERY: TRUCK,BUS,MHOME",property,I
-07,0937,MOTOR VEHICLE THEFT,"THEFT/RECOVERY: CYCLE, SCOOTER, BIKE W-VIN",property,I
-07,0938,MOTOR VEHICLE THEFT,"THEFT/RECOVERY: CYCLE, SCOOTER, BIKE NO VIN",property,I
-09,1010,ARSON,BY EXPLOSIVE,property,I
-09,1020,ARSON,BY FIRE,property,I
-09,1025,ARSON,AGGRAVATED,property,I
-26,1030,ARSON,POS: EXPLOSIVE/INCENDIARY DEV,property,N
-26,1035,ARSON,POS: CHEMICAL/DRY-ICE DEVICE,property,N
-09,1090,ARSON,ATTEMPT ARSON,property,I
-11,1110,DECEPTIVE PRACTICE,BOGUS CHECK,other,N
-10,1120,DECEPTIVE PRACTICE,FORGERY,other,N
-10,1121,DECEPTIVE PRACTICE,COUNTERFEITING DOCUMENT,other,N
-10,1122,DECEPTIVE PRACTICE,COUNTERFEIT CHECK,other,N
-11,1130,DECEPTIVE PRACTICE,FRAUD OR CONFIDENCE GAME,other,N
-11,1135,DECEPTIVE PRACTICE,INSURANCE FRAUD,other,N
-12,1140,DECEPTIVE PRACTICE,EMBEZZLEMENT,other,N
-11,1150,DECEPTIVE PRACTICE,CREDIT CARD FRAUD,other,N
-11,1151,DECEPTIVE PRACTICE,ILLEGAL POSSESSION CASH CARD,other,N
-11,1152,DECEPTIVE PRACTICE,ILLEGAL USE CASH CARD,other,N
-11,1153,DECEPTIVE PRACTICE,FINANCIAL IDENTITY THEFT OVER $ 300,other,N
-11,1154,DECEPTIVE PRACTICE,FINANCIAL IDENTITY THEFT $300 AND UNDER,other,N
-11,1155,DECEPTIVE PRACTICE,AGGRAVATED FINANCIAL IDENTITY THEFT,other,N
-11,1156,DECEPTIVE PRACTICE,ATTEMPT - FINANCIAL IDENTITY THEFT,other,N
-11,1160,DECEPTIVE PRACTICE,ALTER COINS,other,N
-11,1170,DECEPTIVE PRACTICE,IMPERSONATION,other,N
-11,1185,DECEPTIVE PRACTICE,DECEPTIVE COLLECTION PRACTICES,other,N
-11,1195,DECEPTIVE PRACTICE,FINAN EXPLOIT-ELDERLY/DISABLED,other,N
-13,1200,DECEPTIVE PRACTICE,STOLEN PROP: BUY/RECEIVE/POS.,other,N
-11,1205,DECEPTIVE PRACTICE,"THEFT BY LESSEE,NON-VEH",other,N
-11,1206,DECEPTIVE PRACTICE,"THEFT BY LESSEE,MOTOR VEH",other,N
-11,1210,DECEPTIVE PRACTICE,THEFT OF LABOR/SERVICES,other,N
-11,1220,DECEPTIVE PRACTICE,THEFT OF LOST/MISLAID PROP,other,N
-11,1230,DECEPTIVE PRACTICE,POSS. KEYS OR DEV.TO COIN MACH,other,N
-11,1235,DECEPTIVE PRACTICE,UNLAWFUL USE OF RECORDED SOUND,other,N
-11,1240,DECEPTIVE PRACTICE,UNLAWFUL USE OF A COMPUTER,other,N
-11,1241,DECEPTIVE PRACTICE,AGGRAVATED COMPUTER TAMPERING,other,N
-11,1242,DECEPTIVE PRACTICE,COMPUTER FRAUD,other,N
-11,1245,DECEPTIVE PRACTICE,PAY TV SERVICE OFFENSES,other,N
-11,1255,DECEPTIVE PRACTICE,UNIDENTIFIABLE RECORDING SOUND,other,N
-11,1260,DECEPTIVE PRACTICE,LIBRARY THEFT,other,N
-11,1261,DECEPTIVE PRACTICE,UNAUTHORIZED VIDEOTAPING,other,N
-14,1265,CRIMINAL DAMAGE,LIBRARY VANDALISM,quality,N
-14,1305,CRIMINAL DAMAGE,CRIMINAL DEFACEMENT,quality,N
-14,1310,CRIMINAL DAMAGE,TO PROPERTY,quality,N
-14,1320,CRIMINAL DAMAGE,TO VEHICLE,quality,N
-26,1330,CRIMINAL TRESPASS,TO LAND,other,N
-26,1335,CRIMINAL TRESPASS,TO AIRPORT,other,N
-14,1340,CRIMINAL DAMAGE,TO STATE SUP PROP,quality,N
-14,1345,CRIMINAL DAMAGE,TO CITY OF CHICAGO PROPERTY,quality,N
-26,1350,CRIMINAL TRESPASS,TO STATE SUP LAND,other,N
-26,1360,CRIMINAL TRESPASS,TO VEHICLE,other,N
-26,1365,CRIMINAL TRESPASS,TO RESIDENCE,other,N
-14,1370,CRIMINAL DAMAGE,TO FIRE FIGHT.APP.EQUIP,quality,N
-14,1375,CRIMINAL DAMAGE,INSTITUTIONAL VANDALISM,quality,N
-15,141A,WEAPONS VIOLATION,UNLAWFUL USE HANDGUN,other,N
-15,141B,WEAPONS VIOLATION,UNLAWFUL USE OTHER FIREARM,other,N
-15,141C,WEAPONS VIOLATION,UNLAWFUL USE OTHER DANG WEAPON,other,N
-15,142A,WEAPONS VIOLATION,UNLAWFUL SALE HANDGUN,other,N
-15,142B,WEAPONS VIOLATION,UNLAWFUL SALE OTHER FIREARM,other,N
-15,1435,WEAPONS VIOLATION,POS: FIREARM AT SCHOOL,other,N
-15,1435,WEAPONS VIOLATION,UNLAWFUL SALE/DELIVERY OF FIREARM AT SCHOOL,other,N
-15,143A,WEAPONS VIOLATION,UNLAWFUL POSS OF HANDGUN,other,N
-15,143B,WEAPONS VIOLATION,UNLAWFUL POSS OTHER FIREARM,other,N
-15,143C,WEAPONS VIOLATION,UNLAWFUL POSS AMMUNITION,other,N
-15,1440,WEAPONS VIOLATION,REGISTER OF SALES BY DEALER,other,N
-15,1450,WEAPONS VIOLATION,DEFACE IDENT MARKS OF FIREARM,other,N
-15,1460,WEAPONS VIOLATION,POSS FIREARM/AMMO:NO FOID CARD,other,N
-15,1476,WEAPONS VIOLATION,USE OF METAL PIERCING BULLETS,other,N
-15,1477,WEAPONS VIOLATION,RECKLESS FIREARM DISCHARGE,other,N
-15,1480,CONCEALED CARRY LICENSE VIOLATION,OTHER,,
-16,1505,PROSTITUTION,CALL OPERATION,quality,N
-16,1506,PROSTITUTION,SOLICIT ON PUBLIC WAY,quality,N
-16,1507,PROSTITUTION,SOLICIT OFF PUBLIC WAY,quality,N
-16,1510,PROSTITUTION,CAB OPERATION,quality,N
-16,1511,PROSTITUTION,IN TAVERN,quality,N
-16,1512,PROSTITUTION,SOLICIT FOR PROSTITUTE,quality,N
-16,1513,PROSTITUTION,SOLICIT FOR BUSINESS,quality,N
-16,1515,PROSTITUTION,PANDERING,quality,N
-16,1520,PROSTITUTION,KEEP PLACE OF PROSTITUTION,quality,N
-16,1521,PROSTITUTION,KEEP PLACE OF JUV PROSTITUTION,quality,N
-16,1525,PROSTITUTION,PATRONIZING A PROSTITUTE,quality,N
-16,1526,PROSTITUTION,PATRONIZE JUVENILE PROSTITUTE,quality,N
-16,1530,PROSTITUTION,PIMPING,quality,N
-16,1531,PROSTITUTION,JUVENILE PIMPING,quality,N
-17,1535,OBSCENITY,OBSCENITY,other,N
-17,1536,PUBLIC INDECENCY,LICENSED PREMISE,other,N
-16,1537,OFFENSE INVOLVING CHILDREN,POS: PORNOGRAPHIC PRINT,sensitive,N
-17,1540,OBSCENITY,OBSCENE MATTER,other,N
-17,1541,OBSCENITY,SALE/DIST OBSCENE MAT TO MINOR,other,N
-17,1544,SEX OFFENSE,SEXUAL EXPLOITATION OF A CHILD,sensitive,N
-16,1549,PROSTITUTION,OTHER PROSTITUTION OFFENSE,quality,N
-17,1562,SEX OFFENSE,AGG CRIMINAL SEXUAL ABUSE,sensitive,N
-17,1563,SEX OFFENSE,CRIMINAL SEXUAL ABUSE,sensitive,N
-17,1564,SEX OFFENSE,CRIMINAL TRANSMISSION OF HIV,sensitive,N
-17,1565,SEX OFFENSE,INDECENT SOLICITATION/CHILD,sensitive,N
-17,1566,SEX OFFENSE,INDECENT SOLICITATION/ADULT,sensitive,N
-17,1570,SEX OFFENSE,PUBLIC INDECENCY,other,N
-17,1572,SEX OFFENSE,ADULTRY,other,N
-17,1574,SEX OFFENSE,FORNICATION,other,N
-17,1576,SEX OFFENSE,BIGAMY,other,N
-17,1578,SEX OFFENSE,MARRYING A BIGAMIST,other,N
-17,1580,SEX OFFENSE,SEX RELATION IN FAMILY,sensitive,N
-17,1582,OFFENSE INVOLVING CHILDREN,CHILD PORNOGRAPHY,sensitive,N
-17,1585,SEX OFFENSE,OTHER,other,N
-17,1590,SEX OFFENSE,ATT AGG CRIMINAL SEXUAL ABUSE,sensitive,N
-19,1610,GAMBLING,BOOKMAKING/HORSES,other,N
-19,1611,GAMBLING,BOOKMAKING/SPORTS,other,N
-19,1620,GAMBLING,BOLITA OR BOLI PUL/OFFICE,other,N
-19,1621,GAMBLING,BOLITA OR BOLI PUL/RUNNER,other,N
-19,1622,GAMBLING,BOLITA OR BOLI PUL/WRITER,other,N
-19,1624,GAMBLING,LOTTERY/PARI-MUTUEL,other,N
-19,1625,GAMBLING,NATIONAL LOTTERY,other,N
-19,1626,GAMBLING,ILLEGAL ILL LOTTERY,other,N
-19,1627,GAMBLING,LOTTERY/OTHER,other,N
-19,1630,GAMBLING,WIREROOM/HORSES,other,N
-19,1631,GAMBLING,WIREROOM/SPORTS,other,N
-19,1633,GAMBLING,SPORTS TAMPERING,other,N
-19,1640,GAMBLING,REGISTER FED GAMBLING STAMP,other,N
-19,1650,GAMBLING,VIOL CHARITABLE GAME ACT,other,N
-19,1651,GAMBLING,GAME/CARDS,other,N
-19,1661,GAMBLING,GAME/DICE,other,N
-19,1670,GAMBLING,GAME/AMUSEMENT DEVICE,other,N
-19,1680,GAMBLING,OTHER,other,N
-19,1681,GAMBLING,LOTTERY/PARLAY CARDS,other,N
-19,1682,OTHER OFFENSE,ANIMAL FIGHTING,other,N
-19,1697,GAMBLING,POLICY/OTHER,other,N
-26,1710,OFFENSE INVOLVING CHILDREN,ENDANGERING LIFE/HEALTH CHILD,sensitive,N
-26,1715,OFFENSE INVOLVING CHILDREN,SALE TOBACCO PRODUCTS TO MINOR,other,N
-26,1715,OFFENSES INVOLVING CHILDREN,SALE TOBACCO PRODUCTS TO MINOR,other,N
-20,1720,OFFENSE INVOLVING CHILDREN,CONTRIBUTE DELINQUENCY OF A CHILD,sensitive,N
-26,1725,OFFENSE INVOLVING CHILDREN,CONTRIBUTE CRIM DELINQUENCY JUVENILE,sensitive,N
-26,1725,OFFENSES INVOLVING CHILDREN,CONTRIBUTE CRIM DELINQUENCY JUVENILE,sensitive,N
-20,1750,OFFENSE INVOLVING CHILDREN,CHILD ABUSE,sensitive,N
-20,1751,OFFENSE INVOLVING CHILDREN,CRIM SEX ABUSE BY FAM MEMBER,sensitive,N
-20,1752,OFFENSE INVOLVING CHILDREN,AGG CRIM SEX ABUSE FAM MEMBER,sensitive,N
-02,1753,OFFENSE INVOLVING CHILDREN,SEX ASSLT OF CHILD BY FAM MBR,sensitive,I
-02,1754,OFFENSE INVOLVING CHILDREN,AGG SEX ASSLT OF CHILD FAM MBR,sensitive,I
-26,1755,OFFENSE INVOLVING CHILDREN,CHILD ABANDONMENT,sensitive,N
-26,1755,OFFENSES INVOLVING CHILDREN,CHILD ABANDONMENT,sensitive,N
-26,1780,OFFENSE INVOLVING CHILDREN,OTHER OFFENSE,sensitive,N
-20,1790,OFFENSE INVOLVING CHILDREN,CHILD ABDUCTION,sensitive,N
-20,1791,OFFENSE INVOLVING CHILDREN,HARBOR RUNAWAY,sensitive,N
-20,1792,KIDNAPPING,CHILD ABDUCTION/STRANGER,sensitive,N
-18,1811,NARCOTICS,POSS: CANNABIS 30GMS OR LESS,quality,N
-18,1812,NARCOTICS,POSS: CANNABIS MORE THAN 30GMS,quality,N
-18,1821,NARCOTICS,MANU/DEL:CANNABIS 10GM OR LESS,quality,N
-18,1822,NARCOTICS,MANU/DEL:CANNABIS OVER 10 GMS,quality,N
-18,1840,NARCOTICS,DELIVER CANNABIS TO PERSON <18,quality,N
-18,1850,NARCOTICS,CANNABIS PLANT,quality,N
-18,1860,NARCOTICS,CALCULATED CANNABIS CONSPIRACY,quality,N
-18,1900,OTHER NARCOTIC VIOLATION,INTOXICATING COMPOUNDS,other,N
-18,2010,NARCOTICS,MANU/DELIVER:AMPHETAMINES,quality,N
-18,2011,NARCOTICS,MANU/DELIVER:BARBITUATES,quality,N
-18,2012,NARCOTICS,MANU/DELIVER:COCAINE,quality,N
-18,2013,NARCOTICS,MANU/DELIVER: HEROIN(BRN/TAN),quality,N
-18,2014,NARCOTICS,MANU/DELIVER: HEROIN (WHITE),quality,N
-18,2015,NARCOTICS,MANU/DELIVER: HALLUCINOGEN,quality,N
-18,2016,NARCOTICS,MANU/DELIVER:PCP,quality,N
-18,2017,NARCOTICS,MANU/DELIVER:CRACK,quality,N
-18,2018,NARCOTICS,MANU/DELIVER:SYNTHETIC DRUGS,quality,N
-18,2019,NARCOTICS,MANU/DELIVER:HEROIN(BLACK TAR),quality,N
-18,2020,NARCOTICS,POSS: AMPHETAMINES,quality,N
-18,2021,NARCOTICS,POSS: BARBITUATES,quality,N
-18,2022,NARCOTICS,POSS: COCAINE,quality,N
-18,2023,NARCOTICS,POSS: HEROIN(BRN/TAN),quality,N
-18,2024,NARCOTICS,POSS: HEROIN(WHITE),quality,N
-18,2025,NARCOTICS,POSS: HALLUCINOGENS,quality,N
-18,2026,NARCOTICS,POSS: PCP,quality,N
-18,2027,NARCOTICS,POSS: CRACK,quality,N
-18,2028,NARCOTICS,POSS: SYNTHETIC DRUGS,quality,N
-18,2029,NARCOTICS,POSS: HEROIN(BLACK TAR),quality,N
-18,2030,NARCOTICS,MANU/DELIVER:LOOK-ALIKE DRUG,quality,N
-18,2031,NARCOTICS,POSS: METHAMPHETAMINES,quality,N
-18,2032,NARCOTICS,MANU/DELIVER: METHAMPHETAMINES,quality,N
-18,2033,NARCOTICS,MANU/POSS. W/INTENT TO DELIVER: SYNTHETIC MARIJUANA,,
-18,2034,NARCOTICS,POSSESSION: SYNTHETIC MARIJUANA,quality,N
-18,2040,NARCOTICS,POSS: LOOK-ALIKE DRUGS,quality,N
-18,2050,NARCOTICS,CRIMINAL DRUG CONSPIRACY,quality,N
-18,2060,NARCOTICS,FAIL REGISTER LIC:CONT SUBS,quality,N
-18,2070,NARCOTICS,DEL CONT SUBS TO PERSON <18,quality,N
-18,2080,NARCOTICS,CONT SUBS:FAIL TO MAINT RECORD,quality,N
-18,2090,NARCOTICS,ALTER/FORGE PRESCRIPTION,quality,N
-26,2091,NARCOTICS,FORFEIT PROPERTY,quality,N
-26,2092,NARCOTICS,SOLICIT NARCOTICS ON PUBLICWAY,quality,N
-26,2093,NARCOTICS,FOUND SUSPECT NARCOTICS,quality,N
-18,2094,NARCOTICS,ATTEMPT POSSESSION CANNABIS,quality,N
-18,2095,NARCOTICS,ATTEMPT POSSESSION NARCOTICS,quality,N
-18,2110,NARCOTICS,POS: HYPODERMIC NEEDLE,quality,N
-26,2111,NARCOTICS,SALE/DEL HYPODERMIC NEEDLE,quality,N
-26,2120,NARCOTICS,FAILURE TO KEEP HYPO RECORDS,quality,N
-26,2160,NARCOTICS,SALE/DEL DRUG PARAPHERNALIA,quality,N
-18,2170,NARCOTICS,POSSESSION OF DRUG EQUIPMENT,quality,N
-22,2210,LIQUOR LAW VIOLATION,SELL/GIVE/DEL LIQUOR TO MINOR,other,N
-22,2220,LIQUOR LAW VIOLATION,ILLEGAL POSSESSION BY MINOR,other,N
-22,2230,LIQUOR LAW VIOLATION,ILLEGAL CONSUMPTION BY MINOR,other,N
-22,2240,LIQUOR LAW VIOLATION,MINOR MISREPRESENT AGE,other,N
-22,2250,LIQUOR LAW VIOLATION,LIQUOR LICENSE VIOLATION,other,N
-22,2251,LIQUOR LAW VIOLATION,EMPLOY MINOR,other,N
-02,266,CRIM SEXUAL ASSAULT,PREDATORY,,
-26,2820,OTHER OFFENSE,TELEPHONE THREAT,other,N
-26,2825,OTHER OFFENSE,HARASSMENT BY TELEPHONE,other,N
-26,2826,OTHER OFFENSE,HARASSMENT BY ELECTRONIC MEANS,other,N
-17,2830,OTHER OFFENSE,OBSCENE TELEPHONE CALLS,other,N
-24,2840,PUBLIC PEACE VIOLATION,FALSE FIRE ALARM,other,N
-26,2850,PUBLIC PEACE VIOLATION,BOMB THREAT,other,N
-26,2851,PUBLIC PEACE VIOLATION,ARSON THREAT,other,N
-24,2860,PUBLIC PEACE VIOLATION,FALSE POLICE REPORT,other,N
-24,2870,PUBLIC PEACE VIOLATION,PEEPING TOM,sensitive,N
-26,2890,PUBLIC PEACE VIOLATION,OTHER VIOLATION,other,N
-26,2895,PUBLIC PEACE VIOLATION,INTERFERE W/ EMERGENCY EQUIP,other,N
-15,2900,WEAPONS VIOLATION,UNLAWFUL USE/SALE AIR RIFLE,other,N
-26,3000,PUBLIC PEACE VIOLATION,SELL/ADVERTISE FIREWORKS,other,N
-24,3100,PUBLIC PEACE VIOLATION,MOB ACTION,other,N
-26,3200,PUBLIC PEACE VIOLATION,ARMED VIOLENCE,other,N
-26,3300,PUBLIC PEACE VIOLATION,PUBLIC DEMONSTRATION,other,N
-26,3400,PUBLIC PEACE VIOLATION,LOOTING,other,N
-24,3610,OTHER OFFENSE,INTERFERE W/ HIGHER EDUCATION,other,N
-24,3710,INTERFERENCE WITH PUBLIC OFFICER,RESIST/OBSTRUCT/DISARM OFFICER,other,N
-24,3710,INTERFERE WITH PUBLIC OFFICER,RESIST/OBSTRUCT/DISARM OFFICER,other,N
-24,3720,INTERFERENCE WITH PUBLIC OFFICER,REFUSING TO AID AN OFFICER,other,N
-24,3720,INTERFERE WITH PUBLIC OFFICER,REFUSING TO AID AN OFFICER,other,N
-24,3730,INTERFERENCE WITH PUBLIC OFFICER,OBSTRUCTING JUSTICE,other,N
-24,3730,INTERFERE WITH PUBLIC OFFICER,OBSTRUCTING JUSTICE,other,N
-24,3731,INTERFERENCE WITH PUBLIC OFFICER,OBSTRUCTING IDENTIFICATION,other,N
-24,3740,INTERFERENCE WITH PUBLIC OFFICER,CONCEALING/AIDING A FUGITIVE,other,N
-24,3740,INTERFERE WITH PUBLIC OFFICER,CONCEALING/AIDING A FUGITIVE,other,N
-24,3750,INTERFERENCE WITH PUBLIC OFFICER,ESCAPE,other,N
-24,3750,INTERFERE WITH PUBLIC OFFICER,ESCAPE,other,N
-24,3751,INTERFERENCE WITH PUBLIC OFFICER,AIDING ARRESTEE ESCAPE,other,N
-24,3751,INTERFERE WITH PUBLIC OFFICER,AIDING ARRESTEE ESCAPE,other,N
-24,3760,INTERFERENCE WITH PUBLIC OFFICER,OBSTRUCTING SERVICE,other,N
-24,3760,INTERFERE WITH PUBLIC OFFICER,OBSTRUCTING SERVICE,other,N
-26,3770,INTERFERENCE WITH PUBLIC OFFICER,CONTRABAND IN PRISON,other,N
-26,3770,INTERFERE WITH PUBLIC OFFICER,CONTRABAND IN PRISON,other,N
-26,3800,INTERFERENCE WITH PUBLIC OFFICER,INTERFERENCE JUDICIAL PROCESS,other,N
-26,3800,INTERFERE WITH PUBLIC OFFICER,INTERFERENCE JUDICIAL PROCESS,other,N
-26,3910,INTERFERENCE WITH PUBLIC OFFICER,BRIBERY,other,N
-26,3910,INTERFERE WITH PUBLIC OFFICER,BRIBERY,other,N
-26,3920,INTERFERENCE WITH PUBLIC OFFICER,OFFICIAL MISCONDUCT,other,N
-26,3920,INTERFERE WITH PUBLIC OFFICER,OFFICIAL MISCONDUCT,other,N
-26,3960,INTIMIDATION,INTIMIDATION,other,N
-26,3966,INTIMIDATION,EDUCATIONAL INTIMIDAITON,other,N
-26,3970,INTIMIDATION,EXTORTION,other,N
-26,3975,INTIMIDATION,COMPELLING ORG MEMBERSHIP,other,N
-26,3980,INTIMIDATION,COMPELLING CONFESSION,other,N
-26,4210,KIDNAPPING,KIDNAPPING,other,N
-26,4220,KIDNAPPING,AGGRAVATED,other,N
-26,4230,KIDNAPPING,UNLAWFUL RESTRAINT,other,N
-26,4240,KIDNAPPING,FORCIBLE DETENTION,other,N
-26,4255,KIDNAPPING,UNLAWFUL INTERFERE/VISITATION,sensitive,N
-26,4310,OTHER OFFENSE,POSSESSION OF BURGLARY TOOLS,other,N
-26,4387,OTHER OFFENSE,VIOLATE ORDER OF PROTECTION,other,N
-26,4388,OTHER OFFENSE,VIO BAIL BOND: DOM VIOLENCE,other,N
-26,4389,OTHER OFFENSE,VIOLATION GPS MONITORING DEVICE,other,N
-26,4510,OTHER OFFENSE,PROBATION VIOLATION,other,N
-26,4625,OTHER OFFENSE,PAROLE VIOLATION,other,N
-26,4650,OTHER OFFENSE,SEX OFFENDER: FAIL TO REGISTER,other,N
-26,4651,OTHER OFFENSE,SEX OFFENDER: FAIL REG NEW ADD,other,N
-26,4652,OTHER OFFENSE,SEX OFFENDER: PROHIBITED ZONE,other,N
-26,4740,OTHER OFFENSE,UNLAWFUL USE OF BODY ARMOR,other,N
-26,4750,OTHER OFFENSE,DISCLOSE DV VICTIM LOCATION,other,N
-26,4800,OTHER OFFENSE,MONEY LAUNDERING,other,N
-26,4810,OTHER OFFENSE,COMPOUNDING A CRIME,other,N
-08B,486,BATTERY,DOMESTIC BATTERY SIMPLE,,
-26,4860,OTHER OFFENSE,BOARD PLANE WITH WEAPON,other,N
-26,5000,OTHER OFFENSE,OTHER CRIME AGAINST PERSON,other,N
-26,5001,OTHER OFFENSE,OTHER CRIME INVOLVING PROPERTY,other,N
-26,5002,OTHER OFFENSE,OTHER VEHICLE OFFENSE,other,N
-26,5003,OTHER OFFENSE,OTHER ARSON/EXPLOSIVE INCIDENT,other,N
-17,5004,SEX OFFENSE,ATT CRIM SEXUAL ABUSE,sensitive,N
-17,5005,SEX OFFENSE,ATT AGG CRIM SEXUAL ABUSE,,
-26,5007,OTHER OFFENSE,OTHER WEAPONS VIOLATION,other,N
-26,5008,OTHER OFFENSE,FIREARM REGISTRATION VIOLATION,other,N
-26,5009,OTHER OFFENSE,VIOLATION OF SMOKING BAN,other,N
-26,500E,OTHER OFFENSE,EAVESDROPPING,other,N
-26,500N,OTHER OFFENSE,ABUSE/NEGLECT: CARE FACILITY,other,N
-26,5011,OTHER OFFENSE,LICENSE VIOLATION,other,N
-26,501A,OTHER OFFENSE,ANIMAL ABUSE/NEGLECT,other,N
-26,501H,OTHER OFFENSE,HAZARDOUS MATERIALS VIOLATION,other,N
-26,502P,OTHER OFFENSE,FALSE/STOLEN/ALTERED TRP,other,N
-26,502R,OTHER OFFENSE,VEHICLE TITLE/REG OFFENSE,other,N
-26,502T,OTHER OFFENSE,TAMPER WITH MOTOR VEHICLE,other,N
-26,5073,NON-CRIMINAL (SUBJECT SPECIFIED),NOTIFICATION OF CIVIL NO CONTACT ORDER,other,N
-26,5093,NON-CRIMINAL,LOST PASSPORT,other,N
-26,5094,NON-CRIMINAL,FOUND PASSPORT,,
-26,5110,OTHER OFFENSE,DUTY TO REGISTER,other,N
-26,5110,OTHER OFFENSE,GUN OFFENDER: DUTY TO REGISTER,other,N
-26,5111,OTHER OFFENSE,GUN OFFENDER ANNUAL REGISTRATION,other,N
-26,5111,OTHER OFFENSE,GUN OFFENDER: ANNUAL REGISTRATION,other,N
-26,5112,OTHER OFFENSE,DUTY TO REPORT CHANGE OF INFORMATION,other,N
-26,5112,OTHER OFFENSE,GUN OFFENDER: DUTY TO REPORT CHANGE OF INFORMATION,other,N
-26,5114,NON - CRIMINAL,FOID - REVOCATION,,
-26,5130,OTHER OFFENSE,VIOLENT OFFENDER: DUTY TO REGISTER,,
-08B,9901,DOMESTIC VIOLENCE,DOMESTIC VIOLENCE,,
-,,,,violent,
-,,,,other,
-,,,,other,
-,,,,other,
-,,,,other,
-,,,,other,
-,,,,other,
-,,,,other,
-,,,,other,
-,,,,other,
-,,,,other,
-,,,,other,
-,,,,other,
-,,,,other,
-,,,,sensitive,
-,,,,other,
-,,,,other,
-,,,,,I
-,,,,,I
-,,,,,N
-,,,,,N
-,,,,,N
-,,,,,N
-,,,,,N
-,,,,,N
-,,,,,N
-,,,,,N
-,,,,,N
-,,,,,N
-,,,,,N
-,,,,,N
-,,,,,N
-,,,,,N
-,,,,,N
+fbi_code,fbi_name,legal_definition,friendly_definition,iucr,primary_type,description,type,index_code
+04A,Aggravated assault,An unlawful attack by one person upon another wherein the offender displays a weapon in a threatening manner. Placing someone in reasonable apprehension of receiving a battery.,Credibly threatening to hit someone with the intent of causing severe injury. Brandishing a weapon usually counts.,051A,ASSAULT,AGGRAVATED: HANDGUN,violent,I
+04A,Aggravated assault,An unlawful attack by one person upon another wherein the offender displays a weapon in a threatening manner. Placing someone in reasonable apprehension of receiving a battery.,Credibly threatening to hit someone with the intent of causing severe injury. Brandishing a weapon usually counts.,051B,ASSAULT,AGGRAVATED: OTHER FIREARM,violent,I
+04A,Aggravated assault,An unlawful attack by one person upon another wherein the offender displays a weapon in a threatening manner. Placing someone in reasonable apprehension of receiving a battery.,Credibly threatening to hit someone with the intent of causing severe injury. Brandishing a weapon usually counts.,0520,ASSAULT,AGGRAVATED:KNIFE/CUTTING INSTR,violent,I
+04A,Aggravated assault,An unlawful attack by one person upon another wherein the offender displays a weapon in a threatening manner. Placing someone in reasonable apprehension of receiving a battery.,Credibly threatening to hit someone with the intent of causing severe injury. Brandishing a weapon usually counts.,0530,ASSAULT,AGGRAVATED: OTHER DANG WEAPON,violent,I
+04A,Aggravated assault,An unlawful attack by one person upon another wherein the offender displays a weapon in a threatening manner. Placing someone in reasonable apprehension of receiving a battery.,Credibly threatening to hit someone with the intent of causing severe injury. Brandishing a weapon usually counts.,0550,ASSAULT,AGGRAVATED PO: HANDGUN,violent,I
+04A,Aggravated assault,An unlawful attack by one person upon another wherein the offender displays a weapon in a threatening manner. Placing someone in reasonable apprehension of receiving a battery.,Credibly threatening to hit someone with the intent of causing severe injury. Brandishing a weapon usually counts.,0551,ASSAULT,AGGRAVATED PO: OTHER FIREARM,violent,I
+04A,Aggravated assault,An unlawful attack by one person upon another wherein the offender displays a weapon in a threatening manner. Placing someone in reasonable apprehension of receiving a battery.,Credibly threatening to hit someone with the intent of causing severe injury. Brandishing a weapon usually counts.,0552,ASSAULT,AGGRAVATED PO:KNIFE/CUT INSTR,violent,I
+04A,Aggravated assault,An unlawful attack by one person upon another wherein the offender displays a weapon in a threatening manner. Placing someone in reasonable apprehension of receiving a battery.,Credibly threatening to hit someone with the intent of causing severe injury. Brandishing a weapon usually counts.,0553,ASSAULT,AGGRAVATED PO: OTHER DANG WEAP,violent,I
+04A,Aggravated assault,An unlawful attack by one person upon another wherein the offender displays a weapon in a threatening manner. Placing someone in reasonable apprehension of receiving a battery.,Credibly threatening to hit someone with the intent of causing severe injury. Brandishing a weapon usually counts.,0555,ASSAULT,AGG PRO.EMP: HANDGUN,violent,I
+04A,Aggravated assault,An unlawful attack by one person upon another wherein the offender displays a weapon in a threatening manner. Placing someone in reasonable apprehension of receiving a battery.,Credibly threatening to hit someone with the intent of causing severe injury. Brandishing a weapon usually counts.,0556,ASSAULT,AGG PRO.EMP: OTHER FIREARM,violent,I
+04A,Aggravated assault,An unlawful attack by one person upon another wherein the offender displays a weapon in a threatening manner. Placing someone in reasonable apprehension of receiving a battery.,Credibly threatening to hit someone with the intent of causing severe injury. Brandishing a weapon usually counts.,0557,ASSAULT,AGG PRO.EMP:KNIFE/CUTTING INST,violent,I
+04A,Aggravated assault,An unlawful attack by one person upon another wherein the offender displays a weapon in a threatening manner. Placing someone in reasonable apprehension of receiving a battery.,Credibly threatening to hit someone with the intent of causing severe injury. Brandishing a weapon usually counts.,0558,ASSAULT,AGG PRO.EMP: OTHER DANG WEAPON,violent,I
+04B,Aggravated battery,"An unlawful attack by one person upon another wherein the offender uses a weapon or the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Hitting someone and causing severe injury - such a serious cuts or broken bones - often with a weapon.,041A,BATTERY,AGGRAVATED: HANDGUN,violent,I
+04B,Aggravated battery,"An unlawful attack by one person upon another wherein the offender uses a weapon or the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Hitting someone and causing severe injury - such a serious cuts or broken bones - often with a weapon.,041B,BATTERY,AGGRAVATED: OTHER FIREARM,violent,I
+04B,Aggravated battery,"An unlawful attack by one person upon another wherein the offender uses a weapon or the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Hitting someone and causing severe injury - such a serious cuts or broken bones - often with a weapon.,0420,BATTERY,AGGRAVATED:KNIFE/CUTTING INSTR,violent,I
+04B,Aggravated battery,"An unlawful attack by one person upon another wherein the offender uses a weapon or the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Hitting someone and causing severe injury - such a serious cuts or broken bones - often with a weapon.,0430,BATTERY,AGGRAVATED: OTHER DANG WEAPON,violent,I
+04B,Aggravated battery,"An unlawful attack by one person upon another wherein the offender uses a weapon or the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Hitting someone and causing severe injury - such a serious cuts or broken bones - often with a weapon.,0450,BATTERY,AGGRAVATED PO: HANDGUN,violent,I
+04B,Aggravated battery,"An unlawful attack by one person upon another wherein the offender uses a weapon or the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Hitting someone and causing severe injury - such a serious cuts or broken bones - often with a weapon.,0451,BATTERY,AGGRAVATED PO: OTHER FIREARM,violent,I
+04B,Aggravated battery,"An unlawful attack by one person upon another wherein the offender uses a weapon or the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Hitting someone and causing severe injury - such a serious cuts or broken bones - often with a weapon.,0452,BATTERY,AGGRAVATED PO: KNIFE/CUT INSTR,violent,I
+04B,Aggravated battery,"An unlawful attack by one person upon another wherein the offender uses a weapon or the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Hitting someone and causing severe injury - such a serious cuts or broken bones - often with a weapon.,0453,BATTERY,AGGRAVATED PO: OTHER DANG WEAP,violent,I
+04B,Aggravated battery,"An unlawful attack by one person upon another wherein the offender uses a weapon or the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Hitting someone and causing severe injury - such a serious cuts or broken bones - often with a weapon.,0461,BATTERY,AGG PO HANDS ETC SERIOUS INJ,violent,I
+04B,Aggravated battery,"An unlawful attack by one person upon another wherein the offender uses a weapon or the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Hitting someone and causing severe injury - such a serious cuts or broken bones - often with a weapon.,0462,BATTERY,AGG PRO EMP HANDS SERIOUS INJ,violent,I
+04B,Aggravated battery,"An unlawful attack by one person upon another wherein the offender uses a weapon or the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Hitting someone and causing severe injury - such a serious cuts or broken bones - often with a weapon.,0479,BATTERY,AGG: HANDS/FIST/FEET SERIOUS INJURY,violent,I
+04B,Aggravated battery,"An unlawful attack by one person upon another wherein the offender uses a weapon or the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Hitting someone and causing severe injury - such a serious cuts or broken bones - often with a weapon.,0480,BATTERY,AGG PRO.EMP: HANDGUN,violent,I
+04B,Aggravated battery,"An unlawful attack by one person upon another wherein the offender uses a weapon or the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Hitting someone and causing severe injury - such a serious cuts or broken bones - often with a weapon.,0481,BATTERY,AGG PRO.EMP: OTHER FIREARM,violent,I
+04B,Aggravated battery,"An unlawful attack by one person upon another wherein the offender uses a weapon or the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Hitting someone and causing severe injury - such a serious cuts or broken bones - often with a weapon.,0482,BATTERY,AGG PRO.EMP:KNIFE/CUTTING INST,violent,I
+04B,Aggravated battery,"An unlawful attack by one person upon another wherein the offender uses a weapon or the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Hitting someone and causing severe injury - such a serious cuts or broken bones - often with a weapon.,0483,BATTERY,AGG PRO.EMP: OTHER DANG WEAPON,violent,I
+04B,Aggravated battery,"An unlawful attack by one person upon another wherein the offender uses a weapon or the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Hitting someone and causing severe injury - such a serious cuts or broken bones - often with a weapon.,0485,BATTERY,AGGRAVATED OF A CHILD,violent,I
+04B,Aggravated battery,"An unlawful attack by one person upon another wherein the offender uses a weapon or the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Hitting someone and causing severe injury - such a serious cuts or broken bones - often with a weapon.,0487,BATTERY,AGGRAVATED OF A UNBORN CHILD,violent,N
+04B,Aggravated battery,"An unlawful attack by one person upon another wherein the offender uses a weapon or the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Hitting someone and causing severe injury - such a serious cuts or broken bones - often with a weapon.,0488,BATTERY,AGGRAVATED DOMESTIC BATTERY: HANDGUN,violent,I
+04B,Aggravated battery,"An unlawful attack by one person upon another wherein the offender uses a weapon or the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Hitting someone and causing severe injury - such a serious cuts or broken bones - often with a weapon.,0489,BATTERY,AGGRAVATED DOMESTIC BATTERY: OTHER FIREARM,violent,I
+04B,Aggravated battery,"An unlawful attack by one person upon another wherein the offender uses a weapon or the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Hitting someone and causing severe injury - such a serious cuts or broken bones - often with a weapon.,0490,RITUALISM,AGG RITUAL MUT:HANDGUN,other,I
+04B,Aggravated battery,"An unlawful attack by one person upon another wherein the offender uses a weapon or the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Hitting someone and causing severe injury - such a serious cuts or broken bones - often with a weapon.,0492,RITUALISM,AGG RITUAL MUT:KNIFE/CUTTING I,other,I
+04B,Aggravated battery,"An unlawful attack by one person upon another wherein the offender uses a weapon or the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Hitting someone and causing severe injury - such a serious cuts or broken bones - often with a weapon.,0493,RITUALISM,AGG RITUAL MUT:OTH DANG WEAPON,other,I
+04B,Aggravated battery,"An unlawful attack by one person upon another wherein the offender uses a weapon or the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Hitting someone and causing severe injury - such a serious cuts or broken bones - often with a weapon.,0495,BATTERY,AGGRAVATED OF A SENIOR CITIZEN,violent,I
+04B,Aggravated battery,"An unlawful attack by one person upon another wherein the offender uses a weapon or the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Hitting someone and causing severe injury - such a serious cuts or broken bones - often with a weapon.,0496,BATTERY,AGGRAVATED DOMESTIC BATTERY: KNIFE/CUTTING INST,violent,I
+04B,Aggravated battery,"An unlawful attack by one person upon another wherein the offender uses a weapon or the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Hitting someone and causing severe injury - such a serious cuts or broken bones - often with a weapon.,0497,BATTERY,AGGRAVATED DOMESTIC BATTERY: OTHER DANG WEAPON,violent,I
+04B,Aggravated battery,"An unlawful attack by one person upon another wherein the offender uses a weapon or the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Hitting someone and causing severe injury - such a serious cuts or broken bones - often with a weapon.,0498,BATTERY,AGGRAVATED DOMESTIC BATTERY: HANDS/FIST/FEET SERIOUS INJURY,violent,I
+04B,Aggravated battery,"An unlawful attack by one person upon another wherein the offender uses a weapon or the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Hitting someone and causing severe injury - such a serious cuts or broken bones - often with a weapon.,0499,BATTERY,AGGRAVATED DOMESTIC BATTERY,,
+04B,Aggravated battery,"An unlawful attack by one person upon another wherein the offender uses a weapon or the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Hitting someone and causing severe injury - such a serious cuts or broken bones - often with a weapon.,0510,RITUALISM,AGG RIT MUT: HANDS/FIST/FEET SERIOUS INJURY,other,I
+09,Arson,To unlawfully and intentionally damage or attempt to damage any real or personal property by fire or incendiary device. ,Burning - or trying to burn - someone else's stuff.,1010,ARSON,BY EXPLOSIVE,property,I
+09,Arson,To unlawfully and intentionally damage or attempt to damage any real or personal property by fire or incendiary device. ,Burning - or trying to burn - someone else's stuff.,1020,ARSON,BY FIRE,property,I
+09,Arson,To unlawfully and intentionally damage or attempt to damage any real or personal property by fire or incendiary device. ,Burning - or trying to burn - someone else's stuff.,1025,ARSON,AGGRAVATED,property,I
+09,Arson,To unlawfully and intentionally damage or attempt to damage any real or personal property by fire or incendiary device. ,Burning - or trying to burn - someone else's stuff.,1090,ARSON,ATTEMPT ARSON,property,I
+05,Burglary,The unlawful entry into a building or other structure with the intent to commit a felony or a theft. ,Breaking into a building with the intent to steal or commit a felony.,0610,BURGLARY,FORCIBLE ENTRY,property,I
+05,Burglary,The unlawful entry into a building or other structure with the intent to commit a felony or a theft. ,Breaking into a building with the intent to steal or commit a felony.,0620,BURGLARY,UNLAWFUL ENTRY,property,I
+05,Burglary,The unlawful entry into a building or other structure with the intent to commit a felony or a theft. ,Breaking into a building with the intent to steal or commit a felony.,0630,BURGLARY,ATTEMPT FORCIBLE ENTRY,property,I
+05,Burglary,The unlawful entry into a building or other structure with the intent to commit a felony or a theft. ,Breaking into a building with the intent to steal or commit a felony.,0650,BURGLARY,HOME INVASION,property,I
+17,Criminal sexual abuse,"The violation of laws prohibiting offenses against chastity, common decency, morals, and the like such as: adultery and fornication; bigamy; indecent exposure; and indecent liberties.","Behavior that violates ""common decency,"" such as adultery, bigamy, indecent exposure.",1535,OBSCENITY,OBSCENITY,other,N
+17,Criminal sexual abuse,"The violation of laws prohibiting offenses against chastity, common decency, morals, and the like such as: adultery and fornication; bigamy; indecent exposure; and indecent liberties.","Behavior that violates ""common decency,"" such as adultery, bigamy, indecent exposure.",1536,PUBLIC INDECENCY,LICENSED PREMISE,other,N
+17,Criminal sexual abuse,"The violation of laws prohibiting offenses against chastity, common decency, morals, and the like such as: adultery and fornication; bigamy; indecent exposure; and indecent liberties.","Behavior that violates ""common decency,"" such as adultery, bigamy, indecent exposure.",1540,OBSCENITY,OBSCENE MATTER,other,N
+17,Criminal sexual abuse,"The violation of laws prohibiting offenses against chastity, common decency, morals, and the like such as: adultery and fornication; bigamy; indecent exposure; and indecent liberties.","Behavior that violates ""common decency,"" such as adultery, bigamy, indecent exposure.",1541,OBSCENITY,SALE/DIST OBSCENE MAT TO MINOR,other,N
+17,Criminal sexual abuse,"The violation of laws prohibiting offenses against chastity, common decency, morals, and the like such as: adultery and fornication; bigamy; indecent exposure; and indecent liberties.","Behavior that violates ""common decency,"" such as adultery, bigamy, indecent exposure.",1544,SEX OFFENSE,SEXUAL EXPLOITATION OF A CHILD,sensitive,N
+17,Criminal sexual abuse,"The violation of laws prohibiting offenses against chastity, common decency, morals, and the like such as: adultery and fornication; bigamy; indecent exposure; and indecent liberties.","Behavior that violates ""common decency,"" such as adultery, bigamy, indecent exposure.",1562,SEX OFFENSE,AGG CRIMINAL SEXUAL ABUSE,sensitive,N
+17,Criminal sexual abuse,"The violation of laws prohibiting offenses against chastity, common decency, morals, and the like such as: adultery and fornication; bigamy; indecent exposure; and indecent liberties.","Behavior that violates ""common decency,"" such as adultery, bigamy, indecent exposure.",1563,SEX OFFENSE,CRIMINAL SEXUAL ABUSE,sensitive,N
+17,Criminal sexual abuse,"The violation of laws prohibiting offenses against chastity, common decency, morals, and the like such as: adultery and fornication; bigamy; indecent exposure; and indecent liberties.","Behavior that violates ""common decency,"" such as adultery, bigamy, indecent exposure.",1564,SEX OFFENSE,CRIMINAL TRANSMISSION OF HIV,sensitive,N
+17,Criminal sexual abuse,"The violation of laws prohibiting offenses against chastity, common decency, morals, and the like such as: adultery and fornication; bigamy; indecent exposure; and indecent liberties.","Behavior that violates ""common decency,"" such as adultery, bigamy, indecent exposure.",1565,SEX OFFENSE,INDECENT SOLICITATION/CHILD,sensitive,N
+17,Criminal sexual abuse,"The violation of laws prohibiting offenses against chastity, common decency, morals, and the like such as: adultery and fornication; bigamy; indecent exposure; and indecent liberties.","Behavior that violates ""common decency,"" such as adultery, bigamy, indecent exposure.",1566,SEX OFFENSE,INDECENT SOLICITATION/ADULT,sensitive,N
+17,Criminal sexual abuse,"The violation of laws prohibiting offenses against chastity, common decency, morals, and the like such as: adultery and fornication; bigamy; indecent exposure; and indecent liberties.","Behavior that violates ""common decency,"" such as adultery, bigamy, indecent exposure.",1570,SEX OFFENSE,PUBLIC INDECENCY,other,N
+17,Criminal sexual abuse,"The violation of laws prohibiting offenses against chastity, common decency, morals, and the like such as: adultery and fornication; bigamy; indecent exposure; and indecent liberties.","Behavior that violates ""common decency,"" such as adultery, bigamy, indecent exposure.",1572,SEX OFFENSE,ADULTRY,other,N
+17,Criminal sexual abuse,"The violation of laws prohibiting offenses against chastity, common decency, morals, and the like such as: adultery and fornication; bigamy; indecent exposure; and indecent liberties.","Behavior that violates ""common decency,"" such as adultery, bigamy, indecent exposure.",1574,SEX OFFENSE,FORNICATION,other,N
+17,Criminal sexual abuse,"The violation of laws prohibiting offenses against chastity, common decency, morals, and the like such as: adultery and fornication; bigamy; indecent exposure; and indecent liberties.","Behavior that violates ""common decency,"" such as adultery, bigamy, indecent exposure.",1576,SEX OFFENSE,BIGAMY,other,N
+17,Criminal sexual abuse,"The violation of laws prohibiting offenses against chastity, common decency, morals, and the like such as: adultery and fornication; bigamy; indecent exposure; and indecent liberties.","Behavior that violates ""common decency,"" such as adultery, bigamy, indecent exposure.",1578,SEX OFFENSE,MARRYING A BIGAMIST,other,N
+17,Criminal sexual abuse,"The violation of laws prohibiting offenses against chastity, common decency, morals, and the like such as: adultery and fornication; bigamy; indecent exposure; and indecent liberties.","Behavior that violates ""common decency,"" such as adultery, bigamy, indecent exposure.",1580,SEX OFFENSE,SEX RELATION IN FAMILY,sensitive,N
+17,Criminal sexual abuse,"The violation of laws prohibiting offenses against chastity, common decency, morals, and the like such as: adultery and fornication; bigamy; indecent exposure; and indecent liberties.","Behavior that violates ""common decency,"" such as adultery, bigamy, indecent exposure.",1582,OFFENSE INVOLVING CHILDREN,CHILD PORNOGRAPHY,sensitive,N
+17,Criminal sexual abuse,"The violation of laws prohibiting offenses against chastity, common decency, morals, and the like such as: adultery and fornication; bigamy; indecent exposure; and indecent liberties.","Behavior that violates ""common decency,"" such as adultery, bigamy, indecent exposure.",1585,SEX OFFENSE,OTHER,other,N
+17,Criminal sexual abuse,"The violation of laws prohibiting offenses against chastity, common decency, morals, and the like such as: adultery and fornication; bigamy; indecent exposure; and indecent liberties.","Behavior that violates ""common decency,"" such as adultery, bigamy, indecent exposure.",1590,SEX OFFENSE,ATT AGG CRIMINAL SEXUAL ABUSE,sensitive,N
+17,Criminal sexual abuse,"The violation of laws prohibiting offenses against chastity, common decency, morals, and the like such as: adultery and fornication; bigamy; indecent exposure; and indecent liberties.","Behavior that violates ""common decency,"" such as adultery, bigamy, indecent exposure.",2830,OTHER OFFENSE,OBSCENE TELEPHONE CALLS,other,N
+17,Criminal sexual abuse,"The violation of laws prohibiting offenses against chastity, common decency, morals, and the like such as: adultery and fornication; bigamy; indecent exposure; and indecent liberties.","Behavior that violates ""common decency,"" such as adultery, bigamy, indecent exposure.",5004,SEX OFFENSE,ATT CRIM SEXUAL ABUSE,sensitive,N
+17,Criminal sexual abuse,"The violation of laws prohibiting offenses against chastity, common decency, morals, and the like such as: adultery and fornication; bigamy; indecent exposure; and indecent liberties.","Behavior that violates ""common decency,"" such as adultery, bigamy, indecent exposure.",5005,SEX OFFENSE,ATT AGG CRIM SEXUAL ABUSE,,
+02,Criminal sexual assault,"Any sexual act directed against another person, forcibly and/or against that person's will or not forcibly or against the person's will in instances where the victim is incapable of giving consent.",Forcing sex on someone against their will. Rape is an example.,0261,CRIM SEXUAL ASSAULT,AGGRAVATED: HANDGUN,violent,I
+02,Criminal sexual assault,"Any sexual act directed against another person, forcibly and/or against that person's will or not forcibly or against the person's will in instances where the victim is incapable of giving consent.",Forcing sex on someone against their will. Rape is an example.,0262,CRIM SEXUAL ASSAULT,AGGRAVATED: OTHER FIREARM,violent,I
+02,Criminal sexual assault,"Any sexual act directed against another person, forcibly and/or against that person's will or not forcibly or against the person's will in instances where the victim is incapable of giving consent.",Forcing sex on someone against their will. Rape is an example.,0263,CRIM SEXUAL ASSAULT,AGGRAVATED: KNIFE/CUT INSTR,violent,I
+02,Criminal sexual assault,"Any sexual act directed against another person, forcibly and/or against that person's will or not forcibly or against the person's will in instances where the victim is incapable of giving consent.",Forcing sex on someone against their will. Rape is an example.,0264,CRIM SEXUAL ASSAULT,AGGRAVATED: OTHER DANG WEAPON,violent,I
+02,Criminal sexual assault,"Any sexual act directed against another person, forcibly and/or against that person's will or not forcibly or against the person's will in instances where the victim is incapable of giving consent.",Forcing sex on someone against their will. Rape is an example.,0265,CRIM SEXUAL ASSAULT,AGGRAVATED: OTHER,violent,I
+02,Criminal sexual assault,"Any sexual act directed against another person, forcibly and/or against that person's will or not forcibly or against the person's will in instances where the victim is incapable of giving consent.",Forcing sex on someone against their will. Rape is an example.,0266,CRIM SEXUAL ASSAULT,PREDATORY,violent,I
+02,Criminal sexual assault,"Any sexual act directed against another person, forcibly and/or against that person's will or not forcibly or against the person's will in instances where the victim is incapable of giving consent.",Forcing sex on someone against their will. Rape is an example.,0271,CRIM SEXUAL ASSAULT,ATTEMPT AGG: HANDGUN,violent,I
+02,Criminal sexual assault,"Any sexual act directed against another person, forcibly and/or against that person's will or not forcibly or against the person's will in instances where the victim is incapable of giving consent.",Forcing sex on someone against their will. Rape is an example.,0272,CRIM SEXUAL ASSAULT,ATTEMPT AGG: OTHER FIREARM,violent,I
+02,Criminal sexual assault,"Any sexual act directed against another person, forcibly and/or against that person's will or not forcibly or against the person's will in instances where the victim is incapable of giving consent.",Forcing sex on someone against their will. Rape is an example.,0273,CRIM SEXUAL ASSAULT,ATTEMPT AGG: KNIFE/CUT INSTR,violent,I
+02,Criminal sexual assault,"Any sexual act directed against another person, forcibly and/or against that person's will or not forcibly or against the person's will in instances where the victim is incapable of giving consent.",Forcing sex on someone against their will. Rape is an example.,0274,CRIM SEXUAL ASSAULT,ATTEMPT AGG: OTHER DANG WEAPON,violent,I
+02,Criminal sexual assault,"Any sexual act directed against another person, forcibly and/or against that person's will or not forcibly or against the person's will in instances where the victim is incapable of giving consent.",Forcing sex on someone against their will. Rape is an example.,0275,CRIM SEXUAL ASSAULT,ATTEMPT AGG: OTHER,violent,I
+02,Criminal sexual assault,"Any sexual act directed against another person, forcibly and/or against that person's will or not forcibly or against the person's will in instances where the victim is incapable of giving consent.",Forcing sex on someone against their will. Rape is an example.,0281,CRIM SEXUAL ASSAULT,NON-AGGRAVATED,violent,I
+02,Criminal sexual assault,"Any sexual act directed against another person, forcibly and/or against that person's will or not forcibly or against the person's will in instances where the victim is incapable of giving consent.",Forcing sex on someone against their will. Rape is an example.,0291,CRIM SEXUAL ASSAULT,ATTEMPT NON-AGGRAVATED,violent,I
+02,Criminal sexual assault,"Any sexual act directed against another person, forcibly and/or against that person's will or not forcibly or against the person's will in instances where the victim is incapable of giving consent.",Forcing sex on someone against their will. Rape is an example.,1753,OFFENSE INVOLVING CHILDREN,SEX ASSLT OF CHILD BY FAM MBR,sensitive,I
+02,Criminal sexual assault,"Any sexual act directed against another person, forcibly and/or against that person's will or not forcibly or against the person's will in instances where the victim is incapable of giving consent.",Forcing sex on someone against their will. Rape is an example.,1754,OFFENSE INVOLVING CHILDREN,AGG SEX ASSLT OF CHILD FAM MBR,sensitive,I
+02,Criminal sexual assault,"Any sexual act directed against another person, forcibly and/or against that person's will or not forcibly or against the person's will in instances where the victim is incapable of giving consent.",Forcing sex on someone against their will. Rape is an example.,266,CRIM SEXUAL ASSAULT,PREDATORY,,
+24,Disorderly conduct,"Any behavior that tends to disturb the public peace or decorum, scandalize the community, or shock the public sense of morality.","Behavior that ""scandalizes the community,"" including public drunkenness, flashing people?, running around in packs causing trouble..",0470,PUBLIC PEACE VIOLATION,RECKLESS CONDUCT,other,N
+24,Disorderly conduct,"Any behavior that tends to disturb the public peace or decorum, scandalize the community, or shock the public sense of morality.","Behavior that ""scandalizes the community,"" including public drunkenness, flashing people?, running around in packs causing trouble..",2840,PUBLIC PEACE VIOLATION,FALSE FIRE ALARM,other,N
+24,Disorderly conduct,"Any behavior that tends to disturb the public peace or decorum, scandalize the community, or shock the public sense of morality.","Behavior that ""scandalizes the community,"" including public drunkenness, flashing people?, running around in packs causing trouble..",2860,PUBLIC PEACE VIOLATION,FALSE POLICE REPORT,other,N
+24,Disorderly conduct,"Any behavior that tends to disturb the public peace or decorum, scandalize the community, or shock the public sense of morality.","Behavior that ""scandalizes the community,"" including public drunkenness, flashing people?, running around in packs causing trouble..",2870,PUBLIC PEACE VIOLATION,PEEPING TOM,sensitive,N
+24,Disorderly conduct,"Any behavior that tends to disturb the public peace or decorum, scandalize the community, or shock the public sense of morality.","Behavior that ""scandalizes the community,"" including public drunkenness, flashing people?, running around in packs causing trouble..",3100,PUBLIC PEACE VIOLATION,MOB ACTION,other,N
+24,Disorderly conduct,"Any behavior that tends to disturb the public peace or decorum, scandalize the community, or shock the public sense of morality.","Behavior that ""scandalizes the community,"" including public drunkenness, flashing people?, running around in packs causing trouble..",3610,OTHER OFFENSE,INTERFERE W/ HIGHER EDUCATION,other,N
+24,Disorderly conduct,"Any behavior that tends to disturb the public peace or decorum, scandalize the community, or shock the public sense of morality.","Behavior that ""scandalizes the community,"" including public drunkenness, flashing people?, running around in packs causing trouble..",3710,INTERFERENCE WITH PUBLIC OFFICER,RESIST/OBSTRUCT/DISARM OFFICER,other,N
+24,Disorderly conduct,"Any behavior that tends to disturb the public peace or decorum, scandalize the community, or shock the public sense of morality.","Behavior that ""scandalizes the community,"" including public drunkenness, flashing people?, running around in packs causing trouble..",3710,INTERFERE WITH PUBLIC OFFICER,RESIST/OBSTRUCT/DISARM OFFICER,other,N
+24,Disorderly conduct,"Any behavior that tends to disturb the public peace or decorum, scandalize the community, or shock the public sense of morality.","Behavior that ""scandalizes the community,"" including public drunkenness, flashing people?, running around in packs causing trouble..",3720,INTERFERENCE WITH PUBLIC OFFICER,REFUSING TO AID AN OFFICER,other,N
+24,Disorderly conduct,"Any behavior that tends to disturb the public peace or decorum, scandalize the community, or shock the public sense of morality.","Behavior that ""scandalizes the community,"" including public drunkenness, flashing people?, running around in packs causing trouble..",3720,INTERFERE WITH PUBLIC OFFICER,REFUSING TO AID AN OFFICER,other,N
+24,Disorderly conduct,"Any behavior that tends to disturb the public peace or decorum, scandalize the community, or shock the public sense of morality.","Behavior that ""scandalizes the community,"" including public drunkenness, flashing people?, running around in packs causing trouble..",3730,INTERFERENCE WITH PUBLIC OFFICER,OBSTRUCTING JUSTICE,other,N
+24,Disorderly conduct,"Any behavior that tends to disturb the public peace or decorum, scandalize the community, or shock the public sense of morality.","Behavior that ""scandalizes the community,"" including public drunkenness, flashing people?, running around in packs causing trouble..",3730,INTERFERE WITH PUBLIC OFFICER,OBSTRUCTING JUSTICE,other,N
+24,Disorderly conduct,"Any behavior that tends to disturb the public peace or decorum, scandalize the community, or shock the public sense of morality.","Behavior that ""scandalizes the community,"" including public drunkenness, flashing people?, running around in packs causing trouble..",3731,INTERFERENCE WITH PUBLIC OFFICER,OBSTRUCTING IDENTIFICATION,other,N
+24,Disorderly conduct,"Any behavior that tends to disturb the public peace or decorum, scandalize the community, or shock the public sense of morality.","Behavior that ""scandalizes the community,"" including public drunkenness, flashing people?, running around in packs causing trouble..",3740,INTERFERENCE WITH PUBLIC OFFICER,CONCEALING/AIDING A FUGITIVE,other,N
+24,Disorderly conduct,"Any behavior that tends to disturb the public peace or decorum, scandalize the community, or shock the public sense of morality.","Behavior that ""scandalizes the community,"" including public drunkenness, flashing people?, running around in packs causing trouble..",3740,INTERFERE WITH PUBLIC OFFICER,CONCEALING/AIDING A FUGITIVE,other,N
+24,Disorderly conduct,"Any behavior that tends to disturb the public peace or decorum, scandalize the community, or shock the public sense of morality.","Behavior that ""scandalizes the community,"" including public drunkenness, flashing people?, running around in packs causing trouble..",3750,INTERFERENCE WITH PUBLIC OFFICER,ESCAPE,other,N
+24,Disorderly conduct,"Any behavior that tends to disturb the public peace or decorum, scandalize the community, or shock the public sense of morality.","Behavior that ""scandalizes the community,"" including public drunkenness, flashing people?, running around in packs causing trouble..",3750,INTERFERE WITH PUBLIC OFFICER,ESCAPE,other,N
+24,Disorderly conduct,"Any behavior that tends to disturb the public peace or decorum, scandalize the community, or shock the public sense of morality.","Behavior that ""scandalizes the community,"" including public drunkenness, flashing people?, running around in packs causing trouble..",3751,INTERFERENCE WITH PUBLIC OFFICER,AIDING ARRESTEE ESCAPE,other,N
+24,Disorderly conduct,"Any behavior that tends to disturb the public peace or decorum, scandalize the community, or shock the public sense of morality.","Behavior that ""scandalizes the community,"" including public drunkenness, flashing people?, running around in packs causing trouble..",3751,INTERFERE WITH PUBLIC OFFICER,AIDING ARRESTEE ESCAPE,other,N
+24,Disorderly conduct,"Any behavior that tends to disturb the public peace or decorum, scandalize the community, or shock the public sense of morality.","Behavior that ""scandalizes the community,"" including public drunkenness, flashing people?, running around in packs causing trouble..",3760,INTERFERENCE WITH PUBLIC OFFICER,OBSTRUCTING SERVICE,other,N
+24,Disorderly conduct,"Any behavior that tends to disturb the public peace or decorum, scandalize the community, or shock the public sense of morality.","Behavior that ""scandalizes the community,"" including public drunkenness, flashing people?, running around in packs causing trouble..",3760,INTERFERE WITH PUBLIC OFFICER,OBSTRUCTING SERVICE,other,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",1811,NARCOTICS,POSS: CANNABIS 30GMS OR LESS,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",1812,NARCOTICS,POSS: CANNABIS MORE THAN 30GMS,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",1821,NARCOTICS,MANU/DEL:CANNABIS 10GM OR LESS,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",1822,NARCOTICS,MANU/DEL:CANNABIS OVER 10 GMS,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",1840,NARCOTICS,DELIVER CANNABIS TO PERSON <18,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",1850,NARCOTICS,CANNABIS PLANT,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",1860,NARCOTICS,CALCULATED CANNABIS CONSPIRACY,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",1900,OTHER NARCOTIC VIOLATION,INTOXICATING COMPOUNDS,other,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2010,NARCOTICS,MANU/DELIVER:AMPHETAMINES,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2011,NARCOTICS,MANU/DELIVER:BARBITUATES,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2012,NARCOTICS,MANU/DELIVER:COCAINE,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2013,NARCOTICS,MANU/DELIVER: HEROIN(BRN/TAN),quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2014,NARCOTICS,MANU/DELIVER: HEROIN (WHITE),quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2015,NARCOTICS,MANU/DELIVER: HALLUCINOGEN,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2016,NARCOTICS,MANU/DELIVER:PCP,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2017,NARCOTICS,MANU/DELIVER:CRACK,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2018,NARCOTICS,MANU/DELIVER:SYNTHETIC DRUGS,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2019,NARCOTICS,MANU/DELIVER:HEROIN(BLACK TAR),quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2020,NARCOTICS,POSS: AMPHETAMINES,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2021,NARCOTICS,POSS: BARBITUATES,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2022,NARCOTICS,POSS: COCAINE,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2023,NARCOTICS,POSS: HEROIN(BRN/TAN),quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2024,NARCOTICS,POSS: HEROIN(WHITE),quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2025,NARCOTICS,POSS: HALLUCINOGENS,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2026,NARCOTICS,POSS: PCP,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2027,NARCOTICS,POSS: CRACK,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2028,NARCOTICS,POSS: SYNTHETIC DRUGS,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2029,NARCOTICS,POSS: HEROIN(BLACK TAR),quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2030,NARCOTICS,MANU/DELIVER:LOOK-ALIKE DRUG,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2031,NARCOTICS,POSS: METHAMPHETAMINES,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2032,NARCOTICS,MANU/DELIVER: METHAMPHETAMINES,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2033,NARCOTICS,MANU/POSS. W/INTENT TO DELIVER: SYNTHETIC MARIJUANA,,
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2034,NARCOTICS,POSSESSION: SYNTHETIC MARIJUANA,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2040,NARCOTICS,POSS: LOOK-ALIKE DRUGS,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2050,NARCOTICS,CRIMINAL DRUG CONSPIRACY,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2060,NARCOTICS,FAIL REGISTER LIC:CONT SUBS,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2070,NARCOTICS,DEL CONT SUBS TO PERSON <18,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2080,NARCOTICS,CONT SUBS:FAIL TO MAINT RECORD,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2090,NARCOTICS,ALTER/FORGE PRESCRIPTION,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2094,NARCOTICS,ATTEMPT POSSESSION CANNABIS,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2095,NARCOTICS,ATTEMPT POSSESSION NARCOTICS,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2110,NARCOTICS,POS: HYPODERMIC NEEDLE,quality,N
+18,Drug abuse,"The violation of laws prohibiting the production, distribution, and/or use of certain controlled substances and the equipment or devices utilized in their preparation and/or use.","Making, shipping, selling, or using illegal drugs. Also applies to drug paraphernalia and drug-making equipment.",2170,NARCOTICS,POSSESSION OF DRUG EQUIPMENT,quality,N
+12,Embezzlement,"The unlawful misappropriation by an offender to his/her own use or purpose of money, property, or some other thing of value entrusted to his/her care, custody, or control. ",,1140,DECEPTIVE PRACTICE,EMBEZZLEMENT,other,N
+10,Forgery and counterfeiting,"The altering, copying, or imitation of something, without authority or right, with the intent to deceive or defraud by passing the copy or thing altered or imitated as that which is original or genuine or the selling, buying, or possession of an altered, copied, or imitated thing with the intent to deceive or defraud. ",Making a fake document or valuable object and passing it off as the real thing.,1120,DECEPTIVE PRACTICE,FORGERY,other,N
+10,Forgery and counterfeiting,"The altering, copying, or imitation of something, without authority or right, with the intent to deceive or defraud by passing the copy or thing altered or imitated as that which is original or genuine or the selling, buying, or possession of an altered, copied, or imitated thing with the intent to deceive or defraud. ",Making a fake document or valuable object and passing it off as the real thing.,1121,DECEPTIVE PRACTICE,COUNTERFEITING DOCUMENT,other,N
+10,Forgery and counterfeiting,"The altering, copying, or imitation of something, without authority or right, with the intent to deceive or defraud by passing the copy or thing altered or imitated as that which is original or genuine or the selling, buying, or possession of an altered, copied, or imitated thing with the intent to deceive or defraud. ",Making a fake document or valuable object and passing it off as the real thing.,1122,DECEPTIVE PRACTICE,COUNTERFEIT CHECK,other,N
+11,Fraud,The intentional perversion of the truth for the purpose of inducing another person or other entity in reliance upon it to part with something of value or to surrender a legal right.,"Lying to get someone to give you money, permission for something, or anything else that benefits you.",1110,DECEPTIVE PRACTICE,BOGUS CHECK,other,N
+11,Fraud,The intentional perversion of the truth for the purpose of inducing another person or other entity in reliance upon it to part with something of value or to surrender a legal right.,"Lying to get someone to give you money, permission for something, or anything else that benefits you.",1130,DECEPTIVE PRACTICE,FRAUD OR CONFIDENCE GAME,other,N
+11,Fraud,The intentional perversion of the truth for the purpose of inducing another person or other entity in reliance upon it to part with something of value or to surrender a legal right.,"Lying to get someone to give you money, permission for something, or anything else that benefits you.",1135,DECEPTIVE PRACTICE,INSURANCE FRAUD,other,N
+11,Fraud,The intentional perversion of the truth for the purpose of inducing another person or other entity in reliance upon it to part with something of value or to surrender a legal right.,"Lying to get someone to give you money, permission for something, or anything else that benefits you.",1150,DECEPTIVE PRACTICE,CREDIT CARD FRAUD,other,N
+11,Fraud,The intentional perversion of the truth for the purpose of inducing another person or other entity in reliance upon it to part with something of value or to surrender a legal right.,"Lying to get someone to give you money, permission for something, or anything else that benefits you.",1151,DECEPTIVE PRACTICE,ILLEGAL POSSESSION CASH CARD,other,N
+11,Fraud,The intentional perversion of the truth for the purpose of inducing another person or other entity in reliance upon it to part with something of value or to surrender a legal right.,"Lying to get someone to give you money, permission for something, or anything else that benefits you.",1152,DECEPTIVE PRACTICE,ILLEGAL USE CASH CARD,other,N
+11,Fraud,The intentional perversion of the truth for the purpose of inducing another person or other entity in reliance upon it to part with something of value or to surrender a legal right.,"Lying to get someone to give you money, permission for something, or anything else that benefits you.",1153,DECEPTIVE PRACTICE,FINANCIAL IDENTITY THEFT OVER $ 300,other,N
+11,Fraud,The intentional perversion of the truth for the purpose of inducing another person or other entity in reliance upon it to part with something of value or to surrender a legal right.,"Lying to get someone to give you money, permission for something, or anything else that benefits you.",1154,DECEPTIVE PRACTICE,FINANCIAL IDENTITY THEFT $300 AND UNDER,other,N
+11,Fraud,The intentional perversion of the truth for the purpose of inducing another person or other entity in reliance upon it to part with something of value or to surrender a legal right.,"Lying to get someone to give you money, permission for something, or anything else that benefits you.",1155,DECEPTIVE PRACTICE,AGGRAVATED FINANCIAL IDENTITY THEFT,other,N
+11,Fraud,The intentional perversion of the truth for the purpose of inducing another person or other entity in reliance upon it to part with something of value or to surrender a legal right.,"Lying to get someone to give you money, permission for something, or anything else that benefits you.",1156,DECEPTIVE PRACTICE,ATTEMPT - FINANCIAL IDENTITY THEFT,other,N
+11,Fraud,The intentional perversion of the truth for the purpose of inducing another person or other entity in reliance upon it to part with something of value or to surrender a legal right.,"Lying to get someone to give you money, permission for something, or anything else that benefits you.",1160,DECEPTIVE PRACTICE,ALTER COINS,other,N
+11,Fraud,The intentional perversion of the truth for the purpose of inducing another person or other entity in reliance upon it to part with something of value or to surrender a legal right.,"Lying to get someone to give you money, permission for something, or anything else that benefits you.",1170,DECEPTIVE PRACTICE,IMPERSONATION,other,N
+11,Fraud,The intentional perversion of the truth for the purpose of inducing another person or other entity in reliance upon it to part with something of value or to surrender a legal right.,"Lying to get someone to give you money, permission for something, or anything else that benefits you.",1185,DECEPTIVE PRACTICE,DECEPTIVE COLLECTION PRACTICES,other,N
+11,Fraud,The intentional perversion of the truth for the purpose of inducing another person or other entity in reliance upon it to part with something of value or to surrender a legal right.,"Lying to get someone to give you money, permission for something, or anything else that benefits you.",1195,DECEPTIVE PRACTICE,FINAN EXPLOIT-ELDERLY/DISABLED,other,N
+11,Fraud,The intentional perversion of the truth for the purpose of inducing another person or other entity in reliance upon it to part with something of value or to surrender a legal right.,"Lying to get someone to give you money, permission for something, or anything else that benefits you.",1205,DECEPTIVE PRACTICE,"THEFT BY LESSEE,NON-VEH",other,N
+11,Fraud,The intentional perversion of the truth for the purpose of inducing another person or other entity in reliance upon it to part with something of value or to surrender a legal right.,"Lying to get someone to give you money, permission for something, or anything else that benefits you.",1206,DECEPTIVE PRACTICE,"THEFT BY LESSEE,MOTOR VEH",other,N
+11,Fraud,The intentional perversion of the truth for the purpose of inducing another person or other entity in reliance upon it to part with something of value or to surrender a legal right.,"Lying to get someone to give you money, permission for something, or anything else that benefits you.",1210,DECEPTIVE PRACTICE,THEFT OF LABOR/SERVICES,other,N
+11,Fraud,The intentional perversion of the truth for the purpose of inducing another person or other entity in reliance upon it to part with something of value or to surrender a legal right.,"Lying to get someone to give you money, permission for something, or anything else that benefits you.",1220,DECEPTIVE PRACTICE,THEFT OF LOST/MISLAID PROP,other,N
+11,Fraud,The intentional perversion of the truth for the purpose of inducing another person or other entity in reliance upon it to part with something of value or to surrender a legal right.,"Lying to get someone to give you money, permission for something, or anything else that benefits you.",1230,DECEPTIVE PRACTICE,POSS. KEYS OR DEV.TO COIN MACH,other,N
+11,Fraud,The intentional perversion of the truth for the purpose of inducing another person or other entity in reliance upon it to part with something of value or to surrender a legal right.,"Lying to get someone to give you money, permission for something, or anything else that benefits you.",1235,DECEPTIVE PRACTICE,UNLAWFUL USE OF RECORDED SOUND,other,N
+11,Fraud,The intentional perversion of the truth for the purpose of inducing another person or other entity in reliance upon it to part with something of value or to surrender a legal right.,"Lying to get someone to give you money, permission for something, or anything else that benefits you.",1240,DECEPTIVE PRACTICE,UNLAWFUL USE OF A COMPUTER,other,N
+11,Fraud,The intentional perversion of the truth for the purpose of inducing another person or other entity in reliance upon it to part with something of value or to surrender a legal right.,"Lying to get someone to give you money, permission for something, or anything else that benefits you.",1241,DECEPTIVE PRACTICE,AGGRAVATED COMPUTER TAMPERING,other,N
+11,Fraud,The intentional perversion of the truth for the purpose of inducing another person or other entity in reliance upon it to part with something of value or to surrender a legal right.,"Lying to get someone to give you money, permission for something, or anything else that benefits you.",1242,DECEPTIVE PRACTICE,COMPUTER FRAUD,other,N
+11,Fraud,The intentional perversion of the truth for the purpose of inducing another person or other entity in reliance upon it to part with something of value or to surrender a legal right.,"Lying to get someone to give you money, permission for something, or anything else that benefits you.",1245,DECEPTIVE PRACTICE,PAY TV SERVICE OFFENSES,other,N
+11,Fraud,The intentional perversion of the truth for the purpose of inducing another person or other entity in reliance upon it to part with something of value or to surrender a legal right.,"Lying to get someone to give you money, permission for something, or anything else that benefits you.",1255,DECEPTIVE PRACTICE,UNIDENTIFIABLE RECORDING SOUND,other,N
+11,Fraud,The intentional perversion of the truth for the purpose of inducing another person or other entity in reliance upon it to part with something of value or to surrender a legal right.,"Lying to get someone to give you money, permission for something, or anything else that benefits you.",1260,DECEPTIVE PRACTICE,LIBRARY THEFT,other,N
+11,Fraud,The intentional perversion of the truth for the purpose of inducing another person or other entity in reliance upon it to part with something of value or to surrender a legal right.,"Lying to get someone to give you money, permission for something, or anything else that benefits you.",1261,DECEPTIVE PRACTICE,UNAUTHORIZED VIDEOTAPING,other,N
+19,Gambling,"To unlawfully bet or wager money or something else of value; assist, promote, or operate a game of chance for money or some other stake; possess or transmit wagering information; manufacture, sell, purchase, possess, or transport gambling equipment, devices, or goods; or tamper with the outcome of a sporting event or contest to gain a gambling advantage. ","Betting money; running a gambling operation; manufacturing/etc gambling equipment (typically tk and tk); possessing or transmitting betting information (what is this getting at?); rigging betting events, wether sports games, tk, or tk",1610,GAMBLING,BOOKMAKING/HORSES,other,N
+19,Gambling,"To unlawfully bet or wager money or something else of value; assist, promote, or operate a game of chance for money or some other stake; possess or transmit wagering information; manufacture, sell, purchase, possess, or transport gambling equipment, devices, or goods; or tamper with the outcome of a sporting event or contest to gain a gambling advantage. ","Betting money; running a gambling operation; manufacturing/etc gambling equipment (typically tk and tk); possessing or transmitting betting information (what is this getting at?); rigging betting events, wether sports games, tk, or tk",1611,GAMBLING,BOOKMAKING/SPORTS,other,N
+19,Gambling,"To unlawfully bet or wager money or something else of value; assist, promote, or operate a game of chance for money or some other stake; possess or transmit wagering information; manufacture, sell, purchase, possess, or transport gambling equipment, devices, or goods; or tamper with the outcome of a sporting event or contest to gain a gambling advantage. ","Betting money; running a gambling operation; manufacturing/etc gambling equipment (typically tk and tk); possessing or transmitting betting information (what is this getting at?); rigging betting events, wether sports games, tk, or tk",1620,GAMBLING,BOLITA OR BOLI PUL/OFFICE,other,N
+19,Gambling,"To unlawfully bet or wager money or something else of value; assist, promote, or operate a game of chance for money or some other stake; possess or transmit wagering information; manufacture, sell, purchase, possess, or transport gambling equipment, devices, or goods; or tamper with the outcome of a sporting event or contest to gain a gambling advantage. ","Betting money; running a gambling operation; manufacturing/etc gambling equipment (typically tk and tk); possessing or transmitting betting information (what is this getting at?); rigging betting events, wether sports games, tk, or tk",1621,GAMBLING,BOLITA OR BOLI PUL/RUNNER,other,N
+19,Gambling,"To unlawfully bet or wager money or something else of value; assist, promote, or operate a game of chance for money or some other stake; possess or transmit wagering information; manufacture, sell, purchase, possess, or transport gambling equipment, devices, or goods; or tamper with the outcome of a sporting event or contest to gain a gambling advantage. ","Betting money; running a gambling operation; manufacturing/etc gambling equipment (typically tk and tk); possessing or transmitting betting information (what is this getting at?); rigging betting events, wether sports games, tk, or tk",1622,GAMBLING,BOLITA OR BOLI PUL/WRITER,other,N
+19,Gambling,"To unlawfully bet or wager money or something else of value; assist, promote, or operate a game of chance for money or some other stake; possess or transmit wagering information; manufacture, sell, purchase, possess, or transport gambling equipment, devices, or goods; or tamper with the outcome of a sporting event or contest to gain a gambling advantage. ","Betting money; running a gambling operation; manufacturing/etc gambling equipment (typically tk and tk); possessing or transmitting betting information (what is this getting at?); rigging betting events, wether sports games, tk, or tk",1624,GAMBLING,LOTTERY/PARI-MUTUEL,other,N
+19,Gambling,"To unlawfully bet or wager money or something else of value; assist, promote, or operate a game of chance for money or some other stake; possess or transmit wagering information; manufacture, sell, purchase, possess, or transport gambling equipment, devices, or goods; or tamper with the outcome of a sporting event or contest to gain a gambling advantage. ","Betting money; running a gambling operation; manufacturing/etc gambling equipment (typically tk and tk); possessing or transmitting betting information (what is this getting at?); rigging betting events, wether sports games, tk, or tk",1625,GAMBLING,NATIONAL LOTTERY,other,N
+19,Gambling,"To unlawfully bet or wager money or something else of value; assist, promote, or operate a game of chance for money or some other stake; possess or transmit wagering information; manufacture, sell, purchase, possess, or transport gambling equipment, devices, or goods; or tamper with the outcome of a sporting event or contest to gain a gambling advantage. ","Betting money; running a gambling operation; manufacturing/etc gambling equipment (typically tk and tk); possessing or transmitting betting information (what is this getting at?); rigging betting events, wether sports games, tk, or tk",1626,GAMBLING,ILLEGAL ILL LOTTERY,other,N
+19,Gambling,"To unlawfully bet or wager money or something else of value; assist, promote, or operate a game of chance for money or some other stake; possess or transmit wagering information; manufacture, sell, purchase, possess, or transport gambling equipment, devices, or goods; or tamper with the outcome of a sporting event or contest to gain a gambling advantage. ","Betting money; running a gambling operation; manufacturing/etc gambling equipment (typically tk and tk); possessing or transmitting betting information (what is this getting at?); rigging betting events, wether sports games, tk, or tk",1627,GAMBLING,LOTTERY/OTHER,other,N
+19,Gambling,"To unlawfully bet or wager money or something else of value; assist, promote, or operate a game of chance for money or some other stake; possess or transmit wagering information; manufacture, sell, purchase, possess, or transport gambling equipment, devices, or goods; or tamper with the outcome of a sporting event or contest to gain a gambling advantage. ","Betting money; running a gambling operation; manufacturing/etc gambling equipment (typically tk and tk); possessing or transmitting betting information (what is this getting at?); rigging betting events, wether sports games, tk, or tk",1630,GAMBLING,WIREROOM/HORSES,other,N
+19,Gambling,"To unlawfully bet or wager money or something else of value; assist, promote, or operate a game of chance for money or some other stake; possess or transmit wagering information; manufacture, sell, purchase, possess, or transport gambling equipment, devices, or goods; or tamper with the outcome of a sporting event or contest to gain a gambling advantage. ","Betting money; running a gambling operation; manufacturing/etc gambling equipment (typically tk and tk); possessing or transmitting betting information (what is this getting at?); rigging betting events, wether sports games, tk, or tk",1631,GAMBLING,WIREROOM/SPORTS,other,N
+19,Gambling,"To unlawfully bet or wager money or something else of value; assist, promote, or operate a game of chance for money or some other stake; possess or transmit wagering information; manufacture, sell, purchase, possess, or transport gambling equipment, devices, or goods; or tamper with the outcome of a sporting event or contest to gain a gambling advantage. ","Betting money; running a gambling operation; manufacturing/etc gambling equipment (typically tk and tk); possessing or transmitting betting information (what is this getting at?); rigging betting events, wether sports games, tk, or tk",1633,GAMBLING,SPORTS TAMPERING,other,N
+19,Gambling,"To unlawfully bet or wager money or something else of value; assist, promote, or operate a game of chance for money or some other stake; possess or transmit wagering information; manufacture, sell, purchase, possess, or transport gambling equipment, devices, or goods; or tamper with the outcome of a sporting event or contest to gain a gambling advantage. ","Betting money; running a gambling operation; manufacturing/etc gambling equipment (typically tk and tk); possessing or transmitting betting information (what is this getting at?); rigging betting events, wether sports games, tk, or tk",1640,GAMBLING,REGISTER FED GAMBLING STAMP,other,N
+19,Gambling,"To unlawfully bet or wager money or something else of value; assist, promote, or operate a game of chance for money or some other stake; possess or transmit wagering information; manufacture, sell, purchase, possess, or transport gambling equipment, devices, or goods; or tamper with the outcome of a sporting event or contest to gain a gambling advantage. ","Betting money; running a gambling operation; manufacturing/etc gambling equipment (typically tk and tk); possessing or transmitting betting information (what is this getting at?); rigging betting events, wether sports games, tk, or tk",1650,GAMBLING,VIOL CHARITABLE GAME ACT,other,N
+19,Gambling,"To unlawfully bet or wager money or something else of value; assist, promote, or operate a game of chance for money or some other stake; possess or transmit wagering information; manufacture, sell, purchase, possess, or transport gambling equipment, devices, or goods; or tamper with the outcome of a sporting event or contest to gain a gambling advantage. ","Betting money; running a gambling operation; manufacturing/etc gambling equipment (typically tk and tk); possessing or transmitting betting information (what is this getting at?); rigging betting events, wether sports games, tk, or tk",1651,GAMBLING,GAME/CARDS,other,N
+19,Gambling,"To unlawfully bet or wager money or something else of value; assist, promote, or operate a game of chance for money or some other stake; possess or transmit wagering information; manufacture, sell, purchase, possess, or transport gambling equipment, devices, or goods; or tamper with the outcome of a sporting event or contest to gain a gambling advantage. ","Betting money; running a gambling operation; manufacturing/etc gambling equipment (typically tk and tk); possessing or transmitting betting information (what is this getting at?); rigging betting events, wether sports games, tk, or tk",1661,GAMBLING,GAME/DICE,other,N
+19,Gambling,"To unlawfully bet or wager money or something else of value; assist, promote, or operate a game of chance for money or some other stake; possess or transmit wagering information; manufacture, sell, purchase, possess, or transport gambling equipment, devices, or goods; or tamper with the outcome of a sporting event or contest to gain a gambling advantage. ","Betting money; running a gambling operation; manufacturing/etc gambling equipment (typically tk and tk); possessing or transmitting betting information (what is this getting at?); rigging betting events, wether sports games, tk, or tk",1670,GAMBLING,GAME/AMUSEMENT DEVICE,other,N
+19,Gambling,"To unlawfully bet or wager money or something else of value; assist, promote, or operate a game of chance for money or some other stake; possess or transmit wagering information; manufacture, sell, purchase, possess, or transport gambling equipment, devices, or goods; or tamper with the outcome of a sporting event or contest to gain a gambling advantage. ","Betting money; running a gambling operation; manufacturing/etc gambling equipment (typically tk and tk); possessing or transmitting betting information (what is this getting at?); rigging betting events, wether sports games, tk, or tk",1680,GAMBLING,OTHER,other,N
+19,Gambling,"To unlawfully bet or wager money or something else of value; assist, promote, or operate a game of chance for money or some other stake; possess or transmit wagering information; manufacture, sell, purchase, possess, or transport gambling equipment, devices, or goods; or tamper with the outcome of a sporting event or contest to gain a gambling advantage. ","Betting money; running a gambling operation; manufacturing/etc gambling equipment (typically tk and tk); possessing or transmitting betting information (what is this getting at?); rigging betting events, wether sports games, tk, or tk",1681,GAMBLING,LOTTERY/PARLAY CARDS,other,N
+19,Gambling,"To unlawfully bet or wager money or something else of value; assist, promote, or operate a game of chance for money or some other stake; possess or transmit wagering information; manufacture, sell, purchase, possess, or transport gambling equipment, devices, or goods; or tamper with the outcome of a sporting event or contest to gain a gambling advantage. ","Betting money; running a gambling operation; manufacturing/etc gambling equipment (typically tk and tk); possessing or transmitting betting information (what is this getting at?); rigging betting events, wether sports games, tk, or tk",1682,OTHER OFFENSE,ANIMAL FIGHTING,other,N
+19,Gambling,"To unlawfully bet or wager money or something else of value; assist, promote, or operate a game of chance for money or some other stake; possess or transmit wagering information; manufacture, sell, purchase, possess, or transport gambling equipment, devices, or goods; or tamper with the outcome of a sporting event or contest to gain a gambling advantage. ","Betting money; running a gambling operation; manufacturing/etc gambling equipment (typically tk and tk); possessing or transmitting betting information (what is this getting at?); rigging betting events, wether sports games, tk, or tk",1697,GAMBLING,POLICY/OTHER,other,N
+01A,Homicide 1st and 2nd degree,The killing of one human being by another.,Purposely killing a person.,0110,HOMICIDE,FIRST DEGREE MURDER,violent,I
+01B,Involuntary manslaughter,The killing of another person through negligence.,Killing your fellow man out of negligence.,0141,HOMICIDE,INVOLUNTARY MANSLAUGHTER,violent,N
+01B,Involuntary manslaughter,The killing of another person through negligence.,Killing your fellow man out of negligence.,0142,HOMICIDE,RECKLESS HOMICIDE,violent,N
+06,Theft,"The unlawful taking, carrying, leading, or riding away of property from the possession or constructive possession of another person. ",Stealing someone's stuff.,0810,THEFT,OVER $300,property,I
+06,Theft,"The unlawful taking, carrying, leading, or riding away of property from the possession or constructive possession of another person. ",Stealing someone's stuff.,0810,THEFT,OVER $500,property,I
+06,Theft,"The unlawful taking, carrying, leading, or riding away of property from the possession or constructive possession of another person. ",Stealing someone's stuff.,0820,THEFT,$300 AND UNDER,property,I
+06,Theft,"The unlawful taking, carrying, leading, or riding away of property from the possession or constructive possession of another person. ",Stealing someone's stuff.,0820,THEFT,$500 AND UNDER,property,I
+06,Theft,"The unlawful taking, carrying, leading, or riding away of property from the possession or constructive possession of another person. ",Stealing someone's stuff.,0840,THEFT,FINANCIAL ID THEFT: OVER $300,property,I
+06,Theft,"The unlawful taking, carrying, leading, or riding away of property from the possession or constructive possession of another person. ",Stealing someone's stuff.,0841,THEFT,FINANCIAL ID THEFT:$300 &UNDER,property,I
+06,Theft,"The unlawful taking, carrying, leading, or riding away of property from the possession or constructive possession of another person. ",Stealing someone's stuff.,0842,THEFT,AGG: FINANCIAL ID THEFT,property,I
+06,Theft,"The unlawful taking, carrying, leading, or riding away of property from the possession or constructive possession of another person. ",Stealing someone's stuff.,0843,THEFT,ATTEMPT FINANCIAL IDENTITY THEFT,property,I
+06,Theft,"The unlawful taking, carrying, leading, or riding away of property from the possession or constructive possession of another person. ",Stealing someone's stuff.,0850,THEFT,ATTEMPT THEFT,property,I
+06,Theft,"The unlawful taking, carrying, leading, or riding away of property from the possession or constructive possession of another person. ",Stealing someone's stuff.,0860,THEFT,RETAIL THEFT,property,I
+06,Theft,"The unlawful taking, carrying, leading, or riding away of property from the possession or constructive possession of another person. ",Stealing someone's stuff.,0865,THEFT,DELIVERY CONTAINER THEFT,property,I
+06,Theft,"The unlawful taking, carrying, leading, or riding away of property from the possession or constructive possession of another person. ",Stealing someone's stuff.,0870,THEFT,POCKET-PICKING,property,I
+06,Theft,"The unlawful taking, carrying, leading, or riding away of property from the possession or constructive possession of another person. ",Stealing someone's stuff.,0880,THEFT,PURSE-SNATCHING,property,I
+06,Theft,"The unlawful taking, carrying, leading, or riding away of property from the possession or constructive possession of another person. ",Stealing someone's stuff.,0890,THEFT,FROM BUILDING,property,I
+06,Theft,"The unlawful taking, carrying, leading, or riding away of property from the possession or constructive possession of another person. ",Stealing someone's stuff.,0895,THEFT,FROM COIN-OP MACHINE/DEVICE,property,I
+22,Liquor license,"The violation of laws or ordinances prohibiting the manufacture, sale, purchase, transportation, possession, or use of alcoholic beverages. ","Breaking any of the laws that govern the making, shipping, selling, buying, owning, or drinking of alcohol.",2210,LIQUOR LAW VIOLATION,SELL/GIVE/DEL LIQUOR TO MINOR,other,N
+22,Liquor license,"The violation of laws or ordinances prohibiting the manufacture, sale, purchase, transportation, possession, or use of alcoholic beverages. ","Breaking any of the laws that govern the making, shipping, selling, buying, owning, or drinking of alcohol.",2220,LIQUOR LAW VIOLATION,ILLEGAL POSSESSION BY MINOR,other,N
+22,Liquor license,"The violation of laws or ordinances prohibiting the manufacture, sale, purchase, transportation, possession, or use of alcoholic beverages. ","Breaking any of the laws that govern the making, shipping, selling, buying, owning, or drinking of alcohol.",2230,LIQUOR LAW VIOLATION,ILLEGAL CONSUMPTION BY MINOR,other,N
+22,Liquor license,"The violation of laws or ordinances prohibiting the manufacture, sale, purchase, transportation, possession, or use of alcoholic beverages. ","Breaking any of the laws that govern the making, shipping, selling, buying, owning, or drinking of alcohol.",2240,LIQUOR LAW VIOLATION,MINOR MISREPRESENT AGE,other,N
+22,Liquor license,"The violation of laws or ordinances prohibiting the manufacture, sale, purchase, transportation, possession, or use of alcoholic beverages. ","Breaking any of the laws that govern the making, shipping, selling, buying, owning, or drinking of alcohol.",2250,LIQUOR LAW VIOLATION,LIQUOR LICENSE VIOLATION,other,N
+22,Liquor license,"The violation of laws or ordinances prohibiting the manufacture, sale, purchase, transportation, possession, or use of alcoholic beverages. ","Breaking any of the laws that govern the making, shipping, selling, buying, owning, or drinking of alcohol.",2251,LIQUOR LAW VIOLATION,EMPLOY MINOR,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,0584,STALKING,VIOLATION OF STALKING NO CONTACT ORDER,,
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,1030,ARSON,POS: EXPLOSIVE/INCENDIARY DEV,property,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,1035,ARSON,POS: CHEMICAL/DRY-ICE DEVICE,property,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,1330,CRIMINAL TRESPASS,TO LAND,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,1335,CRIMINAL TRESPASS,TO AIRPORT,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,1350,CRIMINAL TRESPASS,TO STATE SUP LAND,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,1360,CRIMINAL TRESPASS,TO VEHICLE,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,1365,CRIMINAL TRESPASS,TO RESIDENCE,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,1710,OFFENSE INVOLVING CHILDREN,ENDANGERING LIFE/HEALTH CHILD,sensitive,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,1715,OFFENSE INVOLVING CHILDREN,SALE TOBACCO PRODUCTS TO MINOR,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,1715,OFFENSES INVOLVING CHILDREN,SALE TOBACCO PRODUCTS TO MINOR,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,1725,OFFENSE INVOLVING CHILDREN,CONTRIBUTE CRIM DELINQUENCY JUVENILE,sensitive,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,1725,OFFENSES INVOLVING CHILDREN,CONTRIBUTE CRIM DELINQUENCY JUVENILE,sensitive,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,1755,OFFENSE INVOLVING CHILDREN,CHILD ABANDONMENT,sensitive,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,1755,OFFENSES INVOLVING CHILDREN,CHILD ABANDONMENT,sensitive,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,1780,OFFENSE INVOLVING CHILDREN,OTHER OFFENSE,sensitive,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,2091,NARCOTICS,FORFEIT PROPERTY,quality,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,2092,NARCOTICS,SOLICIT NARCOTICS ON PUBLICWAY,quality,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,2093,NARCOTICS,FOUND SUSPECT NARCOTICS,quality,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,2111,NARCOTICS,SALE/DEL HYPODERMIC NEEDLE,quality,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,2120,NARCOTICS,FAILURE TO KEEP HYPO RECORDS,quality,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,2160,NARCOTICS,SALE/DEL DRUG PARAPHERNALIA,quality,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,2820,OTHER OFFENSE,TELEPHONE THREAT,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,2825,OTHER OFFENSE,HARASSMENT BY TELEPHONE,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,2826,OTHER OFFENSE,HARASSMENT BY ELECTRONIC MEANS,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,2850,PUBLIC PEACE VIOLATION,BOMB THREAT,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,2851,PUBLIC PEACE VIOLATION,ARSON THREAT,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,2890,PUBLIC PEACE VIOLATION,OTHER VIOLATION,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,2895,PUBLIC PEACE VIOLATION,INTERFERE W/ EMERGENCY EQUIP,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,3000,PUBLIC PEACE VIOLATION,SELL/ADVERTISE FIREWORKS,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,3200,PUBLIC PEACE VIOLATION,ARMED VIOLENCE,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,3300,PUBLIC PEACE VIOLATION,PUBLIC DEMONSTRATION,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,3400,PUBLIC PEACE VIOLATION,LOOTING,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,3770,INTERFERENCE WITH PUBLIC OFFICER,CONTRABAND IN PRISON,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,3770,INTERFERE WITH PUBLIC OFFICER,CONTRABAND IN PRISON,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,3800,INTERFERENCE WITH PUBLIC OFFICER,INTERFERENCE JUDICIAL PROCESS,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,3800,INTERFERE WITH PUBLIC OFFICER,INTERFERENCE JUDICIAL PROCESS,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,3910,INTERFERENCE WITH PUBLIC OFFICER,BRIBERY,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,3910,INTERFERE WITH PUBLIC OFFICER,BRIBERY,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,3920,INTERFERENCE WITH PUBLIC OFFICER,OFFICIAL MISCONDUCT,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,3920,INTERFERE WITH PUBLIC OFFICER,OFFICIAL MISCONDUCT,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,3960,INTIMIDATION,INTIMIDATION,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,3966,INTIMIDATION,EDUCATIONAL INTIMIDAITON,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,3970,INTIMIDATION,EXTORTION,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,3975,INTIMIDATION,COMPELLING ORG MEMBERSHIP,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,3980,INTIMIDATION,COMPELLING CONFESSION,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,4210,KIDNAPPING,KIDNAPPING,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,4220,KIDNAPPING,AGGRAVATED,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,4230,KIDNAPPING,UNLAWFUL RESTRAINT,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,4240,KIDNAPPING,FORCIBLE DETENTION,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,4255,KIDNAPPING,UNLAWFUL INTERFERE/VISITATION,sensitive,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,4310,OTHER OFFENSE,POSSESSION OF BURGLARY TOOLS,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,4387,OTHER OFFENSE,VIOLATE ORDER OF PROTECTION,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,4388,OTHER OFFENSE,VIO BAIL BOND: DOM VIOLENCE,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,4389,OTHER OFFENSE,VIOLATION GPS MONITORING DEVICE,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,4510,OTHER OFFENSE,PROBATION VIOLATION,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,4625,OTHER OFFENSE,PAROLE VIOLATION,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,4650,OTHER OFFENSE,SEX OFFENDER: FAIL TO REGISTER,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,4651,OTHER OFFENSE,SEX OFFENDER: FAIL REG NEW ADD,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,4652,OTHER OFFENSE,SEX OFFENDER: PROHIBITED ZONE,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,4740,OTHER OFFENSE,UNLAWFUL USE OF BODY ARMOR,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,4750,OTHER OFFENSE,DISCLOSE DV VICTIM LOCATION,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,4800,OTHER OFFENSE,MONEY LAUNDERING,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,4810,OTHER OFFENSE,COMPOUNDING A CRIME,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,4860,OTHER OFFENSE,BOARD PLANE WITH WEAPON,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,5000,OTHER OFFENSE,OTHER CRIME AGAINST PERSON,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,5001,OTHER OFFENSE,OTHER CRIME INVOLVING PROPERTY,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,5002,OTHER OFFENSE,OTHER VEHICLE OFFENSE,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,5003,OTHER OFFENSE,OTHER ARSON/EXPLOSIVE INCIDENT,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,5007,OTHER OFFENSE,OTHER WEAPONS VIOLATION,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,5008,OTHER OFFENSE,FIREARM REGISTRATION VIOLATION,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,5009,OTHER OFFENSE,VIOLATION OF SMOKING BAN,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,500E,OTHER OFFENSE,EAVESDROPPING,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,500N,OTHER OFFENSE,ABUSE/NEGLECT: CARE FACILITY,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,5011,OTHER OFFENSE,LICENSE VIOLATION,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,501A,OTHER OFFENSE,ANIMAL ABUSE/NEGLECT,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,501H,OTHER OFFENSE,HAZARDOUS MATERIALS VIOLATION,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,502P,OTHER OFFENSE,FALSE/STOLEN/ALTERED TRP,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,502R,OTHER OFFENSE,VEHICLE TITLE/REG OFFENSE,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,502T,OTHER OFFENSE,TAMPER WITH MOTOR VEHICLE,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,5073,NON-CRIMINAL (SUBJECT SPECIFIED),NOTIFICATION OF CIVIL NO CONTACT ORDER,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,5093,NON-CRIMINAL,LOST PASSPORT,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,5094,NON-CRIMINAL,FOUND PASSPORT,,
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,5110,OTHER OFFENSE,DUTY TO REGISTER,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,5110,OTHER OFFENSE,GUN OFFENDER: DUTY TO REGISTER,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,5111,OTHER OFFENSE,GUN OFFENDER ANNUAL REGISTRATION,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,5111,OTHER OFFENSE,GUN OFFENDER: ANNUAL REGISTRATION,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,5112,OTHER OFFENSE,DUTY TO REPORT CHANGE OF INFORMATION,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,5112,OTHER OFFENSE,GUN OFFENDER: DUTY TO REPORT CHANGE OF INFORMATION,other,N
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,5114,NON - CRIMINAL,FOID - REVOCATION,,
+26,Miscellaneous,The violation of miscellaneous laws or ordinances.,Everything else. Pick examples that capture the range or if possible the central thrust of the laws.,5130,OTHER OFFENSE,VIOLENT OFFENDER: DUTY TO REGISTER,,
+07,Motor vehicle theft,The theft of a motor vehicle.,Stealing a car or anything else that drives on the road.,0910,MOTOR VEHICLE THEFT,AUTOMOBILE,property,I
+07,Motor vehicle theft,The theft of a motor vehicle.,Stealing a car or anything else that drives on the road.,0915,MOTOR VEHICLE THEFT,"TRUCK, BUS, MOTOR HOME",property,I
+07,Motor vehicle theft,The theft of a motor vehicle.,Stealing a car or anything else that drives on the road.,0917,MOTOR VEHICLE THEFT,"CYCLE, SCOOTER, BIKE W-VIN",property,I
+07,Motor vehicle theft,The theft of a motor vehicle.,Stealing a car or anything else that drives on the road.,0918,MOTOR VEHICLE THEFT,"CYCLE, SCOOTER, BIKE NO VIN",property,I
+07,Motor vehicle theft,The theft of a motor vehicle.,Stealing a car or anything else that drives on the road.,0920,MOTOR VEHICLE THEFT,ATT: AUTOMOBILE,property,I
+07,Motor vehicle theft,The theft of a motor vehicle.,Stealing a car or anything else that drives on the road.,0925,MOTOR VEHICLE THEFT,"ATT: TRUCK, BUS, MOTOR HOME",property,I
+07,Motor vehicle theft,The theft of a motor vehicle.,Stealing a car or anything else that drives on the road.,0927,MOTOR VEHICLE THEFT,"ATTEMPT: CYCLE, SCOOTER, BIKE W-VIN",property,I
+07,Motor vehicle theft,The theft of a motor vehicle.,Stealing a car or anything else that drives on the road.,0928,MOTOR VEHICLE THEFT,"ATTEMPT: CYCLE, SCOOTER, BIKE NO VIN",property,I
+07,Motor vehicle theft,The theft of a motor vehicle.,Stealing a car or anything else that drives on the road.,0930,MOTOR VEHICLE THEFT,THEFT/RECOVERY: AUTOMOBILE,property,I
+07,Motor vehicle theft,The theft of a motor vehicle.,Stealing a car or anything else that drives on the road.,0935,MOTOR VEHICLE THEFT,"THEFT/RECOVERY: TRUCK,BUS,MHOME",property,I
+07,Motor vehicle theft,The theft of a motor vehicle.,Stealing a car or anything else that drives on the road.,0937,MOTOR VEHICLE THEFT,"THEFT/RECOVERY: CYCLE, SCOOTER, BIKE W-VIN",property,I
+07,Motor vehicle theft,The theft of a motor vehicle.,Stealing a car or anything else that drives on the road.,0938,MOTOR VEHICLE THEFT,"THEFT/RECOVERY: CYCLE, SCOOTER, BIKE NO VIN",property,I
+20,Offenses against family,"Unlawful, nonviolent acts by a family member (or legal guardian) that threaten the physical, mental, or economic well-being or morals of another family member and that are not classifiable as other offenses, such as Assault, Incest, Statutory Rape, etc.",,1720,OFFENSE INVOLVING CHILDREN,CONTRIBUTE DELINQUENCY OF A CHILD,sensitive,N
+20,Offenses against family,"Unlawful, nonviolent acts by a family member (or legal guardian) that threaten the physical, mental, or economic well-being or morals of another family member and that are not classifiable as other offenses, such as Assault, Incest, Statutory Rape, etc.",,1750,OFFENSE INVOLVING CHILDREN,CHILD ABUSE,sensitive,N
+20,Offenses against family,"Unlawful, nonviolent acts by a family member (or legal guardian) that threaten the physical, mental, or economic well-being or morals of another family member and that are not classifiable as other offenses, such as Assault, Incest, Statutory Rape, etc.",,1751,OFFENSE INVOLVING CHILDREN,CRIM SEX ABUSE BY FAM MEMBER,sensitive,N
+20,Offenses against family,"Unlawful, nonviolent acts by a family member (or legal guardian) that threaten the physical, mental, or economic well-being or morals of another family member and that are not classifiable as other offenses, such as Assault, Incest, Statutory Rape, etc.",,1752,OFFENSE INVOLVING CHILDREN,AGG CRIM SEX ABUSE FAM MEMBER,sensitive,N
+20,Offenses against family,"Unlawful, nonviolent acts by a family member (or legal guardian) that threaten the physical, mental, or economic well-being or morals of another family member and that are not classifiable as other offenses, such as Assault, Incest, Statutory Rape, etc.",,1790,OFFENSE INVOLVING CHILDREN,CHILD ABDUCTION,sensitive,N
+20,Offenses against family,"Unlawful, nonviolent acts by a family member (or legal guardian) that threaten the physical, mental, or economic well-being or morals of another family member and that are not classifiable as other offenses, such as Assault, Incest, Statutory Rape, etc.",,1791,OFFENSE INVOLVING CHILDREN,HARBOR RUNAWAY,sensitive,N
+20,Offenses against family,"Unlawful, nonviolent acts by a family member (or legal guardian) that threaten the physical, mental, or economic well-being or morals of another family member and that are not classifiable as other offenses, such as Assault, Incest, Statutory Rape, etc.",,1792,KIDNAPPING,CHILD ABDUCTION/STRANGER,sensitive,N
+16,Prostitution,To unlawfully engage in or promote sexual activities for profit.,"Selling sex for money, as either the pimp or the prostitute.",1505,PROSTITUTION,CALL OPERATION,quality,N
+16,Prostitution,To unlawfully engage in or promote sexual activities for profit.,"Selling sex for money, as either the pimp or the prostitute.",1506,PROSTITUTION,SOLICIT ON PUBLIC WAY,quality,N
+16,Prostitution,To unlawfully engage in or promote sexual activities for profit.,"Selling sex for money, as either the pimp or the prostitute.",1507,PROSTITUTION,SOLICIT OFF PUBLIC WAY,quality,N
+16,Prostitution,To unlawfully engage in or promote sexual activities for profit.,"Selling sex for money, as either the pimp or the prostitute.",1510,PROSTITUTION,CAB OPERATION,quality,N
+16,Prostitution,To unlawfully engage in or promote sexual activities for profit.,"Selling sex for money, as either the pimp or the prostitute.",1511,PROSTITUTION,IN TAVERN,quality,N
+16,Prostitution,To unlawfully engage in or promote sexual activities for profit.,"Selling sex for money, as either the pimp or the prostitute.",1512,PROSTITUTION,SOLICIT FOR PROSTITUTE,quality,N
+16,Prostitution,To unlawfully engage in or promote sexual activities for profit.,"Selling sex for money, as either the pimp or the prostitute.",1513,PROSTITUTION,SOLICIT FOR BUSINESS,quality,N
+16,Prostitution,To unlawfully engage in or promote sexual activities for profit.,"Selling sex for money, as either the pimp or the prostitute.",1515,PROSTITUTION,PANDERING,quality,N
+16,Prostitution,To unlawfully engage in or promote sexual activities for profit.,"Selling sex for money, as either the pimp or the prostitute.",1520,PROSTITUTION,KEEP PLACE OF PROSTITUTION,quality,N
+16,Prostitution,To unlawfully engage in or promote sexual activities for profit.,"Selling sex for money, as either the pimp or the prostitute.",1521,PROSTITUTION,KEEP PLACE OF JUV PROSTITUTION,quality,N
+16,Prostitution,To unlawfully engage in or promote sexual activities for profit.,"Selling sex for money, as either the pimp or the prostitute.",1525,PROSTITUTION,PATRONIZING A PROSTITUTE,quality,N
+16,Prostitution,To unlawfully engage in or promote sexual activities for profit.,"Selling sex for money, as either the pimp or the prostitute.",1526,PROSTITUTION,PATRONIZE JUVENILE PROSTITUTE,quality,N
+16,Prostitution,To unlawfully engage in or promote sexual activities for profit.,"Selling sex for money, as either the pimp or the prostitute.",1530,PROSTITUTION,PIMPING,quality,N
+16,Prostitution,To unlawfully engage in or promote sexual activities for profit.,"Selling sex for money, as either the pimp or the prostitute.",1531,PROSTITUTION,JUVENILE PIMPING,quality,N
+16,Prostitution,To unlawfully engage in or promote sexual activities for profit.,"Selling sex for money, as either the pimp or the prostitute.",1537,OFFENSE INVOLVING CHILDREN,POS: PORNOGRAPHIC PRINT,sensitive,N
+16,Prostitution,To unlawfully engage in or promote sexual activities for profit.,"Selling sex for money, as either the pimp or the prostitute.",1549,PROSTITUTION,OTHER PROSTITUTION OFFENSE,quality,N
+03,Robbery,"The taking or attempting to take anything of value under confrontational circumstances from the control, custody, or care of another person by force or threat of force or violence and/or by putting the victim in fear of immediate harm. ",Stealing - or trying to steal - a person's stuff through intimidation or force. Muggings are an example.,0312,ROBBERY,ARMED:KNIFE/CUTTING INSTRUMENT,violent,I
+03,Robbery,"The taking or attempting to take anything of value under confrontational circumstances from the control, custody, or care of another person by force or threat of force or violence and/or by putting the victim in fear of immediate harm. ",Stealing - or trying to steal - a person's stuff through intimidation or force. Muggings are an example.,0313,ROBBERY,ARMED: OTHER DANGEROUS WEAPON,violent,I
+03,Robbery,"The taking or attempting to take anything of value under confrontational circumstances from the control, custody, or care of another person by force or threat of force or violence and/or by putting the victim in fear of immediate harm. ",Stealing - or trying to steal - a person's stuff through intimidation or force. Muggings are an example.,031A,ROBBERY,ARMED: HANDGUN,violent,I
+03,Robbery,"The taking or attempting to take anything of value under confrontational circumstances from the control, custody, or care of another person by force or threat of force or violence and/or by putting the victim in fear of immediate harm. ",Stealing - or trying to steal - a person's stuff through intimidation or force. Muggings are an example.,031B,ROBBERY,ARMED: OTHER FIREARM,violent,I
+03,Robbery,"The taking or attempting to take anything of value under confrontational circumstances from the control, custody, or care of another person by force or threat of force or violence and/or by putting the victim in fear of immediate harm. ",Stealing - or trying to steal - a person's stuff through intimidation or force. Muggings are an example.,0320,ROBBERY,STRONGARM - NO WEAPON,violent,I
+03,Robbery,"The taking or attempting to take anything of value under confrontational circumstances from the control, custody, or care of another person by force or threat of force or violence and/or by putting the victim in fear of immediate harm. ",Stealing - or trying to steal - a person's stuff through intimidation or force. Muggings are an example.,0325,ROBBERY,VEHICULAR HIJACKING,violent,I
+03,Robbery,"The taking or attempting to take anything of value under confrontational circumstances from the control, custody, or care of another person by force or threat of force or violence and/or by putting the victim in fear of immediate harm. ",Stealing - or trying to steal - a person's stuff through intimidation or force. Muggings are an example.,0326,ROBBERY,AGGRAVATED VEHICULAR HIJACKING,violent,I
+03,Robbery,"The taking or attempting to take anything of value under confrontational circumstances from the control, custody, or care of another person by force or threat of force or violence and/or by putting the victim in fear of immediate harm. ",Stealing - or trying to steal - a person's stuff through intimidation or force. Muggings are an example.,0330,ROBBERY,AGGRAVATED,violent,I
+03,Robbery,"The taking or attempting to take anything of value under confrontational circumstances from the control, custody, or care of another person by force or threat of force or violence and/or by putting the victim in fear of immediate harm. ",Stealing - or trying to steal - a person's stuff through intimidation or force. Muggings are an example.,0331,ROBBERY,ATTEMPT: AGGRAVATED,violent,I
+03,Robbery,"The taking or attempting to take anything of value under confrontational circumstances from the control, custody, or care of another person by force or threat of force or violence and/or by putting the victim in fear of immediate harm. ",Stealing - or trying to steal - a person's stuff through intimidation or force. Muggings are an example.,0334,ROBBERY,ATTEMPT: ARMED-KNIFE/CUT INSTR,violent,I
+03,Robbery,"The taking or attempting to take anything of value under confrontational circumstances from the control, custody, or care of another person by force or threat of force or violence and/or by putting the victim in fear of immediate harm. ",Stealing - or trying to steal - a person's stuff through intimidation or force. Muggings are an example.,0337,ROBBERY,ATTEMPT: ARMED-OTHER DANG WEAP,violent,I
+03,Robbery,"The taking or attempting to take anything of value under confrontational circumstances from the control, custody, or care of another person by force or threat of force or violence and/or by putting the victim in fear of immediate harm. ",Stealing - or trying to steal - a person's stuff through intimidation or force. Muggings are an example.,033A,ROBBERY,ATTEMPT: ARMED-HANDGUN,violent,I
+03,Robbery,"The taking or attempting to take anything of value under confrontational circumstances from the control, custody, or care of another person by force or threat of force or violence and/or by putting the victim in fear of immediate harm. ",Stealing - or trying to steal - a person's stuff through intimidation or force. Muggings are an example.,033B,ROBBERY,ATTEMPT: ARMED-OTHER FIREARM,violent,I
+03,Robbery,"The taking or attempting to take anything of value under confrontational circumstances from the control, custody, or care of another person by force or threat of force or violence and/or by putting the victim in fear of immediate harm. ",Stealing - or trying to steal - a person's stuff through intimidation or force. Muggings are an example.,0340,ROBBERY,ATTEMPT: STRONGARM-NO WEAPON,violent,I
+08A,Simple assault,"An unlawful physical attack by one person upon another where neither the offender displays a weapon, nor the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Credibly threatening to hit someone.,0545,ASSAULT,PRO EMP HANDS NO/MIN INJURY,violent,N
+08A,Simple assault,"An unlawful physical attack by one person upon another where neither the offender displays a weapon, nor the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Credibly threatening to hit someone.,0554,ASSAULT,AGG PO HANDS NO/MIN INJURY,violent,N
+08A,Simple assault,"An unlawful physical attack by one person upon another where neither the offender displays a weapon, nor the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Credibly threatening to hit someone.,0560,ASSAULT,SIMPLE,violent,N
+08A,Simple assault,"An unlawful physical attack by one person upon another where neither the offender displays a weapon, nor the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Credibly threatening to hit someone.,0580,STALKING,SIMPLE,sensitive,N
+08A,Simple assault,"An unlawful physical attack by one person upon another where neither the offender displays a weapon, nor the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Credibly threatening to hit someone.,0581,STALKING,AGGRAVATED,sensitive,N
+08A,Simple assault,"An unlawful physical attack by one person upon another where neither the offender displays a weapon, nor the victim suffers obvious severe or aggravated bodily injury involving apparent broken bones, loss of teeth, possible internal injury, severe laceration, or loss of consciousness.",Credibly threatening to hit someone.,0583,STALKING,CYBERSTALKING,sensitive,N
+08B,Simple battery,"A person commits battery if he intentionally or knowingly without legal justification and by any means, (1) causes bodily harm to an individual or (2) makes physical contact of an insulting or provoking nature with an individual.",Hitting someone.,0440,BATTERY,AGG: HANDS/FIST/FEET NO/MINOR INJURY,violent,N
+08B,Simple battery,"A person commits battery if he intentionally or knowingly without legal justification and by any means, (1) causes bodily harm to an individual or (2) makes physical contact of an insulting or provoking nature with an individual.",Hitting someone.,0454,BATTERY,AGG PO HANDS NO/MIN INJURY,violent,N
+08B,Simple battery,"A person commits battery if he intentionally or knowingly without legal justification and by any means, (1) causes bodily harm to an individual or (2) makes physical contact of an insulting or provoking nature with an individual.",Hitting someone.,0460,BATTERY,SIMPLE,violent,N
+08B,Simple battery,"A person commits battery if he intentionally or knowingly without legal justification and by any means, (1) causes bodily harm to an individual or (2) makes physical contact of an insulting or provoking nature with an individual.",Hitting someone.,0475,BATTERY,OF UNBORN CHILD,violent,N
+08B,Simple battery,"A person commits battery if he intentionally or knowingly without legal justification and by any means, (1) causes bodily harm to an individual or (2) makes physical contact of an insulting or provoking nature with an individual.",Hitting someone.,0484,BATTERY,PRO EMP HANDS NO/MIN INJURY,violent,N
+08B,Simple battery,"A person commits battery if he intentionally or knowingly without legal justification and by any means, (1) causes bodily harm to an individual or (2) makes physical contact of an insulting or provoking nature with an individual.",Hitting someone.,0486,BATTERY,DOMESTIC BATTERY SIMPLE,violent,N
+08B,Simple battery,"A person commits battery if he intentionally or knowingly without legal justification and by any means, (1) causes bodily harm to an individual or (2) makes physical contact of an insulting or provoking nature with an individual.",Hitting someone.,0487,BATTERY,AGGRAVATED OF A UNBORN CHILD,violent,N
+08B,Simple battery,"A person commits battery if he intentionally or knowingly without legal justification and by any means, (1) causes bodily harm to an individual or (2) makes physical contact of an insulting or provoking nature with an individual.",Hitting someone.,0494,RITUALISM,AGG RIT MUT: HANDS/FIST/FEET NO/MINOR INJURY,other,N
+08B,Simple battery,"A person commits battery if he intentionally or knowingly without legal justification and by any means, (1) causes bodily harm to an individual or (2) makes physical contact of an insulting or provoking nature with an individual.",Hitting someone.,486,BATTERY,DOMESTIC BATTERY SIMPLE,,
+08B,Simple battery,"A person commits battery if he intentionally or knowingly without legal justification and by any means, (1) causes bodily harm to an individual or (2) makes physical contact of an insulting or provoking nature with an individual.",Hitting someone.,9901,DOMESTIC VIOLENCE,DOMESTIC VIOLENCE,,
+13,Stolen property,"Receiving, buying, selling, possessing, concealing, or transporting any property with the knowledge that it has been unlawfully taken, as by Burglary, Embezzlement, Fraud, Larceny, Robbery, etc. ","Possessing, carrying, buying or selling stuff you know to be stolen.",1200,DECEPTIVE PRACTICE,STOLEN PROP: BUY/RECEIVE/POS.,other,N
+14,Vandalism,"To willfully or maliciously destroy, damage, deface, or otherwise injure real or personal property without the consent of the owner or the person having custody or control of it. ","Intentionally damaging or destroying someone's property. Without their consent, of course.",1265,CRIMINAL DAMAGE,LIBRARY VANDALISM,quality,N
+14,Vandalism,"To willfully or maliciously destroy, damage, deface, or otherwise injure real or personal property without the consent of the owner or the person having custody or control of it. ","Intentionally damaging or destroying someone's property. Without their consent, of course.",1305,CRIMINAL DAMAGE,CRIMINAL DEFACEMENT,quality,N
+14,Vandalism,"To willfully or maliciously destroy, damage, deface, or otherwise injure real or personal property without the consent of the owner or the person having custody or control of it. ","Intentionally damaging or destroying someone's property. Without their consent, of course.",1310,CRIMINAL DAMAGE,TO PROPERTY,quality,N
+14,Vandalism,"To willfully or maliciously destroy, damage, deface, or otherwise injure real or personal property without the consent of the owner or the person having custody or control of it. ","Intentionally damaging or destroying someone's property. Without their consent, of course.",1320,CRIMINAL DAMAGE,TO VEHICLE,quality,N
+14,Vandalism,"To willfully or maliciously destroy, damage, deface, or otherwise injure real or personal property without the consent of the owner or the person having custody or control of it. ","Intentionally damaging or destroying someone's property. Without their consent, of course.",1340,CRIMINAL DAMAGE,TO STATE SUP PROP,quality,N
+14,Vandalism,"To willfully or maliciously destroy, damage, deface, or otherwise injure real or personal property without the consent of the owner or the person having custody or control of it. ","Intentionally damaging or destroying someone's property. Without their consent, of course.",1345,CRIMINAL DAMAGE,TO CITY OF CHICAGO PROPERTY,quality,N
+14,Vandalism,"To willfully or maliciously destroy, damage, deface, or otherwise injure real or personal property without the consent of the owner or the person having custody or control of it. ","Intentionally damaging or destroying someone's property. Without their consent, of course.",1370,CRIMINAL DAMAGE,TO FIRE FIGHT.APP.EQUIP,quality,N
+14,Vandalism,"To willfully or maliciously destroy, damage, deface, or otherwise injure real or personal property without the consent of the owner or the person having custody or control of it. ","Intentionally damaging or destroying someone's property. Without their consent, of course.",1375,CRIMINAL DAMAGE,INSTITUTIONAL VANDALISM,quality,N
+15,Weapons violation,"The violation of laws or ordinances prohibiting the manufacture, sale, purchase, transportation, possession, concealment, or use of firearms, cutting instruments, explosives, incendiary devices, or other deadly weapons.","Breaking any of the laws that govern the making, shipping, selling, buying, possession, concealing, or using of deadly weapons, including guns, blades, explosives, incendiary devices, and others.",041A,BATTERY,AGGRAVATED: HANDGUN,violent,I
+15,Weapons violation,"The violation of laws or ordinances prohibiting the manufacture, sale, purchase, transportation, possession, concealment, or use of firearms, cutting instruments, explosives, incendiary devices, or other deadly weapons.","Breaking any of the laws that govern the making, shipping, selling, buying, possession, concealing, or using of deadly weapons, including guns, blades, explosives, incendiary devices, and others.",141A,WEAPONS VIOLATION,UNLAWFUL USE HANDGUN,other,N
+15,Weapons violation,"The violation of laws or ordinances prohibiting the manufacture, sale, purchase, transportation, possession, concealment, or use of firearms, cutting instruments, explosives, incendiary devices, or other deadly weapons.","Breaking any of the laws that govern the making, shipping, selling, buying, possession, concealing, or using of deadly weapons, including guns, blades, explosives, incendiary devices, and others.",141B,WEAPONS VIOLATION,UNLAWFUL USE OTHER FIREARM,other,N
+15,Weapons violation,"The violation of laws or ordinances prohibiting the manufacture, sale, purchase, transportation, possession, concealment, or use of firearms, cutting instruments, explosives, incendiary devices, or other deadly weapons.","Breaking any of the laws that govern the making, shipping, selling, buying, possession, concealing, or using of deadly weapons, including guns, blades, explosives, incendiary devices, and others.",141C,WEAPONS VIOLATION,UNLAWFUL USE OTHER DANG WEAPON,other,N
+15,Weapons violation,"The violation of laws or ordinances prohibiting the manufacture, sale, purchase, transportation, possession, concealment, or use of firearms, cutting instruments, explosives, incendiary devices, or other deadly weapons.","Breaking any of the laws that govern the making, shipping, selling, buying, possession, concealing, or using of deadly weapons, including guns, blades, explosives, incendiary devices, and others.",142A,WEAPONS VIOLATION,UNLAWFUL SALE HANDGUN,other,N
+15,Weapons violation,"The violation of laws or ordinances prohibiting the manufacture, sale, purchase, transportation, possession, concealment, or use of firearms, cutting instruments, explosives, incendiary devices, or other deadly weapons.","Breaking any of the laws that govern the making, shipping, selling, buying, possession, concealing, or using of deadly weapons, including guns, blades, explosives, incendiary devices, and others.",142B,WEAPONS VIOLATION,UNLAWFUL SALE OTHER FIREARM,other,N
+15,Weapons violation,"The violation of laws or ordinances prohibiting the manufacture, sale, purchase, transportation, possession, concealment, or use of firearms, cutting instruments, explosives, incendiary devices, or other deadly weapons.","Breaking any of the laws that govern the making, shipping, selling, buying, possession, concealing, or using of deadly weapons, including guns, blades, explosives, incendiary devices, and others.",1435,WEAPONS VIOLATION,POS: FIREARM AT SCHOOL,other,N
+15,Weapons violation,"The violation of laws or ordinances prohibiting the manufacture, sale, purchase, transportation, possession, concealment, or use of firearms, cutting instruments, explosives, incendiary devices, or other deadly weapons.","Breaking any of the laws that govern the making, shipping, selling, buying, possession, concealing, or using of deadly weapons, including guns, blades, explosives, incendiary devices, and others.",1435,WEAPONS VIOLATION,UNLAWFUL SALE/DELIVERY OF FIREARM AT SCHOOL,other,N
+15,Weapons violation,"The violation of laws or ordinances prohibiting the manufacture, sale, purchase, transportation, possession, concealment, or use of firearms, cutting instruments, explosives, incendiary devices, or other deadly weapons.","Breaking any of the laws that govern the making, shipping, selling, buying, possession, concealing, or using of deadly weapons, including guns, blades, explosives, incendiary devices, and others.",143A,WEAPONS VIOLATION,UNLAWFUL POSS OF HANDGUN,other,N
+15,Weapons violation,"The violation of laws or ordinances prohibiting the manufacture, sale, purchase, transportation, possession, concealment, or use of firearms, cutting instruments, explosives, incendiary devices, or other deadly weapons.","Breaking any of the laws that govern the making, shipping, selling, buying, possession, concealing, or using of deadly weapons, including guns, blades, explosives, incendiary devices, and others.",143B,WEAPONS VIOLATION,UNLAWFUL POSS OTHER FIREARM,other,N
+15,Weapons violation,"The violation of laws or ordinances prohibiting the manufacture, sale, purchase, transportation, possession, concealment, or use of firearms, cutting instruments, explosives, incendiary devices, or other deadly weapons.","Breaking any of the laws that govern the making, shipping, selling, buying, possession, concealing, or using of deadly weapons, including guns, blades, explosives, incendiary devices, and others.",143C,WEAPONS VIOLATION,UNLAWFUL POSS AMMUNITION,other,N
+15,Weapons violation,"The violation of laws or ordinances prohibiting the manufacture, sale, purchase, transportation, possession, concealment, or use of firearms, cutting instruments, explosives, incendiary devices, or other deadly weapons.","Breaking any of the laws that govern the making, shipping, selling, buying, possession, concealing, or using of deadly weapons, including guns, blades, explosives, incendiary devices, and others.",1440,WEAPONS VIOLATION,REGISTER OF SALES BY DEALER,other,N
+15,Weapons violation,"The violation of laws or ordinances prohibiting the manufacture, sale, purchase, transportation, possession, concealment, or use of firearms, cutting instruments, explosives, incendiary devices, or other deadly weapons.","Breaking any of the laws that govern the making, shipping, selling, buying, possession, concealing, or using of deadly weapons, including guns, blades, explosives, incendiary devices, and others.",1450,WEAPONS VIOLATION,DEFACE IDENT MARKS OF FIREARM,other,N
+15,Weapons violation,"The violation of laws or ordinances prohibiting the manufacture, sale, purchase, transportation, possession, concealment, or use of firearms, cutting instruments, explosives, incendiary devices, or other deadly weapons.","Breaking any of the laws that govern the making, shipping, selling, buying, possession, concealing, or using of deadly weapons, including guns, blades, explosives, incendiary devices, and others.",1460,WEAPONS VIOLATION,POSS FIREARM/AMMO:NO FOID CARD,other,N
+15,Weapons violation,"The violation of laws or ordinances prohibiting the manufacture, sale, purchase, transportation, possession, concealment, or use of firearms, cutting instruments, explosives, incendiary devices, or other deadly weapons.","Breaking any of the laws that govern the making, shipping, selling, buying, possession, concealing, or using of deadly weapons, including guns, blades, explosives, incendiary devices, and others.",1476,WEAPONS VIOLATION,USE OF METAL PIERCING BULLETS,other,N
+15,Weapons violation,"The violation of laws or ordinances prohibiting the manufacture, sale, purchase, transportation, possession, concealment, or use of firearms, cutting instruments, explosives, incendiary devices, or other deadly weapons.","Breaking any of the laws that govern the making, shipping, selling, buying, possession, concealing, or using of deadly weapons, including guns, blades, explosives, incendiary devices, and others.",1477,WEAPONS VIOLATION,RECKLESS FIREARM DISCHARGE,other,N
+15,Weapons violation,"The violation of laws or ordinances prohibiting the manufacture, sale, purchase, transportation, possession, concealment, or use of firearms, cutting instruments, explosives, incendiary devices, or other deadly weapons.","Breaking any of the laws that govern the making, shipping, selling, buying, possession, concealing, or using of deadly weapons, including guns, blades, explosives, incendiary devices, and others.",1480,CONCEALED CARRY LICENSE VIOLATION,OTHER,,
+15,Weapons violation,"The violation of laws or ordinances prohibiting the manufacture, sale, purchase, transportation, possession, concealment, or use of firearms, cutting instruments, explosives, incendiary devices, or other deadly weapons.","Breaking any of the laws that govern the making, shipping, selling, buying, possession, concealing, or using of deadly weapons, including guns, blades, explosives, incendiary devices, and others.",2900,WEAPONS VIOLATION,UNLAWFUL USE/SALE AIR RIFLE,other,N
