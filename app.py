@@ -19,7 +19,7 @@ from raven.contrib.flask import Sentry
 
 app = Flask(__name__)
 
-app.config['SENTRY_DSN'] = os.environ['SENTRY_URL']
+app.config['SENTRY_DSN'] = os.environ['CRIME_SENTRY_URL']
 sentry = Sentry(app)
 
 app.url_map.strict_slashes = False
