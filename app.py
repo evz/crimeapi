@@ -244,9 +244,10 @@ def print_page():
 @crossdomain(origin="*")
 def crime():
     query = {
-        'datatype': 'json',
+        'data_type': 'json',
         'limit': 2000,
-        'order_by': 'obs_date,desc'
+        'order_by': 'obs_date,desc',
+        'dataset_name': 'crimes_2001_to_present',
     }
     for k,v in request.args.items():
         query[k] = v
@@ -272,7 +273,7 @@ def crime():
         },
         'results': [],
     }
-    results = requests.get('%s/api/detail/' % WOPR_URL, params=query)
+    results = requests.get('%s/v1/api/detail/' % WOPR_URL, params=query)
     if results.status_code == 200:
         cur = get_db().cursor()
         objs = results.json()['objects']
