@@ -9,25 +9,27 @@ from cStringIO import StringIO
 from itertools import groupby
 from operator import itemgetter
 from lookups import WORKSHEET_COLUMNS, TYPE_GROUPS, COMM_AREA
-from pdfer.core import pdfer
+#from pdfer.core import pdfer
 import sqlite3
 from dateutil import parser
 
 from flask import Flask, request, make_response, g, current_app
 from functools import update_wrapper
-from raven.contrib.flask import Sentry
+from app_config import WOPR_URL, CRIME_SENTRY_URL, LASCAUX_URL
+
 
 app = Flask(__name__)
 
-app.config['SENTRY_DSN'] = os.environ['CRIME_SENTRY_URL']
-sentry = Sentry(app)
+if CRIME_SENTRY_URL:
+    from raven.contrib.flask import Sentry
+    app.config['SENTRY_DSN'] = os.environ['CRIME_SENTRY_URL']
+    sentry = Sentry(app)
 
 app.url_map.strict_slashes = False
 
 DEBUG = False
 
 DATABASE = 'iucr_codes.db'
-WOPR_URL = os.environ.get('WOPR_URL')
 
 def crossdomain(origin=None, methods=None, headers=None,
                 max_age=21600, attach_to_all=True,
@@ -186,14 +188,14 @@ def crime_report():
 
 @app.route('/api/print/', methods=['GET'])
 def print_page():
-    query = urlparse(request.url).query.replace('query=', '')
-    params = json.loads(unquote(query))
     print_data = {
-        'dimensions': params['dimensions'],
-        'zoom': params['zoom'],
-        'center': params['center'],
+        'dimensions': request.args['dimensions'],
+        'zoom': request.args['zoom'],
+        'center': request.args['center'],
     }
-    results = requests.get('%s/api/detail/' % WOPR_URL, params=params['query'])
+    query = json.loads(request.args['query'])
+    query['dataset_name'] = 'crimes_2001_to_present'
+    results = requests.get('%s/v1/api/detail/' % WOPR_URL, params=query)
     if results.status_code == 200:
         cur = get_db().cursor()
         results = results.json()['objects']
@@ -223,16 +225,49 @@ def print_page():
         }
         for k,g in groupby(rs, key=itemgetter('type')):
             points = [r['location']['coordinates'] for r in list(g)]
-            point_overlays.append({'color': colors[k], 'points': points})
-        print_data['overlays'] = {'point_overlays': point_overlays}
-        print_data['overlays']['beat_overlays'] = []
-        print_data['overlays']['shape_overlays'] = []
-        if 'beat__in' in params['query'].keys():
-            print_data['overlays']['beat_overlays'] = params['query']['beat__in'].split(',')
-        if 'location' in params['query'].keys():
-            print_data['overlays']['shape_overlay'] = params['query']['location__within']
-        path = pdfer(print_data)
-        resp = make_response(open(path, 'rb').read())
+            point_overlays.append(json.dumps({'color': colors[k], 'points': points}))
+        print_data['point_overlays'] = point_overlays
+        print_data['beat_overlays'] = []
+        print_data['shape_overlays'] = []
+        
+        shapes_base_url = 'https://raw.githubusercontent.com/datamade/crimearound.us/master/data'
+
+        if 'beat__in' in query.keys():
+            # Need to get the actual shapes here
+            beats = query['beat__in'].split(',')
+            beat_path = '/tmp/%s.geojson'
+            for beat in beats:
+                if os.path.exists(beat_path % beat):
+                    with open(beat_path % beat, 'r') as f:
+                        print_data['shape_overlays'].append(f.read())
+                else:
+                    shape = requests.get('%s/beats/%s.geojson' % (shapes_base_url, beat))
+                    with open(beat_path % beat, 'w') as f:
+                        f.write(shape.content)
+                    print_data['shape_overlays'].append(shape.content)
+        
+        if 'community_area__in' in query.keys():
+            # Need to get the actual shapes here
+            cas = query['community_area__in'].split(',')
+            ca_path = '/tmp/%s.geojson'
+            for ca in cas:
+                if os.path.exists(ca_path % ca):
+                    with open(ca_path % ca, 'r') as f:
+                        print_data['shape_overlays'].append(f.read())
+                else:
+                    shape = requests.get('%s/community_areas/%s.geojson' % (shapes_base_url, ca.zfill(2)))
+                    with open(ca_path % ca, 'w') as f:
+                        f.write(shape.content)
+                    print_data['shape_overlays'].append(shape.content)
+        if 'location_geom__within' in query.keys():
+            shape = query['location_geom__within']
+            print_data['shape_overlays'].append(shape)
+        
+        print_data['units'] = 'pixels'
+        pdf = requests.get('%s/api/' % LASCAUX_URL, params=print_data)
+        
+        # path = pdfer(print_data)
+        resp = make_response(pdf.content)
         resp.headers['Content-Type'] = 'application/pdf'
         now = datetime.now().isoformat().split('.')[0]
         resp.headers['Content-Disposition'] = 'attachment; filename=Crime_%s.pdf' % now

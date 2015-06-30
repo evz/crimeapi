@@ -5,3 +5,4 @@ blinker
 xlwt
 requests
 shapely
+python-dateutil
