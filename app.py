@@ -13,7 +13,8 @@ from lookups import WORKSHEET_COLUMNS, TYPE_GROUPS, COMM_AREA
 import sqlite3
 from dateutil import parser
 
-from flask import Flask, request, make_response, g, current_app
+from flask import Flask, request, make_response, g, current_app, \
+        abort, send_from_directory
 from functools import update_wrapper
 from app_config import WOPR_URL, CRIME_SENTRY_URL, LASCAUX_URL
 
@@ -186,14 +187,15 @@ def crime_report():
 # expects GeoJSON object as a string
 # client will need to use JSON.stringify() or similar
 
-@app.route('/api/print/', methods=['GET'])
+@app.route('/api/print/', methods=['POST'])
+@crossdomain(origin="*")
 def print_page():
     print_data = {
-        'dimensions': request.args['dimensions'],
-        'zoom': request.args['zoom'],
-        'center': request.args['center'],
+        'dimensions': request.form['dimensions'],
+        'zoom': request.form['zoom'],
+        'center': request.form['center'],
     }
-    query = json.loads(request.args['query'])
+    query = json.loads(request.form['query'])
     query['dataset_name'] = 'crimes_2001_to_present'
     results = requests.get('%s/v1/api/detail/' % WOPR_URL, params=query)
     if results.status_code == 200:
@@ -264,16 +266,26 @@ def print_page():
             print_data['shape_overlays'].append(shape)
         
         print_data['units'] = 'pixels'
-        pdf = requests.get('%s/api/' % LASCAUX_URL, params=print_data)
         
-        # path = pdfer(print_data)
-        resp = make_response(pdf.content)
-        resp.headers['Content-Type'] = 'application/pdf'
+        pdf = requests.post('%s/api/' % LASCAUX_URL, data=print_data)
+        
         now = datetime.now().isoformat().split('.')[0]
-        resp.headers['Content-Disposition'] = 'attachment; filename=Crime_%s.pdf' % now
+        filename = 'Crime_%s.pdf' % now
+
+        with open('/tmp/%s' % filename, 'wb') as f:
+            f.write(pdf.content)
+
+        resp = make_response(json.dumps({'download': '/api/download/%s' % filename}))
+        resp.headers['Content-Type'] = 'application/json'
+        
     else:
         resp = make_response(results.content, results.status_code)
     return resp
+
+@app.route('/api/download/<path:filename>')
+def download_pdf(filename):
+    return send_from_directory(directory='/tmp', filename=filename)
+
 
 @app.route('/api/crime/', methods=['GET'])
 @crossdomain(origin="*")
