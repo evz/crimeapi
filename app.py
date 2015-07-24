@@ -153,7 +153,7 @@ def location_to_group():
 def crime_report():
     query = urlparse(request.url).query.replace('query=', '')
     query = json.loads(unquote(query))
-    results = requests.get('%s/api/detail/' % WOPR_URL, params=query)
+    results = requests.get('%s/v1/api/detail/' % WOPR_URL, params=query)
     book = xlwt.Workbook()
     from_date = query['obs_date__ge']
     to_date = query['obs_date__le']
@@ -172,7 +172,7 @@ def crime_report():
                 except KeyError:
                     value = ''
                 if key == 'time_of_day':
-                    value = parser.parse(result['orig_date']).strftime('%H:%M')
+                    value = parser.parse(result['date']).strftime('%H:%M')
                 sheet.write(i, j, value)
         out = StringIO()
         book.save(out)

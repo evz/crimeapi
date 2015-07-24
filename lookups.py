@@ -1,7 +1,7 @@
 from collections import OrderedDict
 
 WORKSHEET_COLUMNS = [
-    'orig_date',
+    'date',
     'time_of_day',
     'primary_type',
     'description',
